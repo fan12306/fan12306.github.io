@@ -87,13 +87,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="secend">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/Vue/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-07T10:00:55.452Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="secend">
+<meta name="twitter:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/03/Vue/">
 
 
 
 
 
-  <title> Hexo </title>
+  <title> secend | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -152,9 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,269 +239,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/Vue-Note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Junjie Fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/08/03/Vue-Note/" itemprop="url">
-                  secend
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-03T19:29:34+08:00">
-                2019-08-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="请求后台服务器"><a href="#请求后台服务器" class="headerlink" title="请求后台服务器"></a>请求后台服务器</h3><ul>
-<li><p>get()方法</p>
-<ul>
-<li>作用：获取服务器数据；</li>
-<li>参数 <ul>
-<li>服务器网址；</li>
-<li>可选参数；</li>
-</ul>
-</li>
-<li>Vue.$http.get()</li>
-<li>通过.then来获取服务器返回的数据返回成功的回调函数。</li>
-<li>想要获取成功的回调函数需要result.body来获取</li>
-</ul>
-</li>
-<li><p>post()方法</p>
-<ul>
-<li>作用：上传数组给服务器；</li>
-<li>Vue.$http.post()</li>
-<li>限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数emulateJSON: true;</li>
-<li>参数：<ul>
-<li>服务器网址；</li>
-<li>可选参数 ，需要上传的数据以对象的形式提交；</li>
-<li>设置表单的emulateJSON：true；</li>
-</ul>
-</li>
-<li>通过then调取获取成功的函数</li>
-<li>想要获取成功的回调函数需要result.body来获取</li>
-</ul>
-</li>
-<li><p>jsonp()方法</p>
-<ul>
-<li>Vue.$http.jsonp()</li>
-<li>通过then调取获取成功的函数</li>
-</ul>
-</li>
-</ul>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
-<li>由于需要反复获取地址，维护起来不方便采用根地址形式<ul>
-<li>Vue.http.options.root = <code>/root</code>;</li>
-<li>若启用的数据接口的根域名。那么在每次请求的时候需要的相对路径，前面不能带/ ，否则不会启用路径拼接。</li>
-</ul>
-</li>
-<li>每次post都要配置emulateJSON 的话会很繁琐<ul>
-<li>Vue.http.emulateJSON = true;</li>
-</ul>
-<hr>
-</li>
-</ul>
-<h2 id="Vue-动画"><a href="#Vue-动画" class="headerlink" title="Vue 动画"></a>Vue 动画</h2><ul>
-<li>进入与退出都有三个阶段<ul>
-<li>v-enter （v-leave）时间点</li>
-<li>v-enter-active （v-leave-active）时间段</li>
-<li>v-enter-to （v-leave-to）时间点</li>
-<li>需要动画的元素被transition包裹起来 transition是有Vue官方提供</li>
-<li>为.v-enter or .v-leave-to 设置CSS样式就可为</li>
-</ul>
-</li>
-<li>修改v-前缀<ul>
-<li>在transition内添加name属性可以设置独立的CSS样式<ul>
-<li>例如 name: ‘my’ my-enter</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>钩子函数-动画的生命函数 半场动画<ul>
-<li>动画的钩子函数表示第一个参数el 表示要执行动画的DOM元素，是原生的JS DOM元素 可以认为el是通过document.getElementById()获取到的<ul>
-<li>beforeEnter(el){<br>  表示动画入场之前，此时动画尚未开始，可设置动画的初始样式<br>}</li>
-<li>enter(el,done){<br>  表示动画开始之后的样式，可以设置动画完成之后的样式;<br>  done就是afterEnter函数，调用done函数能供解决延时问题<br>}</li>
-<li>afterEnter(el) {<br>  动画完成之后会调用该函数<br>}</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>在实现列表过渡时，不能使用transition包裹，需要使用transition-group包裹<ul>
-<li>必须要为每一个属性设置：key绑定</li>
-<li>v-move与v-leave-active 配合使用能够使列表元素渐渐离开;<ul>
-<li>v-leave-active = absolute;</li>
-</ul>
-</li>
-<li>给translation-group添加一个appear能实现缓慢进去；</li>
-<li>通过设定tag属性制定translation-group渲染的元素，默认为span，</li>
-</ul>
-<hr>
-</li>
-</ul>
-<h2 id="Vue组件化"><a href="#Vue组件化" class="headerlink" title="Vue组件化"></a>Vue组件化</h2><ul>
-<li><p>组件的含义： </p>
-<ul>
-<li>组建的出现就是为了拆分Vue实例的代码量，能够让我们以不同的组件，来划分不同功能模块</li>
-<li>组件化与模块化的区别<ul>
-<li>模块化是为了后台开发是分层开发，保证每个功能职能专一；</li>
-<li>组件化是从UI界面的角度进行划分，前端的组件化，方便UI组建的重用<h2 id="创建Vue组件"><a href="#创建Vue组件" class="headerlink" title="创建Vue组件"></a>创建Vue组件</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>使用Vue.extend创建；</p>
-</li>
-<li><p>通过template属性，指定组件要展示的HTML结构</p>
-</li>
-<li><p>返回值为创建出来的组件模板对象的名称；</p>
-</li>
-<li><p>Vue.component(展示的名字 ， Vue.extend的返回值)</p>
-<ul>
-<li>驼峰命名法改为英文就好</li>
-</ul>
-</li>
-<li><p>通过字面量定义组件</p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">        Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">        template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line">         &#125;)</span><br><span class="line">- 与第二种类似</span><br><span class="line">    - 通过template： #temp；在外部定义组件结构，有提示与高亮。</span><br><span class="line">        - ``` </span><br><span class="line">              Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">                 template: #temp;</span><br><span class="line">               &#125;)</span><br><span class="line">               &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">                    //想展示的代码</span><br><span class="line">               &lt;/template&gt;</span><br><span class="line">- 创建私有组件</span><br><span class="line">    - 在Vue实例中，有components 可建立私有组件</span><br><span class="line">- 注意事项：</span><br><span class="line">    - 不论哪种形式创建的Vue将组建，都只能拥有一个根元素</span><br><span class="line"></span><br><span class="line">### 组件的data与methods</span><br><span class="line">- 组件中拥有data数据</span><br><span class="line">     - 组建的data与实例的data不一样，组件中的data必须是一个function，</span><br><span class="line">        还必须返回一个对象</span><br><span class="line">     - 使用方法与实例的data方法一样</span><br><span class="line">- 组件进行切换</span><br><span class="line">    - 利用v-for与v-else结合使用，但是只能两个来回切换。对于多个切换无能为力。</span><br><span class="line">    - Vue提供了component元素，来展示对应组件，他是一个占位符，:is属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号&apos;&apos;</span><br></pre></td></tr></table></figure>
-
-<p><component :is="comName"></component></p>
-<ul>
-<li><p>通过改变事件来改变comName即可实现组件的切换，没有限制数量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 组件过渡</span><br><span class="line">    - 在直接用translation包裹住就好，（组件切换动画）</span><br><span class="line">    - 通过mode 属性来实现组建切换时候的模式</span><br></pre></td></tr></table></figure>
-
-<p>beforeEnter() {<br>  this.flag =! this.flag<br>}<br>功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">        - Vue中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在transition上</span><br><span class="line">            - beforeEnter() &#123;&#125;</span><br><span class="line">            - enter() &#123;&#125;</span><br><span class="line">            - afterEnter() &#123;&#125;</span><br><span class="line">- 父组件与子组件</span><br><span class="line">    - 子组件默认无法访问父组件的data上的数据和methods中的方法</span><br><span class="line">    - 父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</span><br><span class="line">    - 若子组件想用父组件传下来的数据，需要在components中props中定义一下;</span><br><span class="line">    - props是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</span><br><span class="line">    - 使用父组件的方法，并且向父组件传参</span><br><span class="line">        - 通过字面量的方式创建模板对象，</span><br></pre></td></tr></table></figure>
-
-<p>@function=’show’<br>  const com1 = {</p>
-<pre><code>template: &apos;#com2&apos;,
-methods: {
-    this.$emit(&apos;function&apos;,向父组件爨氐的参数)
-}</code></pre><p>  }<br>  //在实例内部定义一个私有组件<br>  methods: [</p>
-<pre><code>show() {
-    console.log(&apos;父组件内部的方法&apos;)
-}</code></pre><p>  ]<br>  components： {</p>
-<pre><code>com1</code></pre><p>  }</p>
-</li>
-</ul>
-</li>
-<li><p>子组件通过调用父组件方法，顺便向父组件传递数据</p>
-<ul>
-<li>emit(定义的方法名，向父组件向低的参数。。。)</li>
-</ul>
-</li>
-<li></li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -529,10 +271,7 @@ methods: {
             
             
               
-                
-                <a class="post-title-link" href="/2019/08/03/Vue/" itemprop="url">
-                  secend
-                </a>
+                secend
               
             
           </h1>
@@ -583,9 +322,7 @@ methods: {
       
 
       
-        
-          
-            <h3 id="请求后台服务器"><a href="#请求后台服务器" class="headerlink" title="请求后台服务器"></a>请求后台服务器</h3><ul>
+        <h3 id="请求后台服务器"><a href="#请求后台服务器" class="headerlink" title="请求后台服务器"></a>请求后台服务器</h3><ul>
 <li><p>get()方法</p>
 <ul>
 <li>作用：获取服务器数据；</li>
@@ -809,20 +546,27 @@ methods: {
 </li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -830,154 +574,42 @@ methods: {
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Junjie Fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/03/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2019/08/03/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+              <a href="/2019/08/03/Vue-Note/" rel="prev" title="secend">
+                secend <i class="fa fa-chevron-right"></i>
+              </a>
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-03T17:27:31+08:00">
-                2019-08-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -985,6 +617,10 @@ methods: {
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1004,8 +640,17 @@ methods: {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Junjie Fan">
           <p class="site-author-name" itemprop="name">Junjie Fan</p>
@@ -1047,6 +692,22 @@ methods: {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求后台服务器"><span class="nav-number">1.</span> <span class="nav-text">请求后台服务器</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number"></span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-动画"><span class="nav-number"></span> <span class="nav-text">Vue 动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue组件化"><span class="nav-number"></span> <span class="nav-text">Vue组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Vue组件"><span class="nav-number"></span> <span class="nav-text">创建Vue组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number"></span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nrm"><span class="nav-number"></span> <span class="nav-text">nrm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack"><span class="nav-number"></span> <span class="nav-text">webpack</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1154,6 +815,10 @@ methods: {
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
