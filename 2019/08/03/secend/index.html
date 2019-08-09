@@ -87,14 +87,17 @@
 
 
 
+<meta name="description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 <meta property="og:type" content="article">
 <meta property="og:title" content="secend">
 <meta property="og:url" content="http://yoursite.com/2019/08/03/secend/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-03T11:29:34.187Z">
+<meta property="og:updated_time" content="2019-08-09T13:17:33.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="secend">
+<meta name="twitter:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 
 
 
@@ -319,7 +322,323 @@
       
 
       
-        
+        <h3 id="请求后台服务器"><a href="#请求后台服务器" class="headerlink" title="请求后台服务器"></a>请求后台服务器</h3><ul>
+<li><p>get()方法</p>
+<ul>
+<li>作用：获取服务器数据；</li>
+<li>参数 <ul>
+<li>服务器网址；</li>
+<li>可选参数；</li>
+</ul>
+</li>
+<li>Vue.$http.get()</li>
+<li>通过.then来获取服务器返回的数据返回成功的回调函数。</li>
+<li>想要获取成功的回调函数需要result.body来获取</li>
+</ul>
+</li>
+<li><p>post()方法</p>
+<ul>
+<li>作用：上传数组给服务器；</li>
+<li>Vue.$http.post()</li>
+<li>限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数emulateJSON: true;</li>
+<li>参数：<ul>
+<li>服务器网址；</li>
+<li>可选参数 ，需要上传的数据以对象的形式提交；</li>
+<li>设置表单的emulateJSON：true；</li>
+</ul>
+</li>
+<li>通过then调取获取成功的函数</li>
+<li>想要获取成功的回调函数需要result.body来获取</li>
+</ul>
+</li>
+<li><p>jsonp()方法</p>
+<ul>
+<li>Vue.$http.jsonp()</li>
+<li>通过then调取获取成功的函数</li>
+</ul>
+</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>由于需要反复获取地址，维护起来不方便采用根地址形式<ul>
+<li>Vue.http.options.root = <code>/root</code>;</li>
+<li>若启用的数据接口的根域名。那么在每次请求的时候需要的相对路径，前面不能带/ ，否则不会启用路径拼接。</li>
+</ul>
+</li>
+<li>每次post都要配置emulateJSON 的话会很繁琐<ul>
+<li>Vue.http.emulateJSON = true;</li>
+</ul>
+<hr>
+</li>
+</ul>
+<h2 id="Vue-动画"><a href="#Vue-动画" class="headerlink" title="Vue 动画"></a>Vue 动画</h2><ul>
+<li>进入与退出都有三个阶段<ul>
+<li>v-enter （v-leave）时间点</li>
+<li>v-enter-active （v-leave-active）时间段</li>
+<li>v-enter-to （v-leave-to）时间点</li>
+<li>需要动画的元素被transition包裹起来 transition是有Vue官方提供</li>
+<li>为.v-enter or .v-leave-to 设置CSS样式就可为</li>
+</ul>
+</li>
+<li>修改v-前缀<ul>
+<li>在transition内添加name属性可以设置独立的CSS样式<ul>
+<li>例如 name: ‘my’ my-enter</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>钩子函数-动画的生命函数 半场动画<ul>
+<li>动画的钩子函数表示第一个参数el 表示要执行动画的DOM元素，是原生的JS DOM元素 可以认为el是通过document.getElementById()获取到的<ul>
+<li>beforeEnter(el){<br>  表示动画入场之前，此时动画尚未开始，可设置动画的初始样式<br>}</li>
+<li>enter(el,done){<br>  表示动画开始之后的样式，可以设置动画完成之后的样式;<br>  done就是afterEnter函数，调用done函数能供解决延时问题<br>}</li>
+<li>afterEnter(el) {<br>  动画完成之后会调用该函数<br>}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在实现列表过渡时，不能使用transition包裹，需要使用transition-group包裹<ul>
+<li>必须要为每一个属性设置：key绑定</li>
+<li>v-move与v-leave-active 配合使用能够使列表元素渐渐离开;<ul>
+<li>v-leave-active = absolute;</li>
+</ul>
+</li>
+<li>给translation-group添加一个appear能实现缓慢进去；</li>
+<li>通过设定tag属性制定translation-group渲染的元素，默认为span，</li>
+</ul>
+<hr>
+</li>
+</ul>
+<h2 id="Vue组件化"><a href="#Vue组件化" class="headerlink" title="Vue组件化"></a>Vue组件化</h2><ul>
+<li><p>组件的含义： </p>
+<ul>
+<li>组建的出现就是为了拆分Vue实例的代码量，能够让我们以不同的组件，来划分不同功能模块</li>
+<li>组件化与模块化的区别<ul>
+<li>模块化是为了后台开发是分层开发，保证每个功能职能专一；</li>
+<li>组件化是从UI界面的角度进行划分，前端的组件化，方便UI组建的重用<h2 id="创建Vue组件"><a href="#创建Vue组件" class="headerlink" title="创建Vue组件"></a>创建Vue组件</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用Vue.extend创建；</p>
+</li>
+<li><p>通过template属性，指定组件要展示的HTML结构</p>
+</li>
+<li><p>返回值为创建出来的组件模板对象的名称；</p>
+</li>
+<li><p>Vue.component(展示的名字 ， Vue.extend的返回值)</p>
+<ul>
+<li>驼峰命名法改为英文就好</li>
+</ul>
+</li>
+<li><p>通过字面量定义组件</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">        Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">        template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line">         &#125;)</span><br><span class="line">- 与第二种类似</span><br><span class="line">    - 通过template： #temp；在外部定义组件结构，有提示与高亮。</span><br><span class="line">        - ``` </span><br><span class="line">              Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">                 template: #temp;</span><br><span class="line">               &#125;)</span><br><span class="line">               &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">                    //想展示的代码</span><br><span class="line">               &lt;/template&gt;</span><br><span class="line">- 创建私有组件</span><br><span class="line">    - 在Vue实例中，有components 可建立私有组件</span><br><span class="line">- 注意事项：</span><br><span class="line">    - 不论哪种形式创建的Vue将组建，都只能拥有一个根元素</span><br><span class="line"></span><br><span class="line">### 组件的data与methods</span><br><span class="line">- 组件中拥有data数据</span><br><span class="line">     - 组建的data与实例的data不一样，组件中的data必须是一个function，</span><br><span class="line">        还必须返回一个对象</span><br><span class="line">     - 使用方法与实例的data方法一样</span><br><span class="line">- 组件进行切换</span><br><span class="line">    - 利用v-for与v-else结合使用，但是只能两个来回切换。对于多个切换无能为力。</span><br><span class="line">    - Vue提供了component元素，来展示对应组件，他是一个占位符，:is属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号&apos;&apos;</span><br></pre></td></tr></table></figure>
+
+<p><component :is="comName"></component></p>
+<ul>
+<li><p>通过改变事件来改变comName即可实现组件的切换，没有限制数量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 组件过渡</span><br><span class="line">    - 在直接用translation包裹住就好，（组件切换动画）</span><br><span class="line">    - 通过mode 属性来实现组建切换时候的模式</span><br></pre></td></tr></table></figure>
+
+<p>beforeEnter() {<br>  this.flag =! this.flag<br>}<br>功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">        - Vue中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在transition上</span><br><span class="line">            - beforeEnter() &#123;&#125;</span><br><span class="line">            - enter() &#123;&#125;</span><br><span class="line">            - afterEnter() &#123;&#125;</span><br><span class="line">- 父组件与子组件</span><br><span class="line">    - 子组件默认无法访问父组件的data上的数据和methods中的方法</span><br><span class="line">    - 父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</span><br><span class="line">    - 若子组件想用父组件传下来的数据，需要在components中props中定义一下;</span><br><span class="line">    - props是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</span><br><span class="line">    - 使用父组件的方法，并且向父组件传参</span><br><span class="line">        - 通过字面量的方式创建模板对象，</span><br></pre></td></tr></table></figure>
+
+<p>@function=’show’<br>  const com1 = {</p>
+<pre><code>template: &apos;#com2&apos;,
+methods: {
+    this.$emit(&apos;function&apos;,向父组件爨氐的参数)
+}</code></pre><p>  }<br>  //在实例内部定义一个私有组件<br>  methods: [</p>
+<pre><code>show() {
+    console.log(&apos;父组件内部的方法&apos;)
+}</code></pre><p>  ]<br>  components： {</p>
+<pre><code>com1</code></pre><p>  }</p>
+</li>
+</ul>
+</li>
+<li><p>子组件通过调用父组件方法，顺便向父组件传递数据</p>
+<ul>
+<li>emit(定义的方法名，子组件向父组件传递的参数。。。)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ref 获取DOM元素</p>
+<ul>
+<li>ref可引用DOM元素，键值为创建的名字，键值为一个对象可通过innerText获取内部文字</li>
+<li>也可以获取组建内部的data数据与方法，</li>
+<li>获取路径为实例上有个原生属性$refs.定义的名字.想要获取的内容<h3 id="render属性"><a href="#render属性" class="headerlink" title="render属性"></a>render属性</h3></li>
+</ul>
+</li>
+<li><p>是一个函数，形参为提供好的方法叫做 createElement，调用它可以把制定的模块喧嚷为html结构</p>
+</li>
+<li><p>return的结构是代替被el绑定的那个容器</p>
+</li>
+<li><p>与组件的区别：</p>
+<ul>
+<li>组件并不会代替那个容器，只是相当于一个插件表达式；</li>
+<li>render会清空所有容器里面的元素，再代替它</li>
+</ul>
+<hr>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2></li>
+</ul>
+<p><strong>前端路由：</strong> 在单页面中通过hash改变来切换页面的方式，称之为前端页面;</p>
+<ul>
+<li><p>当导入Vue.router包后，在window全局对象中就会生出一个路由的构造函数叫做VueRouter</p>
+</li>
+<li><p>生成构造函数之后可以为其传递一个配置对象；</p>
+</li>
+<li><p>routes：为配置规则，有两个必须的属性，是一个数组；</p>
+<ul>
+<li>属性1： path ，表示监听哪个路由地址；</li>
+<li>属性2： component ，展示conponent对应的组件<ul>
+<li>component的值必须是一个模板对象，不能是一个组建名称</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在实例上有router，需要在router上注册一下构造函数返回的对象<br>  <code>router: router //router为构造函数返回的对象</code></p>
+</li>
+<li><p><router-view>是由Vue提供的元素，专门用来当作占位符，将来匹配道德路由规则就会展示在router-view上</router-view></p>
+</li>
+<li><p>路由的过程</p>
+<ul>
+<li>由事件触发网址的改变，进而被vue实例中的router监听到网站的变化，再而到路由构造函实例寻找相应的匹配规则，成功后，通过相应的组件展示相应的模板</li>
+</ul>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    &lt;router-link to=&apos;对应的网址&apos;&gt;&lt;/router-link&gt;</span><br><span class="line">        - 默认渲染a标签，可通过tag改变渲染的标签</span><br><span class="line">    ···</span><br><span class="line">- radirect强制执行某个页面</span><br><span class="line">- 路由选中高亮的两种方法：（由标签router-link提供，也就是说要在这里面才能实现高亮）</span><br><span class="line">    - vue原生的类名.router-link-active中设置选中时元素高亮</span><br><span class="line">    - 在构造函数内设置一个linkActiveClass属性再设置相应的名称</span><br><span class="line">- 路由规则定义参数</span><br><span class="line">    - 如果在路由中使用查询字符串，给路由传递参数，不需要改变路由规则里的path值</span><br><span class="line">    - 通过原生$router.query.（id&amp;name）可以获取相应的参数</span><br></pre></td></tr></table></figure>
+
+<pre><code> &lt;router-link to=&quot;/login?id=10&amp;name=fan&quot;&gt;登陆&lt;/router-link&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 通过原生$router.params.id&amp;name 可以获取相应的参数</span><br></pre></td></tr></table></figure></code></pre><p>   <router-link to="/login/23/fan">登陆</router-link><br>   //需要改变匹配规则的path</p>
+<pre><code>{path: &apos;/login/:id/:name&apos;, component: login},
+在下一位为匹配道德是id，或者name</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 通过children实现路由嵌套</span><br></pre></td></tr></table></figure>
+
+<p>   routes: [</p>
+<pre><code>    {
+        path: &apos;/account&apos;,
+        component: account,
+        children:  [ 
+            {path: &apos;login&apos;,component: login},
+            {path: &apos;register&apos; , component: register}
+        ]
+        //子路由的path前不要带/否则是以根路径开始访问
+    },
+],</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">- 命名化视图</span><br><span class="line">    - 通过给&lt;rount-View&gt;添加name属性即可</span><br><span class="line"></span><br><span class="line"> - watch属性监听data中指定的数据变化，然后触发watch中的对应的处理函数</span><br><span class="line">    - 有两个参数：</span><br><span class="line">        - newvalue 最新的的数字；</span><br><span class="line">        - oldvalue 次新的数字；</span><br><span class="line">    - 可监听非DOM的元素</span><br><span class="line">    - 使用watch来监听路由的地址的变化；\</span><br><span class="line">    ` watch: &apos;$route.path&apos;(newVal, oldVal) &#123;...&#125;`</span><br><span class="line">- computed属性</span><br><span class="line">    - 可以定义一些属性，这些属性叫做计算属性，本质就是一个方法，只不过我们在使用这些计算属性的时候把他们的名称直接当作属性来是同的，并不会把计算属性直接当作方法去调用</span><br><span class="line">        - 注意： 极端属性在应用的时候千万不要加（）去调用，直接把她当成属性用就好；</span><br><span class="line">        - 注意： 只要计算属性这个function内部所有用到的data数据发生变化，就会立即重新计算这个计算属性的值；</span><br><span class="line">        - 注意： 计算属性的的求值结果会被缓存起来；如果计算属性方法中所有的数据都没有发生过变化，不会对计算属性求值；</span><br><span class="line">        ---</span><br><span class="line">## nrm</span><br><span class="line">- 只是提供了几个常用的的下载包的 URL 的地址，并能让我们在这几个地址之间很方便的进行切换，但是我们要装包的时候都是使用装包工具 npm</span><br><span class="line">## webpack </span><br><span class="line">- （含义）是一个前端项目构建工具，他是机遇Node.js开发出来的工具</span><br><span class="line">- 作用： </span><br><span class="line">    - webpack 能够处理js文件相互依赖的关系；</span><br><span class="line">    - 能够处理js的兼容问题</span><br><span class="line">- 为了能够更加高效率的编写代码，安装webpack-dev-server -D会一直监听代码的变化，只需要刷新页面即可</span><br><span class="line"> - 创建webpack.config.js</span><br><span class="line">    -</span><br></pre></td></tr></table></figure>
+
+<pre><code>const path = require(&apos;path&apos;);
+module.export = {
+    entry: path.join(__dirname , &apos;./src/main.js&apos;),
+    out: {
+        path: path.join(__dirname, &apos;./dist&apos;)
+        filename: &apos;bundle.j
+    }
+}</code></pre></li>
+<li><p>在package.json中script’dev’添加“webpack-dev-server”</p>
+</li>
+<li><p>如果工具想要正常运行，必须还要在本地中运行在本地项目中，必须安装webpack</p>
+</li>
+<li><p>webpack-dev-server帮我们打包生成的bundle。js文件，并没有存放到实际的为u里磁盘而是直接托管到了电脑的内存中，所以我们在项目根目录根本找不到这个打包好的bundle.js</p>
+</li>
+<li><p>在dev中传参–open自动打开页面  –port3000设置端口为3000 –content src 以src作为根路径现实与页面</p>
+</li>
+<li><p>hot 热重载 减少不必要代码的更新，实现浏览器的无刷新</p>
+</li>
+<li><p>当使用html-webpack-plugin</p>
+<ul>
+<li>自动在内存中根据指定页面生成一内存的页面；</li>
+<li>自动打包好的bundle.js追加到页面中去</li>
+</ul>
+</li>
+<li><p>webpack默认只能打包处理js类型的文件，无法处理其他非js类型的文件；</p>
+<ul>
+<li>处理非js类型的文件，需要安装cnpm i style-loader css-loader -D</li>
+<li>打开webpack.config.js 这个配置文件，在里面新增一个配置节点，叫做module，他是一个对象；在这个module对象身上有一个rules属性，是一个数组，存放了所有第三方文件的匹配和匹配规则</li>
+</ul>
+</li>
+<li><p>webpack 处理第三方文件类型的过程：</p>
+<ol>
+<li>发现不是js类型的文件就会去到配置文件中查找有没有对应的第三方loader规则；</li>
+<li>如果找到，就会调用对应的loader处理这种文件的类型；</li>
+<li>从后往前调用；</li>
+<li>当最后使用loader调用完毕，会把处理结果交给webpack打包，最终输出到bundle.js中去</li>
+</ol>
+</li>
+<li><p>关于webpack上传图片的问题</p>
+<ul>
+<li>默认情况下webpack无法处理css文件中的url地址，不管是图片还是字体库；<ul>
+<li>limit 给定的值是图片的大小，单位是字节 byte 如果我们引用的图片大于或等于给定的limit值，则不会被转为base64格式的字符串，如果图片小于给定的limit值，则会转</li>
+<li>name可以设置输出的名字，name:[hash:8]-[name].[[ext]]表示前面带有八位hash值的自定义名字的图片</li>
+</ul>
+</li>
+<li>json类型文件中不允许注释</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>webpack默认只能处理一部分的ES6的代码，这是就只能通过第三方的loader，来帮助微博pack处理高两级语法，当第三方loader处理完成后，把高级语法转换低级语法再交给webpack打包到bundle.js</p>
+</li>
+<li><p>通过BAbel。可以帮助我们将高级的语法转换为低级语法</p>
+</li>
+<li><p>两套安装Bable功能</p>
+<ul>
+<li>第一套 npm i Babel-core babel-loader babel-plugin-transform-runtime -D</li>
+<li>第二套 npm i bable-preset-env bable-preset-stage-0 -D</li>
+<li>注意<ul>
+<li>在配置bable的loader规则的时候，必须把node_modules目录，通过exclude选项排除：原因：<ul>
+<li>如果不排除node_modules,则babel会把node_modules中所有的第三方wjs文件都都打包编译，会非常消耗cpu</li>
+<li>即使打包完成无法正常运行<br>在项目根目录次啊新建的.babelrc配置文件属于JSON格式，不能书写注释，字符串要双引号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>webpack 导入Vue包;</p>
+<ul>
+<li><p>用import导入的Vue并不是最全的vue，有两种方法完善；</p>
+<ul>
+<li>一种直接在node_module下诏main.js这届更改路径</li>
+<li>可以在import下直接写相对路径</li>
+<li>引入Vue时在配置文件下加上属性\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve：&#123;</span><br><span class="line">      alias: &#123;</span><br><span class="line">          &apos;vue$&apos;: &quot;vue/dist/vue.js&quot; </span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>由相对路径传进来的Vue可以使用组件，但是使用配置文件无法运行，需要创建login.vue专门创建组件</p>
+</li>
+<li><p>默认webpack无法打包.vue类型的文件，需要安装相关的第三方配置文件，</p>
+</li>
+<li><p>在webpack中，如果想通过vue，把一个组件渲染到页面中，需要使用render函数可以实现组件的展示<br><code>render: c =&gt; c(login);</code></p>
+</li>
+</ul>
+</li>
+<li><p>webpack 使用路由，需要额外安装第三方的包</p>
+<ul>
+<li>注意：<ul>
+<li>并不像我们在vue练习一般，直接把其放在所绑定的元素身上，因为组件是通过render渲染出来的，它会清空所控制元素的所有元素，再次渲染自己的元素，所以我们要把包放在render的模板对象里面去才能正常显示</li>
+<li>为什么不能放在el中呢？主要是render属性与routers属性不同，&lt;rounter-link to:’./account’&gt;事件触发，被router属性监听到URL的变化，使得其与路由构造函数里的routes匹配规则匹配，发现相同的path，则展示响应的组件到<rounter-view></rounter-view>占位符中去</li>
+<li>机制与render属性不同</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>普通的style标签只支持普通的样式，如果想启用scss或者less，需要为style元素，设置lang属性推荐在组件中开启scoped属性</p>
+<ul>
+<li>是通过样式选择器实现的</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="按需导入Mint-UI组件"><a href="#按需导入Mint-UI组件" class="headerlink" title="按需导入Mint-UI组件"></a>按需导入Mint-UI组件</h2><ul>
+<li><p>MUI类似于Bootstrap一样提供了一部分的样式与成套的HTML的代码块，MInt-UI真正的组件库，用Vue技术封装出来的成套的组件库只适用于Vue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import ( Button ) from &apos;mint-ui&apos; </span><br><span class="line">Vue.component(Button.name , Button)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MUI并不能使用npm下载，只要自行到官网下载</p>
+<ul>
+<li>压缩的包我们主要需要的是dist与examples，放入新建文件夹名字为lib里去（为手动添加的资源）</li>
+</ul>
+</li>
+<li><p>bootstrap可以在npm中下载</p>
+</li>
+</ul>
+
       
     </div>
 
@@ -355,15 +674,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/03/first/" rel="next" title="first">
-                <i class="fa fa-chevron-left"></i> first
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/03/Vue/" rel="prev" title="secend">
+                secend <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -410,8 +729,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Junjie Fan">
           <p class="site-author-name" itemprop="name">Junjie Fan</p>
@@ -424,7 +752,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -453,6 +781,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求后台服务器"><span class="nav-number">1.</span> <span class="nav-text">请求后台服务器</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number"></span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-动画"><span class="nav-number"></span> <span class="nav-text">Vue 动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue组件化"><span class="nav-number"></span> <span class="nav-text">Vue组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Vue组件"><span class="nav-number"></span> <span class="nav-text">创建Vue组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#render属性"><span class="nav-number">1.</span> <span class="nav-text">render属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number"></span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需导入Mint-UI组件"><span class="nav-number"></span> <span class="nav-text">按需导入Mint-UI组件</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
