@@ -89,14 +89,14 @@
 
 <meta name="description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 <meta property="og:type" content="article">
-<meta property="og:title" content="secend">
+<meta property="og:title" content="Vue的学习历程">
 <meta property="og:url" content="http://yoursite.com/2019/08/03/secend/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-09T13:17:33.942Z">
+<meta property="og:updated_time" content="2019-08-14T08:22:22.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="secend">
+<meta name="twitter:title" content="Vue的学习历程">
 <meta name="twitter:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title> secend | Hexo </title>
+  <title> Vue的学习历程 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -271,7 +271,7 @@
             
             
               
-                secend
+                Vue的学习历程
               
             
           </h1>
@@ -492,6 +492,7 @@ methods: {
 <li>component的值必须是一个模板对象，不能是一个组建名称</li>
 </ul>
 </li>
+<li>属性3： name , 代替path的方式，实现事件触发来切换组件；</li>
 </ul>
 </li>
 <li><p>在实例上有router，需要在router上注册一下构造函数返回的对象<br>  <code>router: router //router为构造函数返回的对象</code></p>
@@ -638,6 +639,28 @@ module.export = {
 <li><p>bootstrap可以在npm中下载</p>
 </li>
 </ul>
+<hr>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><ul>
+<li>Vuex是为了保存组件共享数据而诞生的，如果组件之间又要共享的数据，可以通过直接挂载到vuex中，而不必通过父子组件之间传值了，组建数据不共享不必放入vuex中；</li>
+<li>Vuex是一个全局共享数据存储区域，相当于一个数据的仓库；</li>
+<li>装包： <ol>
+<li>运行 npm i vuex -S</li>
+<li>导入包</li>
+<li>注册到Vue中去</li>
+<li>new Vuex store() 实例，得到一个数据仓储对象；state是一个对象，相当于实例的的data，mutations也是一个对象，相当于实例的methods<ul>
+<li>如果在组件中想要访问store中的数据，只能通过this.$store.state.***  来访问</li>
+</ul>
+</li>
+<li>将创建的vuex实例挂载到vue实例上，<em>只要挂载到到vue实例上就可以全局访问</em></li>
+</ol>
+</li>
+<li>如果想要修改state上的数据，只能通过调用this.$state.commit(‘方法名’)来实现；例如: this.$state.commit(“increment”)<ul>
+<li>mutations的函数参数列表中只能传递两个参数，第一个参数为state状态；第二个参数为通过commit提交过来的参数；</li>
+<li>若需要提交多个参数，则需要用以对象的形式的方式来进行传参，在进行调用即可；</li>
+</ul>
+</li>
+<li>getters是一个对象，里面封装的全部都是函数，只负责对外提供数据，修改请找mutations，类似于过滤器，没有修改数据里面的值，只是提供了一层包装，还与comuputed属性很像，只要state的数据发生改变，getter正好引用了这个数据的话，那么就会立即出发getters的重新求值 ，参数为state，通过对象调用的方式可以获得state中的数据</li>
+</ul>
 
       
     </div>
@@ -673,6 +696,10 @@ module.export = {
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/03/项目开发/" rel="next" title="项目开发1.0">
+                <i class="fa fa-chevron-left"></i> 项目开发1.0
+              </a>
             
           </div>
 
@@ -791,7 +818,7 @@ module.export = {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求后台服务器"><span class="nav-number">1.</span> <span class="nav-text">请求后台服务器</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number"></span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-动画"><span class="nav-number"></span> <span class="nav-text">Vue 动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue组件化"><span class="nav-number"></span> <span class="nav-text">Vue组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Vue组件"><span class="nav-number"></span> <span class="nav-text">创建Vue组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#render属性"><span class="nav-number">1.</span> <span class="nav-text">render属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number"></span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需导入Mint-UI组件"><span class="nav-number"></span> <span class="nav-text">按需导入Mint-UI组件</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求后台服务器"><span class="nav-number">1.</span> <span class="nav-text">请求后台服务器</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number"></span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-动画"><span class="nav-number"></span> <span class="nav-text">Vue 动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue组件化"><span class="nav-number"></span> <span class="nav-text">Vue组件化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Vue组件"><span class="nav-number"></span> <span class="nav-text">创建Vue组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#render属性"><span class="nav-number">1.</span> <span class="nav-text">render属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number"></span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需导入Mint-UI组件"><span class="nav-number"></span> <span class="nav-text">按需导入Mint-UI组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vuex"><span class="nav-number"></span> <span class="nav-text">Vuex</span></a></li></div>
             
 
           </div>
