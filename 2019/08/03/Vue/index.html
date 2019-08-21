@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-07T10:00:55.452Z">
+<meta property="og:updated_time" content="2019-08-21T09:12:55.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="secend">
 <meta name="twitter:description" content="请求后台服务器 get()方法  作用：获取服务器数据； 参数  服务器网址； 可选参数；   Vue.$http.get() 通过.then来获取服务器返回的数据返回成功的回调函数。 想要获取成功的回调函数需要result.body来获取   post()方法  作用：上传数组给服务器； Vue.$http.post() 限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数e">
@@ -408,8 +408,7 @@
 </li>
 </ul>
 <h2 id="Vue组件化"><a href="#Vue组件化" class="headerlink" title="Vue组件化"></a>Vue组件化</h2><ul>
-<li><p>组件的含义： </p>
-<ul>
+<li>组件的含义： <ul>
 <li>组建的出现就是为了拆分Vue实例的代码量，能够让我们以不同的组件，来划分不同功能模块</li>
 <li>组件化与模块化的区别<ul>
 <li>模块化是为了后台开发是分层开发，保证每个功能职能专一；</li>
@@ -418,50 +417,52 @@
 </li>
 </ul>
 </li>
-<li><p>使用Vue.extend创建；</p>
-</li>
-<li><p>通过template属性，指定组件要展示的HTML结构</p>
-</li>
-<li><p>返回值为创建出来的组件模板对象的名称；</p>
-</li>
-<li><p>Vue.component(展示的名字 ， Vue.extend的返回值)</p>
-<ul>
+<li>使用Vue.extend创建；</li>
+<li>通过template属性，指定组件要展示的HTML结构</li>
+<li>返回值为创建出来的组件模板对象的名称；</li>
+<li>Vue.component(展示的名字 ， Vue.extend的返回值)<ul>
 <li>驼峰命名法改为英文就好</li>
 </ul>
 </li>
-<li><p>通过字面量定义组件</p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">        Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">        template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line">         &#125;)</span><br><span class="line">- 与第二种类似</span><br><span class="line">    - 通过template： #temp；在外部定义组件结构，有提示与高亮。</span><br><span class="line">        - ``` </span><br><span class="line">              Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">                 template: #temp;</span><br><span class="line">               &#125;)</span><br><span class="line">               &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">                    //想展示的代码</span><br><span class="line">               &lt;/template&gt;</span><br><span class="line">- 创建私有组件</span><br><span class="line">    - 在Vue实例中，有components 可建立私有组件</span><br><span class="line">- 注意事项：</span><br><span class="line">    - 不论哪种形式创建的Vue将组建，都只能拥有一个根元素</span><br><span class="line"></span><br><span class="line">### 组件的data与methods</span><br><span class="line">- 组件中拥有data数据</span><br><span class="line">     - 组建的data与实例的data不一样，组件中的data必须是一个function，</span><br><span class="line">        还必须返回一个对象</span><br><span class="line">     - 使用方法与实例的data方法一样</span><br><span class="line">- 组件进行切换</span><br><span class="line">    - 利用v-for与v-else结合使用，但是只能两个来回切换。对于多个切换无能为力。</span><br><span class="line">    - Vue提供了component元素，来展示对应组件，他是一个占位符，:is属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号&apos;&apos;</span><br></pre></td></tr></table></figure>
+<li>通过字面量定义组件<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">        Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">        template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line">         &#125;)</span><br><span class="line">- 与第二种类似</span><br><span class="line">    - 通过template： #temp；在外部定义组件结构，有提示与高亮。</span><br><span class="line">        - ``` </span><br><span class="line">              Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">                 template: #temp;</span><br><span class="line">               &#125;)</span><br><span class="line">               &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">                    //想展示的代码</span><br><span class="line">               &lt;/template&gt;</span><br><span class="line">- 创建私有组件</span><br><span class="line">    - 在Vue实例中，有components 可建立私有组件</span><br><span class="line">- 注意事项：</span><br><span class="line">    - 不论哪种形式创建的Vue将组建，都只能拥有一个根元素</span><br><span class="line">### 过滤器</span><br><span class="line">1. 只能在v-bind中使用;</span><br><span class="line">2. 源数据并没有改变 , 第一个蚕食为过滤器的名字;管道夫后面那个数据就是过滤器名字;第二个参数为一个回调函数,处理需要过滤的数据;</span><br><span class="line">3. 过滤器还能够传递参数.传递的参数为回调函数的之后的几个参数;</span><br><span class="line">4. 还可以多次调用过滤器;</span><br><span class="line">5. 格式化时间</span><br></pre></td></tr></table></figure>
 
-<p><component :is="comName"></component></p>
-<ul>
-<li><p>通过改变事件来改变comName即可实现组件的切换，没有限制数量</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Vue.filter(‘data’ , function(dataStr) {<br>    var dt = new Date(dataStr)<br>})</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 组件的data与methods</span><br><span class="line">- 组件中拥有data数据</span><br><span class="line">     - 组建的data与实例的data不一样，组件中的data必须是一个function，</span><br><span class="line">        还必须返回一个对象</span><br><span class="line">     - 使用方法与实例的data方法一样</span><br><span class="line">- 组件进行切换</span><br><span class="line">    - 利用v-for与v-else结合使用，但是只能两个来回切换。对于多个切换无能为力。</span><br><span class="line">    - Vue提供了component元素，来展示对应组件，他是一个占位符，:is属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号&apos;&apos;</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;component :is=&apos;comName&apos;&gt;&lt;/component&gt;
+    - 通过改变事件来改变comName即可实现组件的切换，没有限制数量
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 组件过渡</span><br><span class="line">    - 在直接用translation包裹住就好，（组件切换动画）</span><br><span class="line">    - 通过mode 属性来实现组建切换时候的模式</span><br></pre></td></tr></table></figure>
 
-<p>beforeEnter() {<br>  this.flag =! this.flag<br>}<br>功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">        - Vue中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在transition上</span><br><span class="line">            - beforeEnter() &#123;&#125;</span><br><span class="line">            - enter() &#123;&#125;</span><br><span class="line">            - afterEnter() &#123;&#125;</span><br><span class="line">- 父组件与子组件</span><br><span class="line">    - 子组件默认无法访问父组件的data上的数据和methods中的方法</span><br><span class="line">    - 父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</span><br><span class="line">    - 若子组件想用父组件传下来的数据，需要在components中props中定义一下;</span><br><span class="line">    - props是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</span><br><span class="line">    - 使用父组件的方法，并且向父组件传参</span><br><span class="line">        - 通过字面量的方式创建模板对象，</span><br></pre></td></tr></table></figure>
+    beforeEnter() {
+        this.flag =! this.flag
+    }
+    功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">        - Vue中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在transition上</span><br><span class="line">            - beforeEnter() &#123;&#125;</span><br><span class="line">            - enter() &#123;&#125;</span><br><span class="line">            - afterEnter() &#123;&#125;</span><br><span class="line">- 父组件与子组件</span><br><span class="line">    - 子组件默认无法访问父组件的data上的数据和methods中的方法</span><br><span class="line">    - 父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</span><br><span class="line">    - 若子组件想用父组件传下来的数据，需要在components中props中定义一下;</span><br><span class="line">    - props是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</span><br><span class="line">    - 使用父组件的方法，并且向父组件传参</span><br><span class="line">        - 通过字面量的方式创建模板对象，</span><br></pre></td></tr></table></figure>
 
-<p>@function=’show’<br>  const com1 = {</p>
-<pre><code>template: &apos;#com2&apos;,
-methods: {
-    this.$emit(&apos;function&apos;,向父组件爨氐的参数)
-}</code></pre><p>  }<br>  //在实例内部定义一个私有组件<br>  methods: [</p>
-<pre><code>show() {
-    console.log(&apos;父组件内部的方法&apos;)
-}</code></pre><p>  ]<br>  components： {</p>
-<pre><code>com1</code></pre><p>  }</p>
-</li>
-</ul>
-</li>
-<li><p>子组件通过调用父组件方法，顺便向父组件传递数据</p>
-<ul>
-<li>emit(定义的方法名，子组件向父组件传递的参数。。。)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>ref 获取DOM元素</p>
-<ul>
+    @function=&apos;show&apos;
+        const com1 = {
+            template: &apos;#com2&apos;,
+            methods: {
+                this.$emit(&apos;function&apos;,向父组件爨氐的参数)
+            }
+        }
+        //在实例内部定义一个私有组件
+        methods: [
+            show() {
+                console.log(&apos;父组件内部的方法&apos;)
+            }
+        ]
+        components： {
+            com1
+        }
+- 子组件通过调用父组件方法，顺便向父组件传递数据
+    - emit(定义的方法名，子组件向父组件传递的参数。。。)</code></pre><ul>
+<li>ref 获取DOM元素<ul>
 <li>ref可引用DOM元素，键值为创建的名字，键值为一个对象可通过innerText获取内部文字</li>
 <li>也可以获取组建内部的data数据与方法，</li>
 <li>获取路径为实例上有个原生属性$refs.定义的名字.想要获取的内容</li>
@@ -591,8 +592,8 @@ methods: {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/08/node/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/05/项目开发/" rel="prev" title="项目开发1.0">
+                项目开发1.0 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -663,7 +664,7 @@ methods: {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

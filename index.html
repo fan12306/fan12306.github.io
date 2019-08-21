@@ -248,7 +248,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/node/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/项目开发2-0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Junjie Fan">
@@ -270,8 +270,8 @@
             
               
                 
-                <a class="post-title-link" href="/2019/08/08/node/" itemprop="url">
-                  Untitled
+                <a class="post-title-link" href="/2019/08/15/项目开发2-0/" itemprop="url">
+                  项目开发2.0
                 </a>
               
             
@@ -287,8 +287,834 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T09:53:10+08:00">
-                2019-08-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-15T11:25:56+08:00">
+                2019-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="许愿墙"><a href="#许愿墙" class="headerlink" title="许愿墙"></a>许愿墙</h1><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li><p>不知道如何开始；</p>
+<ul>
+<li>先输入<code>npm i</code>安装node</li>
+<li>安装路由模块分为5部<ol>
+<li>先确保安装了Vue；</li>
+<li>引入vue-router</li>
+<li>注册vue-router</li>
+<li>映入自己的路由</li>
+<li>挂载到vm实例中</li>
+</ol>
+</li>
+<li>还需要设置一个占位符router-view</li>
+</ul>
+</li>
+<li><p>想要改变框架自身的高亮类，先要改造为router-link，在使用linkActiveClass更改名字即可</p>
+</li>
+<li><p>mui默认不允许组件移动，发现这是js组件，还需要初始化一下：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   mui(&apos;.mui-scroll-wrapper&apos;).scroll(&#123;</span><br><span class="line">deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>还需要在为所有的元素设置一个  <code>* { touch-action: pan-y; }</code> 的类；</li>
+<li></li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/14/AJAX/" itemprop="url">
+                  AJAX
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-14T19:29:34+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h2><ol>
+<li>作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新</li>
+<li>语法： <code>variable = new XMLHttpRequest()</code><h2 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h2></li>
+<li>使用XMLHttpRequest对象的open()与send()</li>
+<li>语法： <code>xmlhttp.open(&#39;GET&#39; , &quot;ajax_info.text&quot; , true)</code> <ul>
+<li>规定请求的类型、URL以及是否异步处理请求<ul>
+<li>method： 请求的类型；GET或POST</li>
+<li>url： 文件在服务器上的位置</li>
+<li>async： true（异步）或false（同步）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>语法<code>xmlhttp.send()</code><ul>
+<li>将请求发送发送到服务器上<ul>
+<li>string： 仅用于POST请求<h3 id="GET还是POST"><a href="#GET还是POST" class="headerlink" title="GET还是POST"></a>GET还是POST</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>与post相比，GET更简单，并且在大部分情况下都可以使用，在以下情况下使用post<ol>
+<li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>向服务器发送大量数据（POST没有数据数量限制）</li>
+<li>发送包含未知字符的用户输入，POST比GET更加可靠<h3 id="url-服务器上的文件"><a href="#url-服务器上的文件" class="headerlink" title="url-服务器上的文件"></a>url-服务器上的文件</h3></li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>open发放的url参数是服务器文件额地址<ul>
+<li>xmlhttp.open(“GET” , “文件地址”)<h3 id="异步为TRUE"><a href="#异步为TRUE" class="headerlink" title="异步为TRUE"></a>异步为TRUE</h3></li>
+</ul>
+</li>
+<li>发送的请求是AJAX的时候第三个参数必须为true ，表示异步获取</li>
+<li>如需获得来自服务器的响应，请使用XMLHttpRequest对象的responseText或responseXML属性<ul>
+<li>responseText 获得字符串形式的相应数据</li>
+<li>responeXML 获得XML形式的相应数据<h2 id="onreadystatechange事件"><a href="#onreadystatechange事件" class="headerlink" title="onreadystatechange事件"></a>onreadystatechange事件</h2></li>
+</ul>
+</li>
+<li>当请求被发送到服务器是，我们需要执行一些相应的任务，每当ready State改变时，就会触发onreadystatechange事件。</li>
+<li>三个重要属性<ul>
+<li>onreadystatechange： 存储函数或函数名，每当readyState属性改变时，就会触发调用还函数</li>
+<li>存有XMLHttpRequest的状态。从0~4发生变化<ul>
+<li>0：请求未初始化；</li>
+<li>1:  服务器已经建立</li>
+<li>2： 请求已经接受</li>
+<li>3： 请求处理中</li>
+<li>4：请求已经完成</li>
+</ul>
+</li>
+<li>status <ul>
+<li>200 : OK</li>
+<li>404: 为找到页面 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/Bootstrap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/14/Bootstrap/" itemprop="url">
+                  Bootstrap4
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-14T19:29:34+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Bootstrap4"><a href="#Bootstrap4" class="headerlink" title="Bootstrap4"></a>Bootstrap4</h1><h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><h3 id="文本颜色"><a href="#文本颜色" class="headerlink" title="文本颜色"></a>文本颜色</h3><ol>
+<li>text-muted 柔和</li>
+<li>text-primary 重要</li>
+<li>text-success 成功（绿色）</li>
+<li>text-info 提示信息 （淡蓝）</li>
+<li>text-warning 警告 （黄色）</li>
+<li>text-danger 危险</li>
+<li>text-secondary 副标题（浅灰）</li>
+<li>text-light 迁回文本 <h3 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h3></li>
+<li>bg-primary 颜色与文本一样（加个bg即可）颜色一样</li>
+</ol>
+<hr>
+<h2 id="基础表格"><a href="#基础表格" class="headerlink" title="基础表格"></a>基础表格</h2><ol>
+<li>.table设置基本的表格样式</li>
+<li>条纹表格.table-striped</li>
+<li>带边框的表格.table-bordered</li>
+<li>鼠标悬停表格 .table-hover</li>
+<li>黑色背景表格 .table-dark</li>
+<li>响应式表格 .table-responsive (在屏幕狂赌小于992px时会创造水品滚动条)</li>
+</ol>
+<p><strong>以上五种可以任意组合 需要利用table的html结构thead tr th tbody tr td</strong>\</p>
+<h2 id="可以为上述的表头或者内容自由添加颜色"><a href="#可以为上述的表头或者内容自由添加颜色" class="headerlink" title="可以为上述的表头或者内容自由添加颜色"></a><strong>可以为上述的表头或者内容自由添加颜色</strong></h2><h2 id="图片形状"><a href="#图片形状" class="headerlink" title="图片形状"></a>图片形状</h2><ol>
+<li>圆角 .rounded</li>
+<li>椭圆图形 .rounded-circle</li>
+<li>缩略图 .img-thumbnail(用于设置图片缩略图有边框)</li>
+<li>图片对齐方 .float-right .float-left</li>
+<li>响应式图片 .img-fluid (设置了max-width：100% ，height： auto)</li>
+</ol>
+<hr>
+<h2 id="信息提示框"><a href="#信息提示框" class="headerlink" title="信息提示框"></a>信息提示框</h2><ol>
+<li>加上一个.alert再添加颜色方面的单词即可</li>
+<li>alert-danger .alter-primary .alter-warning .alter-success .alter-lighr .alter-info</li>
+<li>提示框添加链接 .alter-link</li>
+<li>关闭提示框 .alter-dismissible,在关闭按钮的链接上添加.close与data-dismiss=‘alter’来实现关闭的操作</li>
+<li>提示框的动画 .fade .show 淡出淡入的动画</li>
+</ol>
+<hr>
+<h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><ol>
+<li>基本按钮 .btn</li>
+<li>主要按钮 .btn .btn-primary(与颜色的单词一样)</li>
+<li>可运用在标签a button input中</li>
+<li>按键设置边框 .btn-outline-(颜色值)</li>
+<li>不同大小的按钮 .btn-lg .btn-sm</li>
+<li>块级按钮 .btn-block</li>
+<li>激活和禁用 .active 激活状态 .disabled 禁用</li>
+</ol>
+<hr>
+<h2 id="按钮组"><a href="#按钮组" class="headerlink" title="按钮组"></a>按钮组</h2><ol>
+<li>.btn-group 设置按键组 可结合上述的按键样式</li>
+<li>.btn-group-lg|sm 设置按键的大小</li>
+<li>.btn-group-vertical 设置按键垂直按键组</li>
+</ol>
+<hr>
+<h2 id="徽章"><a href="#徽章" class="headerlink" title="徽章"></a>徽章</h2><ol>
+<li>如果需要使用.badge类，只需要将.badge类加上带有指定意义的颜色类（ .badge-primary)</li>
+<li>药丸形状徽章 .badge-pill 与 .badge-primary</li>
+<li>记得要插入span标签</li>
+</ol>
+<hr>
+<h2 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h2><ol>
+<li>进度条的步骤<ul>
+<li>添加一个带有.progress类的div</li>
+<li>在上面div内，添加一个带有class.progress-bar的空的div</li>
+<li>添加带有百分比便是宽度style属性，表示进度条在某个位置</li>
+</ul>
+</li>
+<li>进度条的默认高度16px；可以用CSS属性来修改；</li>
+<li>进度条内添加文本；</li>
+<li>提供各种颜色的进度条；</li>
+<li>条纹进度条 .progress-bar-striped 设置进度条的条纹</li>
+<li>.progress-bar-animated 为进度条添加动画</li>
+</ol>
+<hr>
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><ol>
+<li>为ul设置.pagination类，在li上，添加.page-item类</li>
+<li>当前页码可以用.active类来设置高亮；</li>
+<li>面包屑导航 .breadcrumb和.breadcrumb-item active设置高亮</li>
+</ol>
+<hr>
+<h2 id="列表组"><a href="#列表组" class="headerlink" title="列表组"></a>列表组</h2><ol>
+<li>在ul上设置.list-group类，在li上.list-group-item类</li>
+<li>禁用的列表项 .disable</li>
+<li>链接列表  ul替换为div a替换为li .list-group-item-action</li>
+</ol>
+<hr>
+<h2 id="Flex弹性布局"><a href="#Flex弹性布局" class="headerlink" title="Flex弹性布局"></a>Flex弹性布局</h2><ol>
+<li>d-flex类来创建弹性容器</li>
+<li>d-inline-flex类来设置同一行</li>
+<li>d-flex justify-content-between<br>4 .align-content </li>
+</ol>
+<hr>
+<h2 id="居中对齐"><a href="#居中对齐" class="headerlink" title="居中对齐"></a>居中对齐</h2><ol>
+<li>mx-auto 居中对齐</li>
+<li>w-* 设置宽度</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/css3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/05/css3/" itemprop="url">
+                  css3
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T19:29:34+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CSS3的部分知识点"><a href="#CSS3的部分知识点" class="headerlink" title="CSS3的部分知识点"></a>CSS3的部分知识点</h1><h2 id="CSS3背景"><a href="#CSS3背景" class="headerlink" title="CSS3背景"></a>CSS3背景</h2><ul>
+<li>background-size属性<ul>
+<li>重置背景图片 设置数值；</li>
+<li>填充内容区域 设置百分数；</li>
+</ul>
+</li>
+<li>background-Origin属性<ul>
+<li>设置了背景图像的位置区域</li>
+<li>三个可选值<ul>
+<li>border-box;</li>
+<li>padding-box;</li>
+<li>content-box;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSS3允许设置多个背景图片（即设置多个url）</li>
+<li>background-clip属性<ul>
+<li>从指定位置开始裁剪；</li>
+<li>三个可选值；<ul>
+<li>border-box;</li>
+<li>padding-box;</li>
+<li>content-box;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="CSS渐变"><a href="#CSS渐变" class="headerlink" title="CSS渐变"></a>CSS渐变</h2><ul>
+<li>linear-gradient(direction, color-stop1, color-stop2)属性<ul>
+<li>其中direction是指明需要渐变的方向；如 to right、to bottom right（对角）</li>
+</ul>
+</li>
+<li>linear-gradient(angle, color-stop1, color-stop2)属性</li>
+<li>使用透明度（transparent）<ul>
+<li>background: liner-grident(to right rgba(255 , 0 , 0 , 0) rgba(255 , 0 , 0 , 1))</li>
+</ul>
+</li>
+<li>background: radial-gradient(center , shape , size , start-color , …, last-color)</li>
+</ul>
+<hr>
+<h2 id="文本效果"><a href="#文本效果" class="headerlink" title="文本效果"></a>文本效果</h2><ul>
+<li>text-shadow属性<ul>
+<li>制定水平阴影，垂直阴影，模糊程度，阴影颜色；</li>
+</ul>
+</li>
+<li>text Overflow属性<ul>
+<li>指定应向用户如何展示溢出内容</li>
+<li>可选值<ul>
+<li>clip；</li>
+<li>ellipsis</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSS3换行<ul>
+<li>word-wrap允许长文本换行</li>
+<li>可选值<ul>
+<li>break-word；</li>
+</ul>
+</li>
+<li>word-break 单词黄行属性</li>
+<li>可选值<ul>
+<li>keep-word;</li>
+<li>break-all;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="CSS3字体"><a href="#CSS3字体" class="headerlink" title="CSS3字体"></a>CSS3字体</h2><ul>
+<li>font-style属性 字体样式<ul>
+<li>三个可选值<ul>
+<li>normal；</li>
+<li>italic</li>
+<li>oblique</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>font-wright属性 字体粗细<ul>
+<li>normal</li>
+<li>bold</li>
+<li>numbers…</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="CSS32D转换"><a href="#CSS32D转换" class="headerlink" title="CSS32D转换"></a>CSS32D转换</h2><ul>
+<li>transform属性<ul>
+<li>五个方法<ul>
+<li>translate()方法 根据给定的x轴y轴的参数，从当前元素位置移动；</li>
+<li>rotate()方法，根据一个给定的角度旋转，负值为逆时针；</li>
+<li>scale()方法，该元素增加或减少qujueyux轴与y轴的参数；</li>
+<li>skew()方法 分别表示x轴与y轴的倾斜程度；</li>
+<li>matrix()方法，和2d的变换方法合并为一个，六个参数分别为旋转，缩放，移动和倾斜</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="CSS过渡"><a href="#CSS过渡" class="headerlink" title="CSS过渡"></a>CSS过渡</h2><ul>
+<li>transition 间歇属性，用在一个属性设置四个属性<ul>
+<li>四个参数<ul>
+<li>什么元素（一般为all）</li>
+<li>过渡时间（1s）</li>
+<li>过渡方式（linear）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="CSS-动画"><a href="#CSS-动画" class="headerlink" title="CSS#动画"></a>CSS#动画</h2><ul>
+<li>关键字 from-to<ul>
+<li>@keyframes 需要绑定一个选择器，否则动画不会有任何效果<ul>
+<li>animation动画简写属性（规定动画名称 ， 规定动画完成一周的时间 ， 规定动画的速度曲线 ， 放动画不播放时样式应用到哪 ， 动画何时开始， 动画被播放几次）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="CSS3创建多列"><a href="#CSS3创建多列" class="headerlink" title="CSS3创建多列"></a>CSS3创建多列</h2><pre><code>- column-count 需要分割的数量</code></pre><p>#3 CSS3按键</p>
+<ul>
+<li>。.button{<ul>
+<li>background-color:</li>
+<li>border-radiaus</li>
+<li>box-shadow</li>
+<li>禁用按键 opacity</li>
+<li>按键组 float</li>
+</ul>
+</li>
+</ul>
+<p>}</p>
+<h2 id="css编码技巧"><a href="#css编码技巧" class="headerlink" title="css编码技巧"></a>css编码技巧</h2><ul>
+<li>尽量减少代码的重复<ol>
+<li>当某些值相互依赖的时候，应把他们的相互关系表达出来；</li>
+<li>原本背景会被元素额border box裁掉，如果不希望背景入侵边框所在的范围，我们要做的就是把他的之设置为padding ，这样浏览器就会用内边距的外沿来吧白净才切掉。background-clip属性是来调整；<h3 id="多重边框"><a href="#多重边框" class="headerlink" title="多重边框"></a>多重边框</h3></li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>box-shadow支持逗号分割语法，可以创造任意数量的投影；</li>
+<li>需要两层边框的时候，可以先设置一层常规边框，再加上outline属性来添加第二层边框;</li>
+<li>设置outline-offset可以很简单的设置”缝合”的效果，设置负值；</li>
+<li>outline不能贴合圆角；<h3 id="灵活的背景定位"><a href="#灵活的背景定位" class="headerlink" title="灵活的背景定位"></a>灵活的背景定位</h3></li>
+<li>background-position属性允许我们指定背景图片距离任意角的偏移量，只要我们在偏移量前面指定关键字。例如： background-position: right 10px bottom 20px;</li>
+<li>background-position是以padding-box为准的，因此top，left默认的指的是padding box的左上角，我们有一个新属性border-origin默认的情况下是padding-box，我们可以通过改变content-box的方法，来改变默认行为；</li>
+<li>calc函数，可以实现1中的问题；background-position: calc(100%-20px) calc(100%-10px);<h3 id="边框内圆角"><a href="#边框内圆角" class="headerlink" title="边框内圆角"></a>边框内圆角</h3></li>
+<li>内测由圆角，但是外部是直角；</li>
+<li>box-shadow会跟着边框走，<h3 id="条纹背景"><a href="#条纹背景" class="headerlink" title="条纹背景"></a>条纹背景</h3></li>
+<li>background: linear-gradient()设置渐变</li>
+<li>当将其的颜色参数越拉越近的时候就会形成两条条纹，</li>
+<li>还可以通过background-size来调整其的尺寸；</li>
+<li>垂直条纹需要在开头加上一个额外的参数来制定简便的参数，默认值to bottom ，通过调整background的方向即可<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3></li>
+<li>利用position absolute，transfrom： translate（-50% , -50%）<ul>
+<li>最好不使用absolute的，太容易对布局产生影响；</li>
+</ul>
+</li>
+<li>用margin：50% auto 0; vw与适口宽度相关，vh表示视口宽度额1%；</li>
+<li>用margin： 5vh auto 0；translate： translateY（-50%）</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/05/node/" itemprop="url">
+                  node.js
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T19:29:34+08:00">
+                2019-08-05
               </time>
             
 
@@ -381,6 +1207,442 @@
 <ul>
 <li>拿到文件模块并执行里面的代码；</li>
 <li>拿到被加载文件模块到处的接口对象</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/项目开发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/05/项目开发/" itemprop="url">
+                  项目开发1.0
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T19:29:34+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h1><h2 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h2><ul>
+<li><p>分析页面组成</p>
+<ul>
+<li>页面分为头部、主体、底部三个部分；</li>
+<li>头部是固定不动的Header –在Mint-UI上有现成的代码；</li>
+<li>底部是一般的界面但是在Mint——UI上的不符合需求，在MUI上有合适的样式</li>
+</ul>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li><p>要一直有的概念就是Vue框架基本不用操作DOM，一切在页面渲染出来的界面都是从render函数的template模板中的；</p>
+</li>
+<li><p>因为模块是独立的，凡是应用到的框架或样式都需要在main.js中引进，无论Vue还是css；</p>
+</li>
+<li><p>MUI无法通过npm下载只能从下载下来，但是Mint-UI可以 </p>
+</li>
+<li><p>所需要的图标样式可以寻找要确保其所用到的样式都能下载下来;</p>
+</li>
+<li><p>改造 tabBar 为router-link</p>
+</li>
+<li><p>组件需要安装好，并且能都导入到main.js内部，还需要在指定的router模板对象中注册，指定的模板对象也要导入vue-router组件，还需要暴露出去<code>（export default router）</code></p>
+</li>
+<li><p><em>定义自己的组件一定记得import出去，因为模块是独立的没有根据的组件或则其他都会报错</em></p>
+</li>
+<li><p>轮播图从Mint-UI上查找，匹配进去之后他的高度还需要自行设计；</p>
+</li>
+<li><p>npm 安装 Vue-resource 向网页获取数据（照片），还需要import与Vue.use()注册，才能通过命令this.$http.get(“网址”)<br>获取成功的标志是 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.then(result =&gt; &#123; </span><br><span class="line">result.body.status === 0 //等于非零数字为获取失败 </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将保存的图片放入一个新数组中，在v-for渲染到页面中去</p>
+<ul>
+<li>注意： 需要绑定img或着url其中一个，因为他们都是唯一的；</li>
+<li>注意： 需要绑定src，表示这是一个 js 表达式，并不是普通字符串，要在src前加: 绑定后才能正常使用</li>
+</ul>
+</li>
+<li><p>样式的选择很重要，在源代码上查找，并找到合适的class类名，设置合适的样式；</p>
+</li>
+<li><p>获取新闻详情</p>
+<ul>
+<li>需要要为每个新闻绑定一个id，因为我们要去的地址带有js表达式，因此需要绑定<code>&lt;route-link :to=&quot;&#39;/home/newInfo/&#39; + item.id&quot;&gt;&lt;/route-link&gt;</code><br>  绑定to</li>
+<li>获取id <code>$router.params.id</code></li>
+<li>需要在routes配置规则上传入参数id <code>path: /home/newInfo/:id</code></li>
+</ul>
+</li>
+<li><p>轮滑条无法正常使用</p>
+<ul>
+<li>webpack关闭严格模式</li>
+</ul>
+</li>
+<li><p>图片进行懒加载的效果</p>
+<ul>
+<li>引入组件 在mint-UI上引入,并且使用</li>
+<li>通过点击事件获得相应的数组列表,需要为方法传递一个参数:表示需要那个列表</li>
+<li>一开始就要渲染出来第一页,因此传参数为0;</li>
+<li>Mint-ui为我们提供了图片的样式,样式一定要按照规则一步一步往下写;<ul>
+<li>若果运用按需导入,懒加载没有加载的圈圈,因此选用全部加载.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>当使用router-link的时候界面的样式乱了,可能是对应的标签名更换了,因为router-link默认的标签为a标签</p>
+</li>
+<li><p>实现img:width100%,需要去除scope;</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><h3 id="提交评论"><a href="#提交评论" class="headerlink" title="提交评论"></a>提交评论</h3></li>
+</ol>
+</li>
+<li><p>先校验评论内容是否为空<code>this.mes.trim().length === 0</code></p>
+</li>
+<li><p>通过post命令发送评论给服务器</p>
+<ul>
+<li>参数1: 地址;</li>
+<li>参数2: 提交给服务器的数据对象{ content: this.mes }</li>
+<li>参数3: 提交内容的格式;可全局配置{ emulateJSON:true }</li>
+</ul>
+</li>
+<li><p>拼接数据对此实现客户端手动更新</p>
+<ul>
+<li>若调用getComment会pageIndex == 2的,那么第一页的评论内容就消失了</li>
+<li>换一种思路:通过请求成功后,手动拼接对象通过unshift方法追加到评论的第一位置,从而实现到刷新的功能;<h3 id="区分"><a href="#区分" class="headerlink" title="区分"></a>区分</h3></li>
+</ul>
+</li>
+<li><p>this.$route是参数对象,所有的路由参数,params,query都属于它,拥有着id以及很多的属性;</p>
+</li>
+<li><p>this.$router是一个路由导航对象,用它可以实现路由的前进后退,跳转到新的URL对象</p>
+<h3 id="抽离子组件"><a href="#抽离子组件" class="headerlink" title="抽离子组件"></a>抽离子组件</h3></li>
+<li><p>注意之前父组件的属性,还要使用子组件的父组件的的属性是否一致</p>
+</li>
+<li><p>如果不一致,需要通过循环的方式为其添加相应的属性</p>
+</li>
+<li><p>若之前的父组件与先有组父件的样式冲突,定义一个属性,让使用轮播图的调用者手动决定是否需要使用之前的样式;</p>
+</li>
+<li><p>需要在父组件决定是否需要该组件,true or false ,再由子组件接受props绑定class对象决定某样式的样式</p>
+<h3 id="在网页中有两种跳转方式"><a href="#在网页中有两种跳转方式" class="headerlink" title="在网页中有两种跳转方式"></a>在网页中有两种跳转方式</h3></li>
+<li><p>一种是a标签改造为router-link,还有一种是 window.location.href<br>  //还需要在div或者其他的标签绑定点击事件,并且传参;<br>  // 使用js来进行路由的切换<br>  //对象</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&quot;/home/goodsInfo/:&quot;+ id)</span><br></pre></td></tr></table></figure>
+
+<p>  // 运用path对象</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123;path: &quot;/home/goodsInfo/:&quot;+ id&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>  // 运用name属性,还需要在路由规则中添加一个属性name指定相迎的name</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123; name: &apos;goodsList&apos; , params: &#123;id&#125; &#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="时间过滤器："><a href="#时间过滤器：" class="headerlink" title="时间过滤器："></a>时间过滤器：</h3><ul>
+<li>先安装插件：npm i moment</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    Vue.filter(&apos;dateStr&apos; , function(&apos;data&apos; , pattern = &apos;yyyy-mm-dd&apos;)&#123;</span><br><span class="line">    return moment(dataStr).format(pattern)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Mint-UI的部分注意"><a href="#Mint-UI的部分注意" class="headerlink" title="Mint-UI的部分注意"></a>Mint-UI的部分注意</h3><ul>
+<li>导入样式的方法与导入vue的不一样；</li>
+<li>Mint-UI是按需导入,导入相应的组件还需要注册  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如头部样式：</span><br><span class="line">import &#123; Header &#125; from &apos;mint-ui&apos;</span><br><span class="line">Vue.component(Header.name , Header)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="关于高亮的问题"><a href="#关于高亮的问题" class="headerlink" title="关于高亮的问题"></a>关于高亮的问题</h3><ul>
+<li><p>要是Mint—UI内部自带高亮，则可以利用组件的linkActiveClass属性来覆盖原有的样式，从而达到正常的需求；</p>
+<ul>
+<li>关于scss的子代选择器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    .mint-swipe&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    .mint-swipe-item &#123;</span><br><span class="line">        &amp;:nth-child(1)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">        // 子带选择器需要&amp;符号</span><br><span class="line">        &amp;:nth-child(2)&#123;</span><br><span class="line">            background-color: greenYellow;</span><br><span class="line">        &#125;</span><br><span class="line">        &amp;:nth-child(3)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>获取通过id获取新闻资讯，记得获取文件的类型。现在是一个数组但是新闻资讯是一个对象所以使用<code>this.NewsInfo = result.body.message[0] NewsInfo是一个对象</code>，再通过对象来调取相应的数据；</p>
+<h3 id="子组件导入"><a href="#子组件导入" class="headerlink" title="子组件导入"></a>子组件导入</h3></li>
+<li><p>子组件在父组件的components属性下注册,记得要先导入;</p>
+</li>
+</ul>
+<h3 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h3><ul>
+<li>在父组件内,子组件的占位符上绑定一个参数,在子组件上使用props注册一下,该属性是一个数组</li>
+<li>注意变量的使用;</li>
+<li>为了防止数据覆盖,让老数据与新数据使用一个concat方法拼接在一起;<ul>
+<li><code>this.setCmt = this.setCmt.concat(result.body.message)</code><h3 id="解决框架之间的样式冲突"><a href="#解决框架之间的样式冲突" class="headerlink" title="解决框架之间的样式冲突"></a>解决框架之间的样式冲突</h3></li>
+</ul>
+</li>
+<li>分析 <ol>
+<li>刚进入图片分享界面的时候，滚动条无法正常使用；</li>
+<li>当滑动条的ok后，发现tabBar无法正常工作，原因可能是，mint里面的样式与tabTar的样式冲突了；</li>
+<li>当同一个组件用的同一个样式值不同时；</li>
+</ol>
+</li>
+<li>解决方案： <ol>
+<li>如果要进入初始化滚动条必须等DOM元素加载完毕，所以将滚动条放在了mounted生命周期钩子函数里；</li>
+<li>现在是把tabBar的样式复制一份换一个名字；（但是我找不全名字）</li>
+<li>当样式不符合要求的时候，需要进行绑定处理class时，通过id进行关键绑定<code>&lt;a :class=&quot;[&#39;mui-control-item&#39; , item.id == 0 ? &#39;mui-active&#39; : &#39;&#39;]&quot;</code>；<h3 id="解决经典的两边布局"><a href="#解决经典的两边布局" class="headerlink" title="解决经典的两边布局"></a>解决经典的两边布局</h3><h3 id="关于props的父组件向子组将传值与子路由的绑定之间的区别"><a href="#关于props的父组件向子组将传值与子路由的绑定之间的区别" class="headerlink" title="关于props的父组件向子组将传值与子路由的绑定之间的区别"></a>关于props的父组件向子组将传值与子路由的绑定之间的区别</h3></li>
+</ol>
+<ul>
+<li>父组件箱子组建传值需要每个父组件绑定一个属性值;子组件通过props接收到值;</li>
+<li>子路由与父路由,子路有需要在父路由上注册,绑定相应的id即可;<h3 id="加入动画"><a href="#加入动画" class="headerlink" title="加入动画"></a>加入动画</h3></li>
+</ul>
+</li>
+<li><translation></translation>包裹住router-view占位元素</li>
+<li>注意：<ul>
+<li>问题1： 图片先进去再回去；</li>
+<li>原因1： 在v-leave-to中设置了translateX（100%）因此页面进去之后出来时要回到原来的那个地方，就会有再回来的动画</li>
+<li>解决方法： 分开v-enter与v-leave-to并将其位置设为translateX(-100%)即可</li>
+<li>问题2： 图片下方出现滚动条问题；</li>
+<li>原因2： 再点击更换页面时，router检测到网址的改变，会瞬间展示出来对应的组件，因此页面的实际宽度就大于当前页面的宽度产生滚动条；</li>
+<li>解决方法： 设置属性overflowX: hidden;* 一定要设置x轴方向上的hidden *</li>
+<li>问题3： 图片先在下面再上去；</li>
+<li>原因3： 目标没有position: absolute;</li>
+<li>解决方法： 设置position: absolute;<h3 id="小球动画的优化"><a href="#小球动画的优化" class="headerlink" title="小球动画的优化"></a>小球动画的优化</h3></li>
+</ul>
+</li>
+<li>分析： <pre><code>1. 因为对于不同的的分辨率或者长度不同的数据,小球的translate写死了就不能满足需求；</code></pre></li>
+<li>解决方法: <pre><code>1. 利用domObject.getBoundingClientRect()可以获取元素的横纵坐标;
+2.  通过两个位置的差值来获取准确的数据
+3. 由于购物车不属于组件内的数据,因此打算稍稍利用dom来获取它位置</code></pre></li>
+<li>注意：<ol>
+<li>小球动画属于半场动画因此使用钩子函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@enter=&apos;enter&apos; enter(el, done) //需要调用el.offsetWidth才能有动画,还要执行一下done()函数</span><br><span class="line">@afterEnter= &apos;afterEnter&apos; afterEnter(el)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="实现加入购物车时候获得选择的数量"><a href="#实现加入购物车时候获得选择的数量" class="headerlink" title="实现加入购物车时候获得选择的数量"></a>实现加入购物车时候获得选择的数量</h3><ul>
+<li>分析： <ol>
+<li>按键属于父组件的，数字属于子组件的；</li>
+<li>涉及父子组件的嵌套，无法直接从父组件页面获得选中商品的数量；</li>
+<li>涉及子组件向父组件传值，事件调用机制；</li>
+</ol>
+</li>
+<li>解决方案： <ol>
+<li>本质： 父组件创建一个方法，子组件调用，并且传值回到父组件即可；</li>
+<li>通过ref在标签上应用，可以使用this.$refs.定义的组件.要拿到的DOM的属性，作为值传给父组件；<h3 id="获取最大库存量"><a href="#获取最大库存量" class="headerlink" title="获取最大库存量"></a>获取最大库存量</h3></li>
+</ol>
+</li>
+<li>分析：<ol>
+<li>绑定商品的最大值是通过异步操作获取的，通过父组件向子组件传值无法正常拿到该最大值，因为可能页面渲染完成后还没有完成异步操作，因此获取的是undefined，</li>
+<li>问题是我们不知道什么时候能狗拿到max值，但是我们总能有一时刻能够获取；</li>
+</ol>
+</li>
+<li>解决方案：<ol>
+<li>因此我们使用watch属性，监听max值得变化<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">&apos;max&apos;: function(newValue , oldValue) &#123;</span><br><span class="line">    mui(&apos;.mui-numbox&apos;).numbox().setOption(&apos;max&apos;,newValue)</span><br><span class="line">&#125;</span><br><span class="line">&#125;   //通过父组件向子组件传值，但是由watch监听数值的变化</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="如何从购物中获取商品的数量"><a href="#如何从购物中获取商品的数量" class="headerlink" title="如何从购物中获取商品的数量"></a>如何从购物中获取商品的数量</h3><ul>
+<li>解决方案： <ol>
+<li>先创建一个空对象；</li>
+<li>然后循环购物车中所有的数据，把当前循环这条商品的Id，作为对象的属性名，count作为对象的属性值。</li>
+<li>涉及到某对象的属性作为属性名，某属性作为属性值（属性重组）</li>
+<li>之后使用<code>$store.getters.getGoodsCount[item.id]</code>来获取count，通过父子传值即可实现。<h3 id="商品的删除"><a href="#商品的删除" class="headerlink" title="商品的删除"></a>商品的删除</h3></li>
+</ol>
+</li>
+<li>分析：<ol>
+<li>需要同时删除store的商品数据，同时也需要删除内部goodsList的数据，</li>
+</ol>
+</li>
+<li>解决方案： <ol>
+<li>那么需要通过点击事件触发，获取相应的id与index，id是用来删除store里面的数据，同时index是用来删除goodsList的数据，通过事件修改store里面的shopCar的值，形式是： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">remove(id , index) &#123;</span><br><span class="line">    this.store.commit(&apos;***&apos; , id)</span><br><span class="line">    this.goodList.splice(index , i)</span><br><span class="line">&#125;</span><br><span class="line">//在main.js这边</span><br><span class="line">//定义一个新方法</span><br><span class="line">//根据转过来的Id，</span><br><span class="line">//some方法中也有index</span><br><span class="line">removeCount(state , id) &#123;</span><br><span class="line">    store.shopCar.some((item , i) =&gt; &#123;</span><br><span class="line">        if(item.id == shop.id) &#123;</span><br><span class="line">        state.shopCar.splice(i , 1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(state.shopCar))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="按键的实现"><a href="#按键的实现" class="headerlink" title="按键的实现"></a>按键的实现</h3><ul>
+<li><p>分析</p>
+<ol>
+<li>通过true或者false来决定开关，通过id来确认是什么商品；</li>
+<li>再次进入界面时，按键默认为true，需要根据以前额历史来确定</li>
+</ol>
+</li>
+<li><p>解决方案： </p>
+<ol>
+<li><p>那么可以将其拼接为一个以id为属性名，以selected的值为属性值，拼接出一个对象；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var store = mew Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        shopCar: []</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    getters: &#123;</span><br><span class="line">        getAllSelected(state) &#123;</span><br><span class="line">            var o = &#123;&#125;;</span><br><span class="line">            state.shopCar.some(item =&gt; &#123;</span><br><span class="line">                o[item.id] = item.selected;</span><br><span class="line">            &#125;)</span><br><span class="line">            return o</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用this.$store.getters.getAllSelected[item.id]就可以获得select的值，绑定到官方提供的v-model中，但是并没有起到双向数据绑定；</p>
+</li>
+<li><p>通过change事件监听到其value的改变，并且通过<br><code>this.$store.commit(id , this.$store.getters.getAllSelected[item.id])</code><br>来实现更新store与localStorage的数据更新<br><code>val为形参，代表this.$store.getters.getAllSelected[item.id]</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    changeBtnState(id , val) &#123;</span><br><span class="line">        this.$store.commit(&apos;upBtnState&apos; , &#123;id, selected: val&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">        var store = mew Vuex.Store(&#123;</span><br><span class="line">        state: &#123;</span><br><span class="line">            shopCar: []</span><br><span class="line">        &#125;,</span><br><span class="line">        mutations: &#123;</span><br><span class="line">            upBtnState(state, info) &#123;</span><br><span class="line">                state.shopCCar.some(item =&gt; &#123;</span><br><span class="line">                    if(item.id == info.id) &#123;</span><br><span class="line">                        item.selected = info.selected;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(shopCar))</span><br><span class="line">                //保存到本地仓储中</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;    </span><br><span class="line">### 实现通过按键来决定总价； </span><br><span class="line">- 分析</span><br><span class="line">    1. 只有当按键的值为true的时候，才被选中加入总价；</span><br><span class="line">    2. 按键有一个双向数据绑定，但是病不起作用，需要时刻监听按键的变化；</span><br><span class="line">- 解决方案： </span><br><span class="line">    1. 利用jq里面的change事件，时刻监听按键值的变化，再在store中定义一个getters函数，监听总价的变化，并且时刻更新localStorage的数据与store的数据；</span><br><span class="line">    2. 一旦按键的值改变，就会触发change事件的响应，并立即调用在getters定义的函数，计算出总价的变化，并且更新store与localStorage的数据；</span><br></pre></td></tr></table></figure>
+
+<p>getters: {<br> calcAllAmount(state) {</p>
+<pre><code>var o = {
+    count : 0,
+    amount: 0
+}
+state.shopCar.forEach(item =&gt; {
+    if(item.selected) {
+        o.count += item.count;
+        o.amount += item.price * item.count
+    }
+})
+return o</code></pre><p> }<br>}   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">### 返回键的实现： </span><br><span class="line">- 分析： </span><br><span class="line">    1. 通过什么方式能够使按键每次触发时能根据历史纪录返回上一页；</span><br><span class="line">    2. 当再次刷新界面时，如何还能实现功能；</span><br><span class="line">    3. 在主页不展示返回键;</span><br><span class="line">    4. 如何监听url的地址的变化；</span><br><span class="line">- 解决方案： </span><br><span class="line">    1. 通过mint-ui添加返回键的样式；</span><br><span class="line">    2. 通过点击事件为其绑定一个方法，利用this.$route.path的方法来判断路由的地址；</span><br><span class="line">    3. 通过watch监听url地址的变化；</span><br></pre></td></tr></table></figure>
+
+<p>data() {<br> return {</p>
+<pre><code>flag = true</code></pre><p> }<br>},<br>created() { //在界面刷新是，通过this.$route.path判断路由地址是否在首页；<br> this.flag = this.$route.path === ‘/home’ ? false : true;<br>}<br>methods: {<br> goback() {</p>
+<pre><code>this.$router.go(-1)</code></pre><p>}<br>},<br>watch： { //监听路由地址的改变，并且判断<br> ‘$route.path’: function(newVal) {</p>
+<pre><code>if(newVal === &quot;/home&quot;) {
+    this.flag = false;
+}</code></pre><p> }<br>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 遇到的错误</span><br><span class="line">1. 缺少相关样式(缺少.ttf文件，可根据文件的索引找到)</span><br></pre></td></tr></table></figure>
+
+<p> ERROR in ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css<br> Module not found: Error: Can’t resolve ‘../fonts/mui-icons-extra.ttf’ in ‘C:\Users\ASUS\Desktop\html练习\vue-cms-template\src\lib\mui\css’<br> @ ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css 7:149-188<br> @ ./src/lib/mui/css/icons-extra.css<br> @ ./src/main.js<br> @ multi (webpack)-dev-server/client?<a href="http://localhost:303" target="_blank" rel="noopener">http://localhost:303</a> webpack/hot/dev-server ./src/main.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. 滑动滚动条是遇见的错误</span><br></pre></td></tr></table></figure>
+
+<p>[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive</p>
+</li>
+</ol>
+<ul>
+<li><p>全局配置一个*{  touch-action: pan-y; }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 初始化滑动条的时候导入控制台报错</span><br></pre></td></tr></table></figure>
+
+<p>  大概意思是在严格条件下无法使用’caller’ , ‘callee’ , ‘arguments’这三个参数<br>  安装插件并且修改plugins就好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">## 遇到的问题</span><br><span class="line">1. 用到路由时,需要使用引入vue-router并且在vue上面注册还要在实例上面注册;</span><br><span class="line">2. 动画的问题: 需要把v-写在父元素外面才能生效;</span><br><span class="line">3. 时间过滤器：</span><br><span class="line">    - 需要装包；` npm i moment -S `</span><br><span class="line">    - 需要在全局中导入moment；</span><br><span class="line">    - 如果直接调用moment的话，就是当前的时间；想格式化当前给定的时间，需要给moment传递参数；</span><br><span class="line">    - format需要参数表示以什么方式展示；</span><br><span class="line">4. 传递id；</span><br><span class="line">    - 因为在newsInfo上需要id表明哪个是哪个新闻，所以我们就要从newList上获取路径的id</span><br><span class="line">    - 通过绑定to的方式向另外的路由传递id；这个与父子路由值完全不同；</span><br><span class="line">5. 啥时候要用message[0];</span><br><span class="line">    - message中有很多信息，并且我们只需要其中的某一条；</span><br><span class="line">    - 或者是通过id传值；</span><br><span class="line">6. 制作评论子组件：**很关键**</span><br><span class="line">    - 获取评论信息： id是从父组件传递下来的，用props接受；</span><br><span class="line">    - 发表评论： 需要判断评论内容是否为空，post的方法发送评论：</span><br><span class="line">        1. 需要三个参数 网址 ， 对象为content ， 还有表格格式</span><br><span class="line">        2. 如果回调成功，那个我就制造一个对象传入数据的第一个；</span><br><span class="line">7. 传递id的几种方法；</span><br><span class="line">    1. 需要文中的id，则可以通过事件传递参数的方式获取对方的id；</span><br><span class="line">    2. 父传子的获取id；需要通过数据绑定，在子组件需要用props接受；</span><br><span class="line">    3. 子传父获取id，需要进行事件绑定，在子组件调用事件，并且通过$emit来传毒参数；</span><br><span class="line">    4. 需要获取上一个组建的id需要通过绑定：to的方式，在路由上面传递参数；并且要在自己的路由上定义一下id以获取它；</span><br><span class="line">8. 应用样式需要js表达式的时候</span><br><span class="line">    1. 为class类进行绑定；并且加上中括号，可以直接用三元表达式判断；</span><br><span class="line">    2. 需要判断该类是否要应用的时候需要用对象的方式来绑定；</span><br><span class="line">9. 获取元素的位置信息</span><br><span class="line">    1. 通过ref绑定一个参数，之后调用this.$refs.(绑定的那个值).getBoundingClientRect()即可获取位置信息；</span><br><span class="line">    2. 若是要获取的元素不在本页面，可以使用DOM的方法获取，还是调用getBoundingClientRect()方法；</span><br><span class="line">10. 子传父，</span><br><span class="line">    1. 在父组件通过调用一个函数，在子组件也调用一个函数</span><br><span class="line">    2. 但是子组件的函数以什么形式调用很关键，什么时候调用，调用会影响什么，一切都要想清楚；</span><br><span class="line">    3. 目前这个项目子组件的方法调用是监听数字盒子的改变，利用change函数监听，并且绑定了一个事件，这个事件就是子组件需要返回的函数</span><br><span class="line">11. vuex</span><br><span class="line">    1. 传值也是需要知道需要传递那些数据，需要通过mutations来修改store的数据，调用mutations需要使用this.$store.commit(&apos;***&apos; , &#123;&#125;)</span><br><span class="line">    2. getters相当于filter与watch，可以实现数据实时更新，可以通过this.$store.getters.***()来调用</span><br><span class="line">    3. 一定要学会拼接对象的方法，这个方法很关键；</span><br></pre></td></tr></table></figure>
+
+<p>  getters:{</p>
+<pre><code>var c = {}
+getAllCount(state, id) {
+    state.shopCar.forEach(item =&gt; {
+        c[item.id] = item.count
+    })
+    return c
+}</code></pre><p>  }<br>  通过调用$store.getters.getAllCount[item.id]即可获取item.count</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4. 删除要涉及的是三个方面的删除；页面上的删除，Vuex上store的数据删除；本地存储的删除</span><br><span class="line">    1. **删除是根据索引值删除的**</span><br></pre></td></tr></table></figure>
+
+<p>  removeItem(id , i) { //这些参数是从v-for中来的，定义方法的时候传进来的</p>
+<pre><code>this.goodsList.splice(i , 1);
+this.$store.commit(&apos;removeGoods&apos; , id)</code></pre><p>  }</p>
+  <!-- 在vuex中 -->
+<p>  var car = JSON.parse(localStorage.getItem(‘shopCar’) || ‘[]’)<br>  mutations: {</p>
+<pre><code>removeGoods(state , id) {
+    state.shopCar.some((item , i) =&gt; {
+        if(item.id == id) {
+            state.shopCar.splice(i , 1)
+            return true
+        }
+    })
+    localStorage.setItem(&apos;car&apos; , JSON.stringify(state.shopCar))
+}</code></pre><p>  }</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. 按键功能实现：</span><br></pre></td></tr></table></figure>
+
+<p>   mutations: {</p>
+<pre><code>getAllSelected(state , goodsInfo) {
+    state.shopCar.forEach(item =&gt; {
+        if(item.id === goodsInfo,id) {
+            item.selected = goodsInfo.selected
+        }
+    })
+}
+localStorage.setItem(&apos;car&apos; , JSON.stringify(&apos;state.shopCar))</code></pre><p>  },<br>  getters: {</p>
+<pre><code>getSelected(state) {
+    var o = {};
+    state.shopCar.forEach(item =&gt; {
+        o[item.id] = item.selected
+    })
+    return o
+}</code></pre><p>  }</p>
+<pre><code>1. 绑定在v-model上，利用`$store.getters.getSelected[item.id]`来获取selected，但是v-model不能起到双数据绑定的作用，也就是说不能狗通过点击按键来实现更新store的数据与改变localStorage的数据，因此还需要通过mutations来实现，
+- 问题来了，什么时候调用函数来实现传递数据给mutations呢？利用change事件监听按键的状态改变，一旦改变的话，就通过时间绑定将数据传递给mutations进而实现selected的实时更新</code></pre></li>
 </ul>
 </li>
 </ul>
@@ -590,8 +1852,7 @@
 </li>
 </ul>
 <h2 id="Vue组件化"><a href="#Vue组件化" class="headerlink" title="Vue组件化"></a>Vue组件化</h2><ul>
-<li><p>组件的含义： </p>
-<ul>
+<li>组件的含义： <ul>
 <li>组建的出现就是为了拆分Vue实例的代码量，能够让我们以不同的组件，来划分不同功能模块</li>
 <li>组件化与模块化的区别<ul>
 <li>模块化是为了后台开发是分层开发，保证每个功能职能专一；</li>
@@ -600,50 +1861,52 @@
 </li>
 </ul>
 </li>
-<li><p>使用Vue.extend创建；</p>
-</li>
-<li><p>通过template属性，指定组件要展示的HTML结构</p>
-</li>
-<li><p>返回值为创建出来的组件模板对象的名称；</p>
-</li>
-<li><p>Vue.component(展示的名字 ， Vue.extend的返回值)</p>
-<ul>
+<li>使用Vue.extend创建；</li>
+<li>通过template属性，指定组件要展示的HTML结构</li>
+<li>返回值为创建出来的组件模板对象的名称；</li>
+<li>Vue.component(展示的名字 ， Vue.extend的返回值)<ul>
 <li>驼峰命名法改为英文就好</li>
 </ul>
 </li>
-<li><p>通过字面量定义组件</p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">        Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">        template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line">         &#125;)</span><br><span class="line">- 与第二种类似</span><br><span class="line">    - 通过template： #temp；在外部定义组件结构，有提示与高亮。</span><br><span class="line">        - ``` </span><br><span class="line">              Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">                 template: #temp;</span><br><span class="line">               &#125;)</span><br><span class="line">               &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">                    //想展示的代码</span><br><span class="line">               &lt;/template&gt;</span><br><span class="line">- 创建私有组件</span><br><span class="line">    - 在Vue实例中，有components 可建立私有组件</span><br><span class="line">- 注意事项：</span><br><span class="line">    - 不论哪种形式创建的Vue将组建，都只能拥有一个根元素</span><br><span class="line"></span><br><span class="line">### 组件的data与methods</span><br><span class="line">- 组件中拥有data数据</span><br><span class="line">     - 组建的data与实例的data不一样，组件中的data必须是一个function，</span><br><span class="line">        还必须返回一个对象</span><br><span class="line">     - 使用方法与实例的data方法一样</span><br><span class="line">- 组件进行切换</span><br><span class="line">    - 利用v-for与v-else结合使用，但是只能两个来回切换。对于多个切换无能为力。</span><br><span class="line">    - Vue提供了component元素，来展示对应组件，他是一个占位符，:is属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号&apos;&apos;</span><br></pre></td></tr></table></figure>
+<li>通过字面量定义组件<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">        Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">        template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line">         &#125;)</span><br><span class="line">- 与第二种类似</span><br><span class="line">    - 通过template： #temp；在外部定义组件结构，有提示与高亮。</span><br><span class="line">        - ``` </span><br><span class="line">              Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">                 template: #temp;</span><br><span class="line">               &#125;)</span><br><span class="line">               &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">                    //想展示的代码</span><br><span class="line">               &lt;/template&gt;</span><br><span class="line">- 创建私有组件</span><br><span class="line">    - 在Vue实例中，有components 可建立私有组件</span><br><span class="line">- 注意事项：</span><br><span class="line">    - 不论哪种形式创建的Vue将组建，都只能拥有一个根元素</span><br><span class="line">### 过滤器</span><br><span class="line">1. 只能在v-bind中使用;</span><br><span class="line">2. 源数据并没有改变 , 第一个蚕食为过滤器的名字;管道夫后面那个数据就是过滤器名字;第二个参数为一个回调函数,处理需要过滤的数据;</span><br><span class="line">3. 过滤器还能够传递参数.传递的参数为回调函数的之后的几个参数;</span><br><span class="line">4. 还可以多次调用过滤器;</span><br><span class="line">5. 格式化时间</span><br></pre></td></tr></table></figure>
 
-<p><component :is="comName"></component></p>
-<ul>
-<li><p>通过改变事件来改变comName即可实现组件的切换，没有限制数量</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Vue.filter(‘data’ , function(dataStr) {<br>    var dt = new Date(dataStr)<br>})</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 组件的data与methods</span><br><span class="line">- 组件中拥有data数据</span><br><span class="line">     - 组建的data与实例的data不一样，组件中的data必须是一个function，</span><br><span class="line">        还必须返回一个对象</span><br><span class="line">     - 使用方法与实例的data方法一样</span><br><span class="line">- 组件进行切换</span><br><span class="line">    - 利用v-for与v-else结合使用，但是只能两个来回切换。对于多个切换无能为力。</span><br><span class="line">    - Vue提供了component元素，来展示对应组件，他是一个占位符，:is属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号&apos;&apos;</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;component :is=&apos;comName&apos;&gt;&lt;/component&gt;
+    - 通过改变事件来改变comName即可实现组件的切换，没有限制数量
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 组件过渡</span><br><span class="line">    - 在直接用translation包裹住就好，（组件切换动画）</span><br><span class="line">    - 通过mode 属性来实现组建切换时候的模式</span><br></pre></td></tr></table></figure>
 
-<p>beforeEnter() {<br>  this.flag =! this.flag<br>}<br>功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">        - Vue中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在transition上</span><br><span class="line">            - beforeEnter() &#123;&#125;</span><br><span class="line">            - enter() &#123;&#125;</span><br><span class="line">            - afterEnter() &#123;&#125;</span><br><span class="line">- 父组件与子组件</span><br><span class="line">    - 子组件默认无法访问父组件的data上的数据和methods中的方法</span><br><span class="line">    - 父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</span><br><span class="line">    - 若子组件想用父组件传下来的数据，需要在components中props中定义一下;</span><br><span class="line">    - props是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</span><br><span class="line">    - 使用父组件的方法，并且向父组件传参</span><br><span class="line">        - 通过字面量的方式创建模板对象，</span><br></pre></td></tr></table></figure>
+    beforeEnter() {
+        this.flag =! this.flag
+    }
+    功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">        - Vue中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在transition上</span><br><span class="line">            - beforeEnter() &#123;&#125;</span><br><span class="line">            - enter() &#123;&#125;</span><br><span class="line">            - afterEnter() &#123;&#125;</span><br><span class="line">- 父组件与子组件</span><br><span class="line">    - 子组件默认无法访问父组件的data上的数据和methods中的方法</span><br><span class="line">    - 父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</span><br><span class="line">    - 若子组件想用父组件传下来的数据，需要在components中props中定义一下;</span><br><span class="line">    - props是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</span><br><span class="line">    - 使用父组件的方法，并且向父组件传参</span><br><span class="line">        - 通过字面量的方式创建模板对象，</span><br></pre></td></tr></table></figure>
 
-<p>@function=’show’<br>  const com1 = {</p>
-<pre><code>template: &apos;#com2&apos;,
-methods: {
-    this.$emit(&apos;function&apos;,向父组件爨氐的参数)
-}</code></pre><p>  }<br>  //在实例内部定义一个私有组件<br>  methods: [</p>
-<pre><code>show() {
-    console.log(&apos;父组件内部的方法&apos;)
-}</code></pre><p>  ]<br>  components： {</p>
-<pre><code>com1</code></pre><p>  }</p>
-</li>
-</ul>
-</li>
-<li><p>子组件通过调用父组件方法，顺便向父组件传递数据</p>
-<ul>
-<li>emit(定义的方法名，子组件向父组件传递的参数。。。)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>ref 获取DOM元素</p>
-<ul>
+    @function=&apos;show&apos;
+        const com1 = {
+            template: &apos;#com2&apos;,
+            methods: {
+                this.$emit(&apos;function&apos;,向父组件爨氐的参数)
+            }
+        }
+        //在实例内部定义一个私有组件
+        methods: [
+            show() {
+                console.log(&apos;父组件内部的方法&apos;)
+            }
+        ]
+        components： {
+            com1
+        }
+- 子组件通过调用父组件方法，顺便向父组件传递数据
+    - emit(定义的方法名，子组件向父组件传递的参数。。。)</code></pre><ul>
+<li>ref 获取DOM元素<ul>
 <li>ref可引用DOM元素，键值为创建的名字，键值为一个对象可通过innerText获取内部文字</li>
 <li>也可以获取组建内部的data数据与方法，</li>
 <li>获取路径为实例上有个原生属性$refs.定义的名字.想要获取的内容</li>
@@ -1220,370 +2483,6 @@ module.export = {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/项目开发/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Junjie Fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/08/03/项目开发/" itemprop="url">
-                  项目开发1.0
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-03T19:29:34+08:00">
-                2019-08-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h1><h2 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h2><ul>
-<li><p>分析页面组成</p>
-<ul>
-<li>页面分为头部、主体、底部三个部分；</li>
-<li>头部是固定不动的Header –在Mint-UI上有现成的代码；</li>
-<li>底部是一般的界面但是在Mint——UI上的不符合需求，在MUI上有合适的样式</li>
-</ul>
-</li>
-<li><p>步骤：</p>
-<ol>
-<li><p>要一直有的概念就是Vue框架基本不用操作DOM，一切在页面渲染出来的界面都是从render函数的template模板中的；</p>
-</li>
-<li><p>因为模块是独立的，凡是应用到的框架或样式都需要在main.js中引进，无论Vue还是css；</p>
-</li>
-<li><p>MUI无法通过npm下载只能从下载下来，但是Mint-UI可以 </p>
-</li>
-<li><p>所需要的图标样式可以寻找要确保其所用到的样式都能下载下来;</p>
-</li>
-<li><p>改造 tabBar 为router-link</p>
-</li>
-<li><p>组件需要安装好，并且能都导入到main.js内部，还需要在指定的router模板对象中注册，指定的模板对象也要导入vue-router组件，还需要暴露出去<code>（export default router）</code></p>
-</li>
-<li><p><em>定义自己的组件一定记得import出去，因为模块是独立的没有根据的组件或则其他都会报错</em></p>
-</li>
-<li><p>轮播图从Mint-UI上查找，匹配进去之后他的高度还需要自行设计；</p>
-</li>
-<li><p>npm 安装 Vue-resource 向网页获取数据（照片），还需要import与Vue.use()注册，才能通过命令this.$http.get(“网址”)<br>获取成功的标志是 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.then(result =&gt; &#123; </span><br><span class="line">result.body.status === 0 //等于非零数字为获取失败 </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将保存的图片放入一个新数组中，在v-for渲染到页面中去</p>
-<ul>
-<li>注意： 需要绑定img或着url其中一个，因为他们都是唯一的；</li>
-<li>注意： 需要绑定src，表示这是一个 js 表达式，并不是普通字符串，要在src前加: 绑定后才能正常使用</li>
-</ul>
-</li>
-<li><p>样式的选择很重要，在源代码上查找，并找到合适的class类名，设置合适的样式；</p>
-</li>
-</ol>
-</li>
-</ul>
-<pre><code>14. 获取新闻详情
-        - 需要要为每个新闻绑定一个id，因为我们要去的地址带有js表达式，因此需要绑定` &lt;route-link :to=&quot;&apos;/home/newInfo/&apos; + item.id&quot;&gt;&lt;/route-link&gt; `
-        绑定to
-        - 获取id `$router.params.id`
-        - 需要在routes配置规则上传入参数id ` path: /home/newInfo/:id`
-16. 轮滑条无法正常使用
-            - webpack关闭严格模式
-17. 图片进行懒加载的效果
-        - 引入组件 在mint-UI上引入,并且使用
-        - 通过点击事件获得相应的数组列表,需要为方法传递一个参数:表示需要那个列表
-        - 一开始就要渲染出来第一页,因此传参数为0;
-        - Mint-ui为我们提供了图片的样式,样式一定要按照规则一步一步往下写;
-        - 若果运用按需导入,懒加载没有加载的圈圈,因此选用全部加载.
-18. 当使用router-link的时候界面的样式乱了,可能是对应的标签名更换了,因为router-link默认的标签为a标签
-22. 实现img:width100%,需要去除scope;
-
-## 注意
-### 提交评论
-- 先校验评论内容是否为空` this.mes.trim().length === 0 `
-- 通过post命令发送评论给服务器
-    - 参数1: 地址;
-    - 参数2: 提交给服务器的数据对象{ content: this.mes }
-    - 参数3: 提交内容的格式;可全局配置{ emulateJSON:true }
-- 拼接数据对此实现客户端手动更新
-    - 若调用getComment会pageIndex == 2的,那么第一页的评论内容就消失了
-    - 换一种思路:通过请求成功后,手动拼接对象通过unshift方法追加到评论的第一位置,从而实现到刷新的功能;
-###  区分
-- this.$route是参数对象,所有的路由参数,params,query都属于它,拥有着id以及很多的属性;
-- this.$router是一个路由导航对象,用它可以实现路由的前进后退,跳转到新的URL对象
-### 抽离子组件
-- 注意之前父组件的属性,还要使用子组件的父组件的的属性是否一致
-- 如果不一致,需要通过循环的方式为其添加相应的属性
-- 若之前的父组件与先有组父件的样式冲突,定义一个属性,让使用轮播图的调用者手动决定是否需要使用之前的样式;
-- 需要在父组件决定是否需要该组件,true or false ,再由子组件接受props绑定class对象决定某样式的样式
-### 在网页中有两种跳转方式
-- 一种是a标签改造为router-link,还有一种是 window.location.href\
-    //还需要在div或者其他的标签绑定点击事件,并且传参;
-    // 使用js来进行路由的切换
-    //对象
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&quot;/home/goodsInfo/:&quot;+ id)</span><br></pre></td></tr></table></figure>
-
-    // 运用path对象
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123;path: &quot;/home/goodsInfo/:&quot;+ id&#125;)</span><br></pre></td></tr></table></figure>
-
-    // 运用name属性,还需要在路由规则中添加一个属性name指定相迎的name
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123; name: &apos;goodsList&apos; , params: &#123;id&#125; &#125;)</span><br></pre></td></tr></table></figure>
-
-### 时间过滤器：
-- 先安装插件：npm i moment
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    Vue.filter(&apos;dateStr&apos; , function(&apos;data&apos; , pattern = &apos;yyyy-mm-dd&apos;)&#123;</span><br><span class="line">    return moment(dataStr).format(pattern)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-### Mint-UI的部分注意 
-- 导入样式的方法与导入vue的不一样；
-- Mint-UI是按需导入,导入相应的组件还需要注册
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如头部样式：</span><br><span class="line">import &#123; Header &#125; from &apos;mint-ui&apos;</span><br><span class="line">Vue.component(Header.name , Header)</span><br></pre></td></tr></table></figure>
-
-### 关于高亮的问题
-- 要是Mint—UI内部自带高亮，则可以利用组件的linkActiveClass属性来覆盖原有的样式，从而达到正常的需求；
-    - 关于scss的子代选择器
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    .mint-swipe&#123;</span><br><span class="line">       height: 200px;</span><br><span class="line">       .mint-swipe-item &#123;</span><br><span class="line">           &amp;:nth-child(1)&#123;</span><br><span class="line">               background-color: red;</span><br><span class="line">           &#125;</span><br><span class="line">           // 子带选择器需要&amp;符号</span><br><span class="line">           &amp;:nth-child(2)&#123;</span><br><span class="line">               background-color: greenYellow;</span><br><span class="line">           &#125;</span><br><span class="line">           &amp;:nth-child(3)&#123;</span><br><span class="line">               background-color: red;</span><br><span class="line">           &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-- 获取通过id获取新闻资讯，记得获取文件的类型。现在是一个数组但是新闻资讯是一个对象所以使用`this.NewsInfo = result.body.message[0] NewsInfo是一个对象 `，再通过对象来调取相应的数据；
-### 子组件导入
-- 子组件在父组件的components属性下注册,记得要先导入;
-
-### 父组件向子组件传值 
-- 在父组件内,子组件的占位符上绑定一个参数,在子组件上使用props注册一下,该属性是一个数组
-- 注意变量的使用;
-- 为了防止数据覆盖,让老数据与新数据使用一个concat方法拼接在一起;
-    -   ` this.setCmt = this.setCmt.concat(result.body.message)`
-### 解决框架之间的样式冲突
-- 分析 
-    1. 刚进入图片分享界面的时候，滚动条无法正常使用；
-    2. 当滑动条的ok后，发现tabBar无法正常工作，原因可能是，mint里面的样式与tabTar的样式冲突了；
-    3. 当同一个组件用的同一个样式值不同时；
-- 解决方案： 
-    1. 如果要进入初始化滚动条必须等DOM元素加载完毕，所以将滚动条放在了mounted生命周期钩子函数里；
-    2. 现在是把tabBar的样式复制一份换一个名字；（但是我找不全名字）
-    3. 当样式不符合要求的时候，需要进行绑定处理class时，通过id进行关键绑定`   &lt;a :class=&quot;[&apos;mui-control-item&apos; , item.id == 0 ? &apos;mui-active&apos; : &apos;&apos;]&quot;   `；
-### 解决经典的两边布局
-### 关于props的父组件箱子组将传值与子路由的绑定之间的区别
- - 父组件箱子组建传值需要每个父组件绑定一个属性值;子组件通过props接收到值;
- - 子路由与父路由,子路有需要在父路由上注册,绑定相应的id即可;
-### 加入动画
-- &lt;translation&gt;&lt;/translation&gt;包裹住router-view占位元素
-- 注意：
-    - 问题1： 图片先进去再回去；
-    - 原因1： 在v-leave-to中设置了translateX（100%）因此页面进去之后出来时要回到原来的那个地方，就会有再回来的动画
-    - 解决方法： 分开v-enter与v-leave-to并将其位置设为translateX(-100%)即可
-    - 问题2： 图片下方出现滚动条问题；
-    - 原因2： 再点击更换页面时，router检测到网址的改变，会瞬间展示出来对应的组件，因此页面的实际宽度就大于当前页面的宽度产生滚动条；
-    - 解决方法： 设置属性overflowX: hidden;* 一定要设置x轴方向上的hidden *
-    - 问题3： 图片先在下面再上去；
-    - 原因3： 目标没有position: absolute;
-    - 解决方法： 设置position: absolute;
-### 小球动画的优化
-- 分析： 
-     1. 因为对于不同的的分辨率或者长度不同的数据,小球的translate写死了就不能满足需求；
-- 解决方法: 
-     1. 利用domObject.getBoundingClientRect()可以获取元素的横纵坐标;
-     2.  通过两个位置的差值来获取准确的数据
-     3. 由于购物车不属于组件内的数据,因此打算稍稍利用dom来获取它位置
-- 注意：
-    1. 小球动画属于半场动画因此使用钩子函数
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@enter=&apos;enter&apos; enter(el, done) //需要调用el.offsetWidth才能有动画,还要执行一下done()函数</span><br><span class="line">@afterEnter= &apos;afterEnter&apos; afterEnter(el)</span><br></pre></td></tr></table></figure>
-
-### 实现加入购物车时候获得选择的数量
-- 分析： 
-    1. 按键属于父组件的，数字属于子组件的；
-    2. 涉及父子组件的嵌套，无法直接从父组件页面获得选中商品的数量；
-    3. 涉及子组件向父组件传值，事件调用机制；
-- 解决方案： 
-    1.  本质： 父组件创建一个方法，子组件调用，并且传值回到父组件即可；
-    2. 通过ref在标签上应用，可以使用this.$refs.定义的组件.要拿到的DOM的属性，作为值传给父组件；
-### 获取最大库存量
-- 分析：
-    1.  绑定商品的最大值是通过异步操作获取的，通过父组件向子组件传值无法正常拿到该最大值，因为可能页面渲染完成后还没有完成异步操作，因此获取的是undefined，
-    2. 问题是我们不知道什么时候能狗拿到max值，但是我们总能有一时刻能够获取；
-- 解决方案：
-    1. 因此我们使用watch属性，监听max值得变化
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">   &apos;max&apos;: function(newValue , oldValue) &#123;</span><br><span class="line">       mui(&apos;.mui-numbox&apos;).numbox().setOption(&apos;max&apos;,newValue)</span><br><span class="line">   &#125; </span><br><span class="line">&#125;   //通过父组件向子组件传值，但是由watch监听数值的变化</span><br></pre></td></tr></table></figure>
-
-### 保存到浏览器本地仓库
- - 分析： 
-    1. 因为数据仅仅保存在内存中，一旦更新数据，数据就会清空，这样会影响购买体验，需要把数据保存到本地localStorage中
-- 解决方案： 
-    1. 设置点击添加商品的事件，通过事件向vuex添加数据，通过this.$store.commit(&apos;mutations定义的方法&apos; , 传递到vuex的数据（对象）)；
-    2. 再通过getters为所需要数据的组件通过this.$store.getters.***(在getters内部定义的方法)，可以通过{{}}符号进行添加，并且数据是实时更新的；
-    3. 记得需要在vue实例中挂载store
-    4. 通过localStorage.setItem(&apos;数据名&apos; ， &apos;数据&apos;)，保存的数据是JSON类型，需要转化为字符串： JSON.stringify()进行转化。
-    5. 并且需要在列表一展开的时候就拥有当前本地仓储的数据，需要在
-     `var car = JSON.parse(localStorage.getItem(&apos;shopCar&apos;)|| &quot;[]&quot;)`再将car赋值给数组
-### 如何从购物中获取商品的数量
-- 解决方案： 
-    1. 先创建一个空对象；
-    2. 然后循环购物车中所有的数据，把当前循环这条商品的Id，作为对象的属性名，count作为对象的属性值。
-    3. 涉及到某对象的属性作为属性名，某属性作为属性值（属性重组）
-    4. 之后使用`$store.getters.getGoodsCount[item.id]`来获取count，通过父子传值即可实现。
-
-### 商品的删除
-- 分析：
-    1. 需要同时删除store的商品数据，同时也需要删除内部goodsList的数据，
- - 解决方案： 
-     1. 那么需要通过点击事件触发，获取相应的id与index，id是用来删除store里面的数据，同时index是用来删除goodsList的数据，通过事件修改store里面的shopCar的值，形式是： 
-     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">remove(id , index) &#123;</span><br><span class="line">    this.store.commit(&apos;***&apos; , id)</span><br><span class="line">    this.goodList.splice(index , i)</span><br><span class="line">&#125;</span><br><span class="line">//在main.js这边</span><br><span class="line">//定义一个新方法</span><br><span class="line">//根据转过来的Id，</span><br><span class="line">//some方法中也有index</span><br><span class="line">removeCount(state , id) &#123;</span><br><span class="line">    store.shopCar.some((item , i) =&gt; &#123;</span><br><span class="line">        if(item.id == shop.id) &#123;</span><br><span class="line">        state.shopCar.splice(i , 1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(state.shopCar))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
- ### 按键的实现
-- 分析
-    1. 通过true或者false来决定开关，通过id来确认是什么商品；
-    2. 再次进入界面时，按键默认为true，需要根据以前额历史来确定
-- 解决方案： 
-    1. 那么可以将其拼接为一个以id为属性名，以selected的值为属性值，拼接出一个对象；
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var store = mew Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        shopCar: []</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    getters: &#123;</span><br><span class="line">        getAllSelected(state) &#123;</span><br><span class="line">            var o = &#123;&#125;;</span><br><span class="line">            state.shopCar.some(item =&gt; &#123;</span><br><span class="line">                o[item.id] = item.selected;</span><br><span class="line">            &#125;)</span><br><span class="line">            return o</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-    2. 调用this.$store.getters.getAllSelected[item.id]就可以获得select的值，绑定到官方提供的v-model中，但是并没有起到双向数据绑定；
-    3. 通过change事件监听到其value的改变，并且通过\
-    `this.$store.commit(id , this.$store.getters.getAllSelected[item.id])`
-    来实现更新store与localStorage的数据更新\
-    ` val为形参，代表this.$store.getters.getAllSelected[item.id]`
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">    changeBtnState(id , val) &#123;</span><br><span class="line">        this.$store.commit(&apos;upBtnState&apos; , &#123;id, selected: val&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">        var store = mew Vuex.Store(&#123;</span><br><span class="line">        state: &#123;</span><br><span class="line">            shopCar: []</span><br><span class="line">        &#125;,</span><br><span class="line">        mutations: &#123;</span><br><span class="line">            upBtnState(state, info) &#123;</span><br><span class="line">                state.shopCCar.some(item =&gt; &#123;</span><br><span class="line">                    if(item.id == info.id) &#123;</span><br><span class="line">                        item.selected = info.selected;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(shopCar))</span><br><span class="line">                //保存到本地仓储中</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">            </span><br><span class="line">### 实现通过按键来决定总价； </span><br><span class="line">- 分析</span><br><span class="line">    1. 只有当按键的值为true的时候，才被选中加入总价；</span><br><span class="line">    2. 按键有一个双向数据绑定，但是病不起作用，需要时刻监听按键的变化；</span><br><span class="line">- 解决方案： </span><br><span class="line">    1. 利用jq里面的change事件，时刻监听按键值的变化，再在store中定义一个getters函数，监听总价的变化，并且时刻更新localStorage的数据与store的数据；</span><br><span class="line">    2. 一旦按键的值改变，就会触发change事件的响应，并立即调用在getters定义的函数，计算出总价的变化，并且更新store与localStorage的数据；</span><br></pre></td></tr></table></figure>
-
-    getters: {
-        calcAllAmount(state) {
-            var o = {
-                count : 0,
-                amount: 0
-            }
-            state.shopCar.forEach(item =&gt; {
-                if(item.selected) {
-                    o.count += item.count;
-                    o.amount += item.price * item.count
-                }
-            })
-            return o
-        }
-    }   
-
-### 返回键的实现： 
-- 分析： 
-    1. 通过什么方式能够使按键每次触发时能根据历史纪录返回上一页；
-    2. 当再次刷新界面时，如何还能实现功能；
-    3. 在主页不展示返回键;
-    4. 如何监听url的地址的变化；
-- 解决方案： 
-    1. 通过mint-ui添加返回键的样式；
-    2. 通过点击事件为其绑定一个方法，利用this.$route.path的方法来判断路由的地址；
-    3. 通过watch监听url地址的变化；
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            flag = true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created() &#123; //在界面刷新是，通过this.$route.path判断路由地址是否在首页；</span><br><span class="line">        this.flag = this.$route.path === &apos;/home&apos; ? false : true;</span><br><span class="line">    &#125;</span><br><span class="line">    methods: &#123;</span><br><span class="line">        goback() &#123;</span><br><span class="line">            this.$router.go(-1)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch： &#123; //监听路由地址的改变，并且判断</span><br><span class="line">        &apos;$route.path&apos;: function(newVal) &#123;</span><br><span class="line">            if(newVal === &quot;/home&quot;) &#123;</span><br><span class="line">                this.flag = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">- 遇到的错误</span><br><span class="line">    1. 缺少相关样式(缺少.ttf文件，可根据文件的索引找到)</span><br></pre></td></tr></table></figure>
-
-            ERROR in ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css
-            Module not found: Error: Can&apos;t resolve &apos;../fonts/mui-icons-extra.ttf&apos; in &apos;C:\Users\ASUS\Desktop\html练习\vue-cms-template\src\lib\mui\css&apos;
-            @ ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css 7:149-188
-            @ ./src/lib/mui/css/icons-extra.css
-            @ ./src/main.js
-            @ multi (webpack)-dev-server/client?http://localhost:303 webpack/hot/dev-server ./src/main.js
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. 滑动滚动条是遇见的错误</span><br></pre></td></tr></table></figure>
-
-    [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive
-    - 全局配置一个*{  touch-action: pan-y; }
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 初始化滑动条的时候导入控制台报错</span><br></pre></td></tr></table></figure>
-
-     大概意思是在严格条件下无法使用&apos;caller&apos; , &apos;callee&apos; , &apos;arguments&apos;这三个参数
-     安装插件并且修改plugins就好
-    ```</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1627,7 +2526,7 @@ module.export = {
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
