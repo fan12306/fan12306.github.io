@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="项目开发项目分析 分析页面组成  页面分为头部、主体、底部三个部分； 头部是固定不动的Header –在Mint-UI上有现成的代码； 底部是一般的界面但是在Mint——UI上的不符合需求，在MUI上有合适的样式   步骤：  要一直有的概念就是Vue框架基本不用操作DOM，一切在页面渲染出来的界面都是从render函数的template模板中的；  因为模块是独立的，凡是应用到的框架或样式都需要">
+<meta name="description" content="项目开发项目分析 分析页面组成  页面分为头部、主体、底部三个部分； 头部是固定不动的 Header –在 Mint-UI 上有现成的代码； 底部是一般的界面但是在 Mint——UI 上的不符合需求，在 MUI 上有合适的样式   步骤：  要一直有的概念就是 Vue 框架基本不用操作 DOM，一切在页面渲染出来的界面都是从 render 函数的 template 模板中的；  因为模块是独立的，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目开发1.0">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/项目开发/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="项目开发项目分析 分析页面组成  页面分为头部、主体、底部三个部分； 头部是固定不动的Header –在Mint-UI上有现成的代码； 底部是一般的界面但是在Mint——UI上的不符合需求，在MUI上有合适的样式   步骤：  要一直有的概念就是Vue框架基本不用操作DOM，一切在页面渲染出来的界面都是从render函数的template模板中的；  因为模块是独立的，凡是应用到的框架或样式都需要">
+<meta property="og:description" content="项目开发项目分析 分析页面组成  页面分为头部、主体、底部三个部分； 头部是固定不动的 Header –在 Mint-UI 上有现成的代码； 底部是一般的界面但是在 Mint——UI 上的不符合需求，在 MUI 上有合适的样式   步骤：  要一直有的概念就是 Vue 框架基本不用操作 DOM，一切在页面渲染出来的界面都是从 render 函数的 template 模板中的；  因为模块是独立的，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T09:34:55.565Z">
+<meta property="og:updated_time" content="2019-08-22T15:50:03.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目开发1.0">
-<meta name="twitter:description" content="项目开发项目分析 分析页面组成  页面分为头部、主体、底部三个部分； 头部是固定不动的Header –在Mint-UI上有现成的代码； 底部是一般的界面但是在Mint——UI上的不符合需求，在MUI上有合适的样式   步骤：  要一直有的概念就是Vue框架基本不用操作DOM，一切在页面渲染出来的界面都是从render函数的template模板中的；  因为模块是独立的，凡是应用到的框架或样式都需要">
+<meta name="twitter:description" content="项目开发项目分析 分析页面组成  页面分为头部、主体、底部三个部分； 头部是固定不动的 Header –在 Mint-UI 上有现成的代码； 底部是一般的界面但是在 Mint——UI 上的不符合需求，在 MUI 上有合适的样式   步骤：  要一直有的概念就是 Vue 框架基本不用操作 DOM，一切在页面渲染出来的界面都是从 render 函数的 template 模板中的；  因为模块是独立的，">
 
 
 
@@ -326,103 +326,102 @@
 <li><p>分析页面组成</p>
 <ul>
 <li>页面分为头部、主体、底部三个部分；</li>
-<li>头部是固定不动的Header –在Mint-UI上有现成的代码；</li>
-<li>底部是一般的界面但是在Mint——UI上的不符合需求，在MUI上有合适的样式</li>
+<li>头部是固定不动的 Header –在 Mint-UI 上有现成的代码；</li>
+<li>底部是一般的界面但是在 Mint——UI 上的不符合需求，在 MUI 上有合适的样式</li>
 </ul>
 </li>
 <li><p>步骤：</p>
 <ol>
-<li><p>要一直有的概念就是Vue框架基本不用操作DOM，一切在页面渲染出来的界面都是从render函数的template模板中的；</p>
+<li><p>要一直有的概念就是 Vue 框架基本不用操作 DOM，一切在页面渲染出来的界面都是从 render 函数的 template 模板中的；</p>
 </li>
-<li><p>因为模块是独立的，凡是应用到的框架或样式都需要在main.js中引进，无论Vue还是css；</p>
+<li><p>因为模块是独立的，凡是应用到的框架或样式都需要在 main.js 中引进，无论 Vue 还是 css；</p>
 </li>
-<li><p>MUI无法通过npm下载只能从下载下来，但是Mint-UI可以 </p>
+<li><p>MUI 无法通过 npm 下载只能从下载下来，但是 Mint-UI 可以</p>
 </li>
 <li><p>所需要的图标样式可以寻找要确保其所用到的样式都能下载下来;</p>
 </li>
-<li><p>改造 tabBar 为router-link</p>
+<li><p>改造 tabBar 为 router-link</p>
 </li>
-<li><p>组件需要安装好，并且能都导入到main.js内部，还需要在指定的router模板对象中注册，指定的模板对象也要导入vue-router组件，还需要暴露出去<code>（export default router）</code></p>
+<li><p>组件需要安装好，并且能都导入到 main.js 内部，还需要在指定的 router 模板对象中注册，指定的模板对象也要导入 vue-router 组件，还需要暴露出去<code>（export default router）</code></p>
 </li>
-<li><p><em>定义自己的组件一定记得import出去，因为模块是独立的没有根据的组件或则其他都会报错</em></p>
+<li><p><em>定义自己的组件一定记得 import 出去，因为模块是独立的没有根据的组件或则其他都会报错</em></p>
 </li>
-<li><p>轮播图从Mint-UI上查找，匹配进去之后他的高度还需要自行设计；</p>
+<li><p>轮播图从 Mint-UI 上查找，匹配进去之后他的高度还需要自行设计；</p>
 </li>
-<li><p>npm 安装 Vue-resource 向网页获取数据（照片），还需要import与Vue.use()注册，才能通过命令this.$http.get(“网址”)<br>获取成功的标志是 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.then(result =&gt; &#123; </span><br><span class="line">result.body.status === 0 //等于非零数字为获取失败 </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<li><p>npm 安装 Vue-resource 向网页获取数据（照片），还需要 import 与 Vue.use()注册，才能通过命令 this.$http.get(“网址”)<br>获取成功的标志是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.then(result =&gt; &#123;</span><br><span class="line">result.body.status === 0 //等于非零数字为获取失败</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将保存的图片放入一个新数组中，在v-for渲染到页面中去</p>
+<li><p>将保存的图片放入一个新数组中，在 v-for 渲染到页面中去</p>
 <ul>
-<li>注意： 需要绑定img或着url其中一个，因为他们都是唯一的；</li>
-<li>注意： 需要绑定src，表示这是一个 js 表达式，并不是普通字符串，要在src前加: 绑定后才能正常使用</li>
+<li>注意： 需要绑定 img 或着 url 其中一个，因为他们都是唯一的；</li>
+<li>注意： 需要绑定 src，表示这是一个 js 表达式，并不是普通字符串，要在 src 前加: 绑定后才能正常使用</li>
 </ul>
 </li>
-<li><p>样式的选择很重要，在源代码上查找，并找到合适的class类名，设置合适的样式；</p>
+<li><p>样式的选择很重要，在源代码上查找，并找到合适的 class 类名，设置合适的样式；</p>
 </li>
 <li><p>获取新闻详情</p>
 <ul>
-<li>需要要为每个新闻绑定一个id，因为我们要去的地址带有js表达式，因此需要绑定<code>&lt;route-link :to=&quot;&#39;/home/newInfo/&#39; + item.id&quot;&gt;&lt;/route-link&gt;</code><br>  绑定to</li>
-<li>获取id <code>$router.params.id</code></li>
-<li>需要在routes配置规则上传入参数id <code>path: /home/newInfo/:id</code></li>
+<li>需要要为每个新闻绑定一个 id，因为我们要去的地址带有 js 表达式，因此需要绑定<code>&lt;route-link :to=&quot;&#39;/home/newInfo/&#39; + item.id&quot;&gt;&lt;/route-link&gt;</code><br>绑定 to</li>
+<li>获取 id <code>$router.params.id</code></li>
+<li>需要在 routes 配置规则上传入参数 id <code>path: /home/newInfo/:id</code></li>
 </ul>
 </li>
 <li><p>轮滑条无法正常使用</p>
 <ul>
-<li>webpack关闭严格模式</li>
+<li>webpack 关闭严格模式</li>
 </ul>
 </li>
 <li><p>图片进行懒加载的效果</p>
 <ul>
-<li>引入组件 在mint-UI上引入,并且使用</li>
+<li>引入组件 在 mint-UI 上引入,并且使用</li>
 <li>通过点击事件获得相应的数组列表,需要为方法传递一个参数:表示需要那个列表</li>
-<li>一开始就要渲染出来第一页,因此传参数为0;</li>
-<li>Mint-ui为我们提供了图片的样式,样式一定要按照规则一步一步往下写;<ul>
+<li>一开始就要渲染出来第一页,因此传参数为 0;</li>
+<li>Mint-ui 为我们提供了图片的样式,样式一定要按照规则一步一步往下写;<ul>
 <li>若果运用按需导入,懒加载没有加载的圈圈,因此选用全部加载.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>当使用router-link的时候界面的样式乱了,可能是对应的标签名更换了,因为router-link默认的标签为a标签</p>
+<li><p>当使用 router-link 的时候界面的样式乱了,可能是对应的标签名更换了,因为 router-link 默认的标签为 a 标签</p>
 </li>
-<li><p>实现img:width100%,需要去除scope;</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><h3 id="提交评论"><a href="#提交评论" class="headerlink" title="提交评论"></a>提交评论</h3></li>
+<li><p>实现 img:width100%,需要去除 scope;</p>
+</li>
 </ol>
 </li>
-<li><p>先校验评论内容是否为空<code>this.mes.trim().length === 0</code></p>
-</li>
-<li><p>通过post命令发送评论给服务器</p>
-<ul>
-<li>参数1: 地址;</li>
-<li>参数2: 提交给服务器的数据对象{ content: this.mes }</li>
-<li>参数3: 提交内容的格式;可全局配置{ emulateJSON:true }</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><h3 id="提交评论"><a href="#提交评论" class="headerlink" title="提交评论"></a>提交评论</h3><ul>
+<li>先校验评论内容是否为空<code>this.mes.trim().length === 0</code></li>
+<li>通过 post 命令发送评论给服务器<ul>
+<li>参数 1: 地址;</li>
+<li>参数 2: 提交给服务器的数据对象{ content: this.mes }</li>
+<li>参数 3: 提交内容的格式;可全局配置{ emulateJSON:true }</li>
 </ul>
 </li>
-<li><p>拼接数据对此实现客户端手动更新</p>
-<ul>
-<li>若调用getComment会pageIndex == 2的,那么第一页的评论内容就消失了</li>
-<li>换一种思路:通过请求成功后,手动拼接对象通过unshift方法追加到评论的第一位置,从而实现到刷新的功能;<h3 id="区分"><a href="#区分" class="headerlink" title="区分"></a>区分</h3></li>
+<li>拼接数据对此实现客户端手动更新<ul>
+<li>若调用 getComment 会 pageIndex == 2 的,那么第一页的评论内容就消失了</li>
+<li>换一种思路:通过请求成功后,手动拼接对象通过 unshift 方法追加到评论的第一位置,从而实现到刷新的功能;</li>
 </ul>
 </li>
-<li><p>this.$route是参数对象,所有的路由参数,params,query都属于它,拥有着id以及很多的属性;</p>
-</li>
-<li><p>this.$router是一个路由导航对象,用它可以实现路由的前进后退,跳转到新的URL对象</p>
-<h3 id="抽离子组件"><a href="#抽离子组件" class="headerlink" title="抽离子组件"></a>抽离子组件</h3></li>
-<li><p>注意之前父组件的属性,还要使用子组件的父组件的的属性是否一致</p>
-</li>
-<li><p>如果不一致,需要通过循环的方式为其添加相应的属性</p>
-</li>
-<li><p>若之前的父组件与先有组父件的样式冲突,定义一个属性,让使用轮播图的调用者手动决定是否需要使用之前的样式;</p>
-</li>
-<li><p>需要在父组件决定是否需要该组件,true or false ,再由子组件接受props绑定class对象决定某样式的样式</p>
-<h3 id="在网页中有两种跳转方式"><a href="#在网页中有两种跳转方式" class="headerlink" title="在网页中有两种跳转方式"></a>在网页中有两种跳转方式</h3></li>
-<li><p>一种是a标签改造为router-link,还有一种是 window.location.href<br>  //还需要在div或者其他的标签绑定点击事件,并且传参;<br>  // 使用js来进行路由的切换<br>  //对象</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&quot;/home/goodsInfo/:&quot;+ id)</span><br></pre></td></tr></table></figure>
+</ul>
+<h3 id="区分"><a href="#区分" class="headerlink" title="区分"></a>区分</h3><ul>
+<li>this.$route 是参数对象,所有的路由参数,params,query 都属于它,拥有着 id 以及很多的属性;</li>
+<li>this.$router 是一个路由导航对象,用它可以实现路由的前进后退,跳转到新的 URL 对象</li>
+</ul>
+<h3 id="抽离子组件"><a href="#抽离子组件" class="headerlink" title="抽离子组件"></a>抽离子组件</h3><ul>
+<li>注意之前父组件的属性,还要使用子组件的父组件的的属性是否一致</li>
+<li>如果不一致,需要通过循环的方式为其添加相应的属性</li>
+<li>若之前的父组件与先有组父件的样式冲突,定义一个属性,让使用轮播图的调用者手动决定是否需要使用之前的样式;</li>
+<li>需要在父组件决定是否需要该组件,true or false ,再由子组件接受 props 绑定 class 对象决定某样式的样式</li>
+</ul>
+<h3 id="在网页中有两种跳转方式"><a href="#在网页中有两种跳转方式" class="headerlink" title="在网页中有两种跳转方式"></a>在网页中有两种跳转方式</h3><ul>
+<li><p>一种是 a 标签改造为 router-link,还有一种是 window.location.href<br> //还需要在 div 或者其他的标签绑定点击事件,并且传参;<br>// 使用 js 来进行路由的切换<br>//对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&quot;/home/goodsInfo/:&quot;+ id)</span><br></pre></td></tr></table></figure>
 
-<p>  // 运用path对象</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123;path: &quot;/home/goodsInfo/:&quot;+ id&#125;)</span><br></pre></td></tr></table></figure>
+<p>// 运用 path 对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123;path: &quot;/home/goodsInfo/:&quot;+ id&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>  // 运用name属性,还需要在路由规则中添加一个属性name指定相迎的name</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123; name: &apos;goodsList&apos; , params: &#123;id&#125; &#125;)</span><br></pre></td></tr></table></figure>
+<p>// 运用 name 属性,还需要在路由规则中添加一个属性 name 指定相迎的 name</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$router.push(&#123; name: &apos;goodsList&apos; , params: &#123;id&#125; &#125;)</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -431,109 +430,115 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    Vue.filter(&apos;dateStr&apos; , function(&apos;data&apos; , pattern = &apos;yyyy-mm-dd&apos;)&#123;</span><br><span class="line">    return moment(dataStr).format(pattern)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="Mint-UI的部分注意"><a href="#Mint-UI的部分注意" class="headerlink" title="Mint-UI的部分注意"></a>Mint-UI的部分注意</h3><ul>
-<li>导入样式的方法与导入vue的不一样；</li>
-<li>Mint-UI是按需导入,导入相应的组件还需要注册  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如头部样式：</span><br><span class="line">import &#123; Header &#125; from &apos;mint-ui&apos;</span><br><span class="line">Vue.component(Header.name , Header)</span><br></pre></td></tr></table></figure>
+<h3 id="Mint-UI-的部分注意"><a href="#Mint-UI-的部分注意" class="headerlink" title="Mint-UI 的部分注意"></a>Mint-UI 的部分注意</h3><ul>
+<li>导入样式的方法与导入 vue 的不一样；</li>
+<li>Mint-UI 是按需导入,导入相应的组件还需要注册<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例如头部样式：</span><br><span class="line">import &#123; Header &#125; from &apos;mint-ui&apos;</span><br><span class="line">Vue.component(Header.name , Header)</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h3 id="关于高亮的问题"><a href="#关于高亮的问题" class="headerlink" title="关于高亮的问题"></a>关于高亮的问题</h3><ul>
-<li><p>要是Mint—UI内部自带高亮，则可以利用组件的linkActiveClass属性来覆盖原有的样式，从而达到正常的需求；</p>
+<li><p>要是 Mint—UI 内部自带高亮，则可以利用组件的 linkActiveClass 属性来覆盖原有的样式，从而达到正常的需求；</p>
 <ul>
-<li>关于scss的子代选择器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    .mint-swipe&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    .mint-swipe-item &#123;</span><br><span class="line">        &amp;:nth-child(1)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">        // 子带选择器需要&amp;符号</span><br><span class="line">        &amp;:nth-child(2)&#123;</span><br><span class="line">            background-color: greenYellow;</span><br><span class="line">        &#125;</span><br><span class="line">        &amp;:nth-child(3)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>关于 scss 的子代选择器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    .mint-swipe&#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    .mint-swipe-item &#123;</span><br><span class="line">        &amp;:nth-child(1)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">        // 子带选择器需要&amp;符号</span><br><span class="line">        &amp;:nth-child(2)&#123;</span><br><span class="line">            background-color: greenYellow;</span><br><span class="line">        &#125;</span><br><span class="line">        &amp;:nth-child(3)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>获取通过id获取新闻资讯，记得获取文件的类型。现在是一个数组但是新闻资讯是一个对象所以使用<code>this.NewsInfo = result.body.message[0] NewsInfo是一个对象</code>，再通过对象来调取相应的数据；</p>
-<h3 id="子组件导入"><a href="#子组件导入" class="headerlink" title="子组件导入"></a>子组件导入</h3></li>
-<li><p>子组件在父组件的components属性下注册,记得要先导入;</p>
+<li><p>获取通过 id 获取新闻资讯，记得获取文件的类型。现在是一个数组但是新闻资讯是一个对象所以使用<code>this.NewsInfo = result.body.message[0] NewsInfo是一个对象</code>，再通过对象来调取相应的数据；</p>
 </li>
+</ul>
+<h3 id="子组件导入"><a href="#子组件导入" class="headerlink" title="子组件导入"></a>子组件导入</h3><ul>
+<li>子组件在父组件的 components 属性下注册,记得要先导入;</li>
 </ul>
 <h3 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h3><ul>
-<li>在父组件内,子组件的占位符上绑定一个参数,在子组件上使用props注册一下,该属性是一个数组</li>
+<li>在父组件内,子组件的占位符上绑定一个参数,在子组件上使用 props 注册一下,该属性是一个数组</li>
 <li>注意变量的使用;</li>
-<li>为了防止数据覆盖,让老数据与新数据使用一个concat方法拼接在一起;<ul>
-<li><code>this.setCmt = this.setCmt.concat(result.body.message)</code><h3 id="解决框架之间的样式冲突"><a href="#解决框架之间的样式冲突" class="headerlink" title="解决框架之间的样式冲突"></a>解决框架之间的样式冲突</h3></li>
+<li>为了防止数据覆盖,让老数据与新数据使用一个 concat 方法拼接在一起;<ul>
+<li><code>this.setCmt = this.setCmt.concat(result.body.message)</code></li>
 </ul>
 </li>
-<li>分析 <ol>
+</ul>
+<h3 id="解决框架之间的样式冲突"><a href="#解决框架之间的样式冲突" class="headerlink" title="解决框架之间的样式冲突"></a>解决框架之间的样式冲突</h3><ul>
+<li>分析<ol>
 <li>刚进入图片分享界面的时候，滚动条无法正常使用；</li>
-<li>当滑动条的ok后，发现tabBar无法正常工作，原因可能是，mint里面的样式与tabTar的样式冲突了；</li>
+<li>当滑动条的 ok 后，发现 tabBar 无法正常工作，原因可能是，mint 里面的样式与 tabTar 的样式冲突了；</li>
 <li>当同一个组件用的同一个样式值不同时；</li>
 </ol>
 </li>
-<li>解决方案： <ol>
-<li>如果要进入初始化滚动条必须等DOM元素加载完毕，所以将滚动条放在了mounted生命周期钩子函数里；</li>
-<li>现在是把tabBar的样式复制一份换一个名字；（但是我找不全名字）</li>
-<li>当样式不符合要求的时候，需要进行绑定处理class时，通过id进行关键绑定<code>&lt;a :class=&quot;[&#39;mui-control-item&#39; , item.id == 0 ? &#39;mui-active&#39; : &#39;&#39;]&quot;</code>；<h3 id="解决经典的两边布局"><a href="#解决经典的两边布局" class="headerlink" title="解决经典的两边布局"></a>解决经典的两边布局</h3><h3 id="关于props的父组件向子组将传值与子路由的绑定之间的区别"><a href="#关于props的父组件向子组将传值与子路由的绑定之间的区别" class="headerlink" title="关于props的父组件向子组将传值与子路由的绑定之间的区别"></a>关于props的父组件向子组将传值与子路由的绑定之间的区别</h3></li>
+<li>解决方案：<ol>
+<li>如果要进入初始化滚动条必须等 DOM 元素加载完毕，所以将滚动条放在了 mounted 生命周期钩子函数里；</li>
+<li>现在是把 tabBar 的样式复制一份换一个名字；（但是我找不全名字）</li>
+<li>当样式不符合要求的时候，需要进行绑定处理 class 时，通过 id 进行关键绑定<code>&lt;a :class=&quot;[&#39;mui-control-item&#39; , item.id == 0 ? &#39;mui-active&#39; : &#39;&#39;]&quot;</code>；</li>
 </ol>
-<ul>
-<li>父组件箱子组建传值需要每个父组件绑定一个属性值;子组件通过props接收到值;</li>
-<li>子路由与父路由,子路有需要在父路由上注册,绑定相应的id即可;<h3 id="加入动画"><a href="#加入动画" class="headerlink" title="加入动画"></a>加入动画</h3></li>
-</ul>
 </li>
-<li><translation></translation>包裹住router-view占位元素</li>
+</ul>
+<h3 id="解决经典的两边布局"><a href="#解决经典的两边布局" class="headerlink" title="解决经典的两边布局"></a>解决经典的两边布局</h3><h3 id="关于-props-的父组件向子组将传值与子路由的绑定之间的区别"><a href="#关于-props-的父组件向子组将传值与子路由的绑定之间的区别" class="headerlink" title="关于 props 的父组件向子组将传值与子路由的绑定之间的区别"></a>关于 props 的父组件向子组将传值与子路由的绑定之间的区别</h3><pre><code>- 父组件箱子组建传值需要每个父组件绑定一个属性值;子组件通过props接收到值;
+- 子路由与父路由,子路有需要在父路由上注册,绑定相应的id即可;</code></pre><h3 id="加入动画"><a href="#加入动画" class="headerlink" title="加入动画"></a>加入动画</h3><ul>
+<li><translation></translation>包裹住 router-view 占位元素</li>
 <li>注意：<ul>
-<li>问题1： 图片先进去再回去；</li>
-<li>原因1： 在v-leave-to中设置了translateX（100%）因此页面进去之后出来时要回到原来的那个地方，就会有再回来的动画</li>
-<li>解决方法： 分开v-enter与v-leave-to并将其位置设为translateX(-100%)即可</li>
-<li>问题2： 图片下方出现滚动条问题；</li>
-<li>原因2： 再点击更换页面时，router检测到网址的改变，会瞬间展示出来对应的组件，因此页面的实际宽度就大于当前页面的宽度产生滚动条；</li>
-<li>解决方法： 设置属性overflowX: hidden;* 一定要设置x轴方向上的hidden *</li>
-<li>问题3： 图片先在下面再上去；</li>
-<li>原因3： 目标没有position: absolute;</li>
-<li>解决方法： 设置position: absolute;<h3 id="小球动画的优化"><a href="#小球动画的优化" class="headerlink" title="小球动画的优化"></a>小球动画的优化</h3></li>
+<li>问题 1： 图片先进去再回去；</li>
+<li>原因 1： 在 v-leave-to 中设置了 translateX（100%）因此页面进去之后出来时要回到原来的那个地方，就会有再回来的动画</li>
+<li>解决方法： 分开 v-enter 与 v-leave-to 并将其位置设为 translateX(-100%)即可</li>
+<li>问题 2： 图片下方出现滚动条问题；</li>
+<li>原因 2： 再点击更换页面时，router 检测到网址的改变，会瞬间展示出来对应的组件，因此页面的实际宽度就大于当前页面的宽度产生滚动条；</li>
+<li>解决方法： 设置属性 overflowX: hidden;_ 一定要设置 x 轴方向上的 hidden _</li>
+<li>问题 3： 图片先在下面再上去；</li>
+<li>原因 3： 目标没有 position: absolute;</li>
+<li>解决方法： 设置 position: absolute;</li>
 </ul>
 </li>
-<li>分析： <pre><code>1. 因为对于不同的的分辨率或者长度不同的数据,小球的translate写死了就不能满足需求；</code></pre></li>
-<li>解决方法: <pre><code>1. 利用domObject.getBoundingClientRect()可以获取元素的横纵坐标;
-2.  通过两个位置的差值来获取准确的数据
-3. 由于购物车不属于组件内的数据,因此打算稍稍利用dom来获取它位置</code></pre></li>
+</ul>
+<h3 id="小球动画的优化"><a href="#小球动画的优化" class="headerlink" title="小球动画的优化"></a>小球动画的优化</h3><ul>
+<li>分析： 1. 因为对于不同的的分辨率或者长度不同的数据,小球的 translate 写死了就不能满足需求；</li>
+<li>解决方法: 1. 利用 domObject.getBoundingClientRect()可以获取元素的横纵坐标; 2. 通过两个位置的差值来获取准确的数据 3. 由于购物车不属于组件内的数据,因此打算稍稍利用 dom 来获取它位置</li>
 <li>注意：<ol>
-<li>小球动画属于半场动画因此使用钩子函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@enter=&apos;enter&apos; enter(el, done) //需要调用el.offsetWidth才能有动画,还要执行一下done()函数</span><br><span class="line">@afterEnter= &apos;afterEnter&apos; afterEnter(el)</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>小球动画属于半场动画因此使用钩子函数</li>
 </ol>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@enter=&apos;enter&apos; enter(el, done) //需要调用el.offsetWidth才能有动画,还要执行一下done()函数</span><br><span class="line">@afterEnter= &apos;afterEnter&apos; afterEnter(el)</span><br></pre></td></tr></table></figure>
+
 <h3 id="实现加入购物车时候获得选择的数量"><a href="#实现加入购物车时候获得选择的数量" class="headerlink" title="实现加入购物车时候获得选择的数量"></a>实现加入购物车时候获得选择的数量</h3><ul>
-<li>分析： <ol>
+<li>分析：<ol>
 <li>按键属于父组件的，数字属于子组件的；</li>
 <li>涉及父子组件的嵌套，无法直接从父组件页面获得选中商品的数量；</li>
 <li>涉及子组件向父组件传值，事件调用机制；</li>
 </ol>
 </li>
-<li>解决方案： <ol>
+<li>解决方案：<ol>
 <li>本质： 父组件创建一个方法，子组件调用，并且传值回到父组件即可；</li>
-<li>通过ref在标签上应用，可以使用this.$refs.定义的组件.要拿到的DOM的属性，作为值传给父组件；<h3 id="获取最大库存量"><a href="#获取最大库存量" class="headerlink" title="获取最大库存量"></a>获取最大库存量</h3></li>
+<li>通过 ref 在标签上应用，可以使用 this.$refs.定义的组件.要拿到的 DOM 的属性，作为值传给父组件；</li>
 </ol>
 </li>
+</ul>
+<h3 id="获取最大库存量"><a href="#获取最大库存量" class="headerlink" title="获取最大库存量"></a>获取最大库存量</h3><ul>
 <li>分析：<ol>
-<li>绑定商品的最大值是通过异步操作获取的，通过父组件向子组件传值无法正常拿到该最大值，因为可能页面渲染完成后还没有完成异步操作，因此获取的是undefined，</li>
-<li>问题是我们不知道什么时候能狗拿到max值，但是我们总能有一时刻能够获取；</li>
+<li>绑定商品的最大值是通过异步操作获取的，通过父组件向子组件传值无法正常拿到该最大值，因为可能页面渲染完成后还没有完成异步操作，因此获取的是 undefined，</li>
+<li>问题是我们不知道什么时候能狗拿到 max 值，但是我们总能有一时刻能够获取；</li>
 </ol>
 </li>
 <li>解决方案：<ol>
-<li>因此我们使用watch属性，监听max值得变化<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">&apos;max&apos;: function(newValue , oldValue) &#123;</span><br><span class="line">    mui(&apos;.mui-numbox&apos;).numbox().setOption(&apos;max&apos;,newValue)</span><br><span class="line">&#125;</span><br><span class="line">&#125;   //通过父组件向子组件传值，但是由watch监听数值的变化</span><br></pre></td></tr></table></figure>
+<li>因此我们使用 watch 属性，监听 max 值得变化<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">&apos;max&apos;: function(newValue , oldValue) &#123;</span><br><span class="line">    mui(&apos;.mui-numbox&apos;).numbox().setOption(&apos;max&apos;,newValue)</span><br><span class="line">&#125;</span><br><span class="line">&#125;   //通过父组件向子组件传值，但是由watch监听数值的变化</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 </li>
 </ul>
 <h3 id="如何从购物中获取商品的数量"><a href="#如何从购物中获取商品的数量" class="headerlink" title="如何从购物中获取商品的数量"></a>如何从购物中获取商品的数量</h3><ul>
-<li>解决方案： <ol>
+<li>解决方案：<ol>
 <li>先创建一个空对象；</li>
-<li>然后循环购物车中所有的数据，把当前循环这条商品的Id，作为对象的属性名，count作为对象的属性值。</li>
+<li>然后循环购物车中所有的数据，把当前循环这条商品的 Id，作为对象的属性名，count 作为对象的属性值。</li>
 <li>涉及到某对象的属性作为属性名，某属性作为属性值（属性重组）</li>
-<li>之后使用<code>$store.getters.getGoodsCount[item.id]</code>来获取count，通过父子传值即可实现。<h3 id="商品的删除"><a href="#商品的删除" class="headerlink" title="商品的删除"></a>商品的删除</h3></li>
+<li>之后使用<code>$store.getters.getGoodsCount[item.id]</code>来获取 count，通过父子传值即可实现。</li>
 </ol>
 </li>
+</ul>
+<h3 id="商品的删除"><a href="#商品的删除" class="headerlink" title="商品的删除"></a>商品的删除</h3><ul>
 <li>分析：<ol>
-<li>需要同时删除store的商品数据，同时也需要删除内部goodsList的数据，</li>
+<li>需要同时删除 store 的商品数据，同时也需要删除内部 goodsList 的数据，</li>
 </ol>
 </li>
-<li>解决方案： <ol>
-<li>那么需要通过点击事件触发，获取相应的id与index，id是用来删除store里面的数据，同时index是用来删除goodsList的数据，通过事件修改store里面的shopCar的值，形式是： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">remove(id , index) &#123;</span><br><span class="line">    this.store.commit(&apos;***&apos; , id)</span><br><span class="line">    this.goodList.splice(index , i)</span><br><span class="line">&#125;</span><br><span class="line">//在main.js这边</span><br><span class="line">//定义一个新方法</span><br><span class="line">//根据转过来的Id，</span><br><span class="line">//some方法中也有index</span><br><span class="line">removeCount(state , id) &#123;</span><br><span class="line">    store.shopCar.some((item , i) =&gt; &#123;</span><br><span class="line">        if(item.id == shop.id) &#123;</span><br><span class="line">        state.shopCar.splice(i , 1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(state.shopCar))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>解决方案：<ol>
+<li>那么需要通过点击事件触发，获取相应的 id 与 index，id 是用来删除 store 里面的数据，同时 index 是用来删除 goodsList 的数据，通过事件修改 store 里面的 shopCar 的值，形式是：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">remove(id , index) &#123;</span><br><span class="line">    this.store.commit(&apos;***&apos; , id)</span><br><span class="line">    this.goodList.splice(index , i)</span><br><span class="line">&#125;</span><br><span class="line">//在main.js这边</span><br><span class="line">//定义一个新方法</span><br><span class="line">//根据转过来的Id，</span><br><span class="line">//some方法中也有index</span><br><span class="line">removeCount(state , id) &#123;</span><br><span class="line">    store.shopCar.some((item , i) =&gt; &#123;</span><br><span class="line">        if(item.id == shop.id) &#123;</span><br><span class="line">        state.shopCar.splice(i , 1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(state.shopCar))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -542,102 +547,158 @@
 <h3 id="按键的实现"><a href="#按键的实现" class="headerlink" title="按键的实现"></a>按键的实现</h3><ul>
 <li><p>分析</p>
 <ol>
-<li>通过true或者false来决定开关，通过id来确认是什么商品；</li>
-<li>再次进入界面时，按键默认为true，需要根据以前额历史来确定</li>
+<li>通过 true 或者 false 来决定开关，通过 id 来确认是什么商品；</li>
+<li>再次进入界面时，按键默认为 true，需要根据以前额历史来确定</li>
 </ol>
 </li>
-<li><p>解决方案： </p>
+<li><p>解决方案：</p>
 <ol>
-<li><p>那么可以将其拼接为一个以id为属性名，以selected的值为属性值，拼接出一个对象；</p>
+<li><p>那么可以将其拼接为一个以 id 为属性名，以 selected 的值为属性值，拼接出一个对象；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var store = mew Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        shopCar: []</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    getters: &#123;</span><br><span class="line">        getAllSelected(state) &#123;</span><br><span class="line">            var o = &#123;&#125;;</span><br><span class="line">            state.shopCar.some(item =&gt; &#123;</span><br><span class="line">                o[item.id] = item.selected;</span><br><span class="line">            &#125;)</span><br><span class="line">            return o</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>调用this.$store.getters.getAllSelected[item.id]就可以获得select的值，绑定到官方提供的v-model中，但是并没有起到双向数据绑定；</p>
+<li><p>调用 this.$store.getters.getAllSelected[item.id]就可以获得 select 的值，绑定到官方提供的 v-model 中，但是并没有起到双向数据绑定；</p>
 </li>
-<li><p>通过change事件监听到其value的改变，并且通过<br><code>this.$store.commit(id , this.$store.getters.getAllSelected[item.id])</code><br>来实现更新store与localStorage的数据更新<br><code>val为形参，代表this.$store.getters.getAllSelected[item.id]</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    changeBtnState(id , val) &#123;</span><br><span class="line">        this.$store.commit(&apos;upBtnState&apos; , &#123;id, selected: val&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">        var store = mew Vuex.Store(&#123;</span><br><span class="line">        state: &#123;</span><br><span class="line">            shopCar: []</span><br><span class="line">        &#125;,</span><br><span class="line">        mutations: &#123;</span><br><span class="line">            upBtnState(state, info) &#123;</span><br><span class="line">                state.shopCCar.some(item =&gt; &#123;</span><br><span class="line">                    if(item.id == info.id) &#123;</span><br><span class="line">                        item.selected = info.selected;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(shopCar))</span><br><span class="line">                //保存到本地仓储中</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;    </span><br><span class="line">### 实现通过按键来决定总价； </span><br><span class="line">- 分析</span><br><span class="line">    1. 只有当按键的值为true的时候，才被选中加入总价；</span><br><span class="line">    2. 按键有一个双向数据绑定，但是病不起作用，需要时刻监听按键的变化；</span><br><span class="line">- 解决方案： </span><br><span class="line">    1. 利用jq里面的change事件，时刻监听按键值的变化，再在store中定义一个getters函数，监听总价的变化，并且时刻更新localStorage的数据与store的数据；</span><br><span class="line">    2. 一旦按键的值改变，就会触发change事件的响应，并立即调用在getters定义的函数，计算出总价的变化，并且更新store与localStorage的数据；</span><br></pre></td></tr></table></figure>
+<li><p>通过 change 事件监听到其 value 的改变，并且通过<br><code>this.$store.commit(id , this.$store.getters.getAllSelected[item.id])</code><br>来实现更新 store 与 localStorage 的数据更新<br><code>val为形参，代表this.$store.getters.getAllSelected[item.id]</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">changeBtnState(id , val) &#123;</span><br><span class="line">    this.$store.commit(&apos;upBtnState&apos; , &#123;id, selected: val&#125;)</span><br><span class="line">&#125;</span><br><span class="line">    var store = mew Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        shopCar: []</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        upBtnState(state, info) &#123;</span><br><span class="line">            state.shopCCar.some(item =&gt; &#123;</span><br><span class="line">                if(item.id == info.id) &#123;</span><br><span class="line">                    item.selected = info.selected;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(shopCar))</span><br><span class="line">            //保存到本地仓储中</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>getters: {<br> calcAllAmount(state) {</p>
-<pre><code>var o = {
-    count : 0,
-    amount: 0
-}
-state.shopCar.forEach(item =&gt; {
-    if(item.selected) {
-        o.count += item.count;
-        o.amount += item.price * item.count
-    }
-})
-return o</code></pre><p> }<br>}   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">### 返回键的实现： </span><br><span class="line">- 分析： </span><br><span class="line">    1. 通过什么方式能够使按键每次触发时能根据历史纪录返回上一页；</span><br><span class="line">    2. 当再次刷新界面时，如何还能实现功能；</span><br><span class="line">    3. 在主页不展示返回键;</span><br><span class="line">    4. 如何监听url的地址的变化；</span><br><span class="line">- 解决方案： </span><br><span class="line">    1. 通过mint-ui添加返回键的样式；</span><br><span class="line">    2. 通过点击事件为其绑定一个方法，利用this.$route.path的方法来判断路由的地址；</span><br><span class="line">    3. 通过watch监听url地址的变化；</span><br></pre></td></tr></table></figure>
-
-<p>data() {<br> return {</p>
-<pre><code>flag = true</code></pre><p> }<br>},<br>created() { //在界面刷新是，通过this.$route.path判断路由地址是否在首页；<br> this.flag = this.$route.path === ‘/home’ ? false : true;<br>}<br>methods: {<br> goback() {</p>
-<pre><code>this.$router.go(-1)</code></pre><p>}<br>},<br>watch： { //监听路由地址的改变，并且判断<br> ‘$route.path’: function(newVal) {</p>
-<pre><code>if(newVal === &quot;/home&quot;) {
-    this.flag = false;
-}</code></pre><p> }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 遇到的错误</span><br><span class="line">1. 缺少相关样式(缺少.ttf文件，可根据文件的索引找到)</span><br></pre></td></tr></table></figure>
-
-<p> ERROR in ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css<br> Module not found: Error: Can’t resolve ‘../fonts/mui-icons-extra.ttf’ in ‘C:\Users\ASUS\Desktop\html练习\vue-cms-template\src\lib\mui\css’<br> @ ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css 7:149-188<br> @ ./src/lib/mui/css/icons-extra.css<br> @ ./src/main.js<br> @ multi (webpack)-dev-server/client?<a href="http://localhost:303" target="_blank" rel="noopener">http://localhost:303</a> webpack/hot/dev-server ./src/main.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 滑动滚动条是遇见的错误</span><br></pre></td></tr></table></figure>
-
-<p>[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive</p>
 </li>
 </ol>
-<ul>
-<li><p>全局配置一个*{  touch-action: pan-y; }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 初始化滑动条的时候导入控制台报错</span><br></pre></td></tr></table></figure>
-
-<p>  大概意思是在严格条件下无法使用’caller’ , ‘callee’ , ‘arguments’这三个参数<br>  安装插件并且修改plugins就好</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">4. tabBar不能正常使用；样式冲突；</span><br><span class="line"></span><br><span class="line">## 遇到的问题</span><br><span class="line">1. 用到路由时,需要使用引入vue-router并且在vue上面注册还要在实例上面注册;</span><br><span class="line">2. 动画的问题: 需要把v-写在父元素外面才能生效;</span><br><span class="line">3. 时间过滤器：</span><br><span class="line">    - 需要装包；` npm i moment -S `</span><br><span class="line">    - 需要在全局中导入moment；</span><br><span class="line">    - 如果直接调用moment的话，就是当前的时间；想格式化当前给定的时间，需要给moment传递参数；</span><br><span class="line">    - format需要参数表示以什么方式展示；</span><br><span class="line">4. 传递id；</span><br><span class="line">    - 因为在newsInfo上需要id表明哪个是哪个新闻，所以我们就要从newList上获取路径的id</span><br><span class="line">    - 通过绑定to的方式向另外的路由传递id；这个与父子路由值完全不同；</span><br><span class="line">5. 啥时候要用message[0];</span><br><span class="line">    - message中有很多信息，并且我们只需要其中的某一条；</span><br><span class="line">    - 或者是通过id传值；</span><br><span class="line">6. 制作评论子组件：**很关键**</span><br><span class="line">    - 获取评论信息： id是从父组件传递下来的，用props接受；</span><br><span class="line">    - 发表评论： 需要判断评论内容是否为空，post的方法发送评论：</span><br><span class="line">        1. 需要三个参数 网址 ， 对象为content ， 还有表格格式</span><br><span class="line">        2. 如果回调成功，那个我就制造一个对象传入数据的第一个；</span><br><span class="line">7. 传递id的几种方法；</span><br><span class="line">    1. 需要文中的id，则可以通过事件传递参数的方式获取对方的id；</span><br><span class="line">    2. 父传子的获取id；需要通过数据绑定，在子组件需要用props接受；</span><br><span class="line">    3. 子传父获取id，需要进行事件绑定，在子组件调用事件，并且通过$emit来传毒参数；</span><br><span class="line">    4. 需要获取上一个组建的id需要通过绑定：to的方式，在路由上面传递参数；并且要在自己的路由上定义一下id以获取它；</span><br><span class="line">8. 应用样式需要js表达式的时候</span><br><span class="line">    1. 为class类进行绑定；并且加上中括号，可以直接用三元表达式判断；</span><br><span class="line">    2. 需要判断该类是否要应用的时候需要用对象的方式来绑定；</span><br><span class="line">9. 获取元素的位置信息</span><br><span class="line">    1. 通过ref绑定一个参数，之后调用this.$refs.(绑定的那个值).getBoundingClientRect()即可获取位置信息；</span><br><span class="line">    2. 若是要获取的元素不在本页面，可以使用DOM的方法获取，还是调用getBoundingClientRect()方法；</span><br><span class="line">10. 子传父，</span><br><span class="line">    1. 在父组件通过调用一个函数，在子组件也调用一个函数</span><br><span class="line">    2. 但是子组件的函数以什么形式调用很关键，什么时候调用，调用会影响什么，一切都要想清楚；</span><br><span class="line">    3. 目前这个项目子组件的方法调用是监听数字盒子的改变，利用change函数监听，并且绑定了一个事件，这个事件就是子组件需要返回的函数</span><br><span class="line">11. vuex</span><br><span class="line">    1. 传值也是需要知道需要传递那些数据，需要通过mutations来修改store的数据，调用mutations需要使用this.$store.commit(&apos;***&apos; , &#123;&#125;)</span><br><span class="line">    2. getters相当于filter与watch，可以实现数据实时更新，可以通过this.$store.getters.***()来调用</span><br><span class="line">    3. 一定要学会拼接对象的方法，这个方法很关键；</span><br></pre></td></tr></table></figure>
-
-<p>  getters:{</p>
-<pre><code>var c = {}
-getAllCount(state, id) {
-    state.shopCar.forEach(item =&gt; {
-        c[item.id] = item.count
-    })
-    return c
-}</code></pre><p>  }<br>  通过调用$store.getters.getAllCount[item.id]即可获取item.count</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4. 删除要涉及的是三个方面的删除；页面上的删除，Vuex上store的数据删除；本地存储的删除</span><br><span class="line">    1. **删除是根据索引值删除的**</span><br></pre></td></tr></table></figure>
-
-<p>  removeItem(id , i) { //这些参数是从v-for中来的，定义方法的时候传进来的</p>
-<pre><code>this.goodsList.splice(i , 1);
-this.$store.commit(&apos;removeGoods&apos; , id)</code></pre><p>  }</p>
-  <!-- 在vuex中 -->
-<p>  var car = JSON.parse(localStorage.getItem(‘shopCar’) || ‘[]’)<br>  mutations: {</p>
-<pre><code>removeGoods(state , id) {
-    state.shopCar.some((item , i) =&gt; {
-        if(item.id == id) {
-            state.shopCar.splice(i , 1)
-            return true
-        }
-    })
-    localStorage.setItem(&apos;car&apos; , JSON.stringify(state.shopCar))
-}</code></pre><p>  }</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. 按键功能实现：</span><br></pre></td></tr></table></figure>
-
-<p>   mutations: {</p>
-<pre><code>getAllSelected(state , goodsInfo) {
-    state.shopCar.forEach(item =&gt; {
-        if(item.id === goodsInfo,id) {
-            item.selected = goodsInfo.selected
-        }
-    })
-}
-localStorage.setItem(&apos;car&apos; , JSON.stringify(&apos;state.shopCar))</code></pre><p>  },<br>  getters: {</p>
-<pre><code>getSelected(state) {
-    var o = {};
-    state.shopCar.forEach(item =&gt; {
-        o[item.id] = item.selected
-    })
-    return o
-}</code></pre><p>  }</p>
-<pre><code>1. 绑定在v-model上，利用`$store.getters.getSelected[item.id]`来获取selected，但是v-model不能起到双数据绑定的作用，也就是说不能狗通过点击按键来实现更新store的数据与改变localStorage的数据，因此还需要通过mutations来实现，
-- 问题来了，什么时候调用函数来实现传递数据给mutations呢？利用change事件监听按键的状态改变，一旦改变的话，就通过时间绑定将数据传递给mutations进而实现selected的实时更新</code></pre></li>
-</ul>
 </li>
 </ul>
+<h3 id="实现通过按键来决定总价；"><a href="#实现通过按键来决定总价；" class="headerlink" title="实现通过按键来决定总价；"></a>实现通过按键来决定总价；</h3><ul>
+<li>分析<ol>
+<li>只有当按键的值为 true 的时候，才被选中加入总价；</li>
+<li>按键有一个双向数据绑定，但是病不起作用，需要时刻监听按键的变化；</li>
+</ol>
+</li>
+<li>解决方案：<ol>
+<li>利用 jq 里面的 change 事件，时刻监听按键值的变化，再在 store 中定义一个 getters 函数，监听总价的变化，并且时刻更新 localStorage 的数据与 store 的数据；</li>
+<li>一旦按键的值改变，就会触发 change 事件的响应，并立即调用在 getters 定义的函数，计算出总价的变化，并且更新 store 与 localStorage 的数据；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">getters: &#123;</span><br><span class="line">    calcAllAmount(state) &#123;</span><br><span class="line">        var o = &#123;</span><br><span class="line">            count : 0,</span><br><span class="line">            amount: 0</span><br><span class="line">        &#125;</span><br><span class="line">        state.shopCar.forEach(item =&gt; &#123;</span><br><span class="line">            if(item.selected) &#123;</span><br><span class="line">                o.count += item.count;</span><br><span class="line">                o.amount += item.price * item.count</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        return o</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="返回键的实现："><a href="#返回键的实现：" class="headerlink" title="返回键的实现："></a>返回键的实现：</h3><ul>
+<li>分析：<ol>
+<li>通过什么方式能够使按键每次触发时能根据历史纪录返回上一页；</li>
+<li>当再次刷新界面时，如何还能实现功能；</li>
+<li>在主页不展示返回键;</li>
+<li>如何监听 url 的地址的变化；</li>
+</ol>
+</li>
+<li>解决方案：<ol>
+<li>通过 mint-ui 添加返回键的样式；</li>
+<li>通过点击事件为其绑定一个方法，利用 this.$route.path 的方法来判断路由的地址；</li>
+<li>通过 watch 监听 url 地址的变化；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        flag = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">created() &#123; //在界面刷新是，通过this.$route.path判断路由地址是否在首页；</span><br><span class="line">    this.flag = this.$route.path === &apos;/home&apos; ? false : true;</span><br><span class="line">&#125;</span><br><span class="line">methods: &#123;</span><br><span class="line">    goback() &#123;</span><br><span class="line">        this.$router.go(-1)</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">watch： &#123; //监听路由地址的改变，并且判断</span><br><span class="line">    &apos;$route.path&apos;: function(newVal) &#123;</span><br><span class="line">        if(newVal === &quot;/home&quot;) &#123;</span><br><span class="line">            this.flag = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h3><ol>
+<li><p>缺少相关样式(缺少.ttf 文件，可根据文件的索引找到)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR in ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css</span><br><span class="line">Module not found: Error: Can&apos;t resolve &apos;../fonts/mui-icons-extra.ttf&apos; in &apos;C:\Users\ASUS\Desktop\html练习\vue-cms-template\src\lib\mui\css&apos;</span><br><span class="line">@ ./node_modules/css-loader!./src/lib/mui/css/icons-extra.css 7:149-188</span><br><span class="line">@ ./src/lib/mui/css/icons-extra.css</span><br><span class="line">@ ./src/main.js</span><br><span class="line">@ multi (webpack)-dev-server/client?http://localhost:303 webpack/hot/dev-server ./src/main.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>滑动滚动条是遇见的错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive</span><br><span class="line">- 全局配置一个*&#123;  touch-action: pan-y; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化滑动条的时候导入控制台报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">大概意思是在严格条件下无法使用&apos;caller&apos; , &apos;callee&apos; , &apos;arguments&apos;这三个参数</span><br><span class="line">安装插件并且修改plugins就好</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tabBar 不能正常使用；样式冲突；</p>
+</li>
+</ol>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
+<li><p>用到路由时,需要使用引入 vue-router 并且在 vue 上面注册还要在实例上面注册;</p>
+</li>
+<li><p>动画的问题: 需要把 v-写在父元素外面才能生效;</p>
+</li>
+<li><p>时间过滤器：</p>
+<ul>
+<li>需要装包；<code>npm i moment -S</code></li>
+<li>需要在全局中导入 moment；</li>
+<li>如果直接调用 moment 的话，就是当前的时间；想格式化当前给定的时间，需要给 moment 传递参数；</li>
+<li>format 需要参数表示以什么方式展示；</li>
+</ul>
+</li>
+<li><p>传递 id；</p>
+<ul>
+<li>因为在 newsInfo 上需要 id 表明哪个是哪个新闻，所以我们就要从 newList 上获取路径的 id</li>
+<li>通过绑定 to 的方式向另外的路由传递 id；这个与父子路由值完全不同；</li>
+</ul>
+</li>
+<li><p>啥时候要用 message[0];</p>
+<ul>
+<li>message 中有很多信息，并且我们只需要其中的某一条；</li>
+<li>或者是通过 id 传值；</li>
+</ul>
+</li>
+<li><p>制作评论子组件：<strong>很关键</strong></p>
+<ul>
+<li>获取评论信息： id 是从父组件传递下来的，用 props 接受；</li>
+<li>发表评论： 需要判断评论内容是否为空，post 的方法发送评论：<ol>
+<li>需要三个参数 网址 ， 对象为 content ， 还有表格格式</li>
+<li>如果回调成功，那个我就制造一个对象传入数据的第一个；</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>传递 id 的几种方法；</p>
+<ol>
+<li>需要文中的 id，则可以通过事件传递参数的方式获取对方的 id；</li>
+<li>父传子的获取 id；需要通过数据绑定，在子组件需要用 props 接受；</li>
+<li>子传父获取 id，需要进行事件绑定，在子组件调用事件，并且通过$emit 来传毒参数；</li>
+<li>需要获取上一个组建的 id 需要通过绑定：to 的方式，在路由上面传递参数；并且要在自己的路由上定义一下 id 以获取它；</li>
+</ol>
+</li>
+<li><p>应用样式需要 js 表达式的时候</p>
+<ol>
+<li>为 class 类进行绑定；并且加上中括号，可以直接用三元表达式判断；</li>
+<li>需要判断该类是否要应用的时候需要用对象的方式来绑定；</li>
+</ol>
+</li>
+<li><p>获取元素的位置信息</p>
+<ol>
+<li>通过 ref 绑定一个参数，之后调用 this.$refs.(绑定的那个值).getBoundingClientRect()即可获取位置信息；</li>
+<li>若是要获取的元素不在本页面，可以使用 DOM 的方法获取，还是调用 getBoundingClientRect()方法；</li>
+</ol>
+</li>
+<li><p>子传父，</p>
+<ol>
+<li>在父组件通过调用一个函数，在子组件也调用一个函数</li>
+<li>但是子组件的函数以什么形式调用很关键，什么时候调用，调用会影响什么，一切都要想清楚；</li>
+<li>目前这个项目子组件的方法调用是监听数字盒子的改变，利用 change 函数监听，并且绑定了一个事件，这个事件就是子组件需要返回的函数</li>
+</ol>
+</li>
+<li><p>vuex</p>
+<ol>
+<li><p>传值也是需要知道需要传递那些数据，需要通过 mutations 来修改 store 的数据，调用 mutations 需要使用 this.$store.commit(‘***‘ , {})</p>
+</li>
+<li><p>getters 相当于 filter 与 watch，可以实现数据实时更新，可以通过 this.$store.getters.***()来调用</p>
+</li>
+<li><p>一定要学会拼接对象的方法，这个方法很关键；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getters:&#123;</span><br><span class="line">    var c = &#123;&#125;</span><br><span class="line">    getAllCount(state, id) &#123;</span><br><span class="line">        state.shopCar.forEach(item =&gt; &#123;</span><br><span class="line">            c[item.id] = item.count</span><br><span class="line">        &#125;)</span><br><span class="line">        return c</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">通过调用$store.getters.getAllCount[item.id]即可获取item.count</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除要涉及的是三个方面的删除；页面上的删除，Vuex 上 store 的数据删除；本地存储的删除</p>
+<ol>
+<li><strong>删除是根据索引值删除的</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">removeItem(id , i) &#123; //这些参数是从v-for中来的，定义方法的时候传进来的</span><br><span class="line">    this.goodsList.splice(i , 1);</span><br><span class="line">    this.$store.commit(&apos;removeGoods&apos; , id)</span><br><span class="line">&#125;</span><br><span class="line">&lt;!-- 在vuex中 --&gt;</span><br><span class="line">var car = JSON.parse(localStorage.getItem(&apos;shopCar&apos;) || &apos;[]&apos;)</span><br><span class="line">mutations: &#123;</span><br><span class="line">    removeGoods(state , id) &#123;</span><br><span class="line">        state.shopCar.some((item , i) =&gt; &#123;</span><br><span class="line">            if(item.id == id) &#123;</span><br><span class="line">                state.shopCar.splice(i , 1)</span><br><span class="line">                return true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        localStorage.setItem(&apos;car&apos; , JSON.stringify(state.shopCar))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>按键功能实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> mutations: &#123;</span><br><span class="line">    getAllSelected(state , goodsInfo) &#123;</span><br><span class="line">        state.shopCar.forEach(item =&gt; &#123;</span><br><span class="line">            if(item.id === goodsInfo,id) &#123;</span><br><span class="line">                item.selected = goodsInfo.selected</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    localStorage.setItem(&apos;car&apos; , JSON.stringify(&apos;state.shopCar))</span><br><span class="line">&#125;,</span><br><span class="line">getters: &#123;</span><br><span class="line">    getSelected(state) &#123;</span><br><span class="line">        var o = &#123;&#125;;</span><br><span class="line">        state.shopCar.forEach(item =&gt; &#123;</span><br><span class="line">            o[item.id] = item.selected</span><br><span class="line">        &#125;)</span><br><span class="line">        return o</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>绑定在 v-model 上，利用<code>$store.getters.getSelected[item.id]</code>来获取 selected，但是 v-model 不能起到双数据绑定的作用，也就是说不能狗通过点击按键来实现更新 store 的数据与改变 localStorage 的数据，因此还需要通过 mutations 来实现，</li>
+</ol>
+<ul>
+<li>问题来了，什么时候调用函数来实现传递数据给 mutations 呢？利用 change 事件监听按键的状态改变，一旦改变的话，就通过时间绑定将数据传递给 mutations 进而实现 selected 的实时更新</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -684,8 +745,8 @@ localStorage.setItem(&apos;car&apos; , JSON.stringify(&apos;state.shopCar))</cod
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/05/css3/" rel="prev" title="css3">
-                css3 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/05/node/" rel="prev" title="node.js">
+                node.js <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -795,7 +856,7 @@ localStorage.setItem(&apos;car&apos; , JSON.stringify(&apos;state.shopCar))</cod
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目开发"><span class="nav-number">1.</span> <span class="nav-text">项目开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目分析"><span class="nav-number">1.1.</span> <span class="nav-text">项目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">1.2.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提交评论"><span class="nav-number">1.2.1.</span> <span class="nav-text">提交评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区分"><span class="nav-number">1.2.2.</span> <span class="nav-text">区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽离子组件"><span class="nav-number">1.2.3.</span> <span class="nav-text">抽离子组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网页中有两种跳转方式"><span class="nav-number">1.2.4.</span> <span class="nav-text">在网页中有两种跳转方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间过滤器："><span class="nav-number">1.2.5.</span> <span class="nav-text">时间过滤器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mint-UI的部分注意"><span class="nav-number">1.2.6.</span> <span class="nav-text">Mint-UI的部分注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于高亮的问题"><span class="nav-number">1.2.7.</span> <span class="nav-text">关于高亮的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子组件导入"><span class="nav-number">1.2.8.</span> <span class="nav-text">子组件导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件向子组件传值"><span class="nav-number">1.2.9.</span> <span class="nav-text">父组件向子组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决框架之间的样式冲突"><span class="nav-number">1.2.10.</span> <span class="nav-text">解决框架之间的样式冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决经典的两边布局"><span class="nav-number">1.2.11.</span> <span class="nav-text">解决经典的两边布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于props的父组件向子组将传值与子路由的绑定之间的区别"><span class="nav-number">1.2.12.</span> <span class="nav-text">关于props的父组件向子组将传值与子路由的绑定之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入动画"><span class="nav-number">1.2.13.</span> <span class="nav-text">加入动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小球动画的优化"><span class="nav-number">1.2.14.</span> <span class="nav-text">小球动画的优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现加入购物车时候获得选择的数量"><span class="nav-number">1.2.15.</span> <span class="nav-text">实现加入购物车时候获得选择的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最大库存量"><span class="nav-number">1.2.16.</span> <span class="nav-text">获取最大库存量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何从购物中获取商品的数量"><span class="nav-number">1.2.17.</span> <span class="nav-text">如何从购物中获取商品的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#商品的删除"><span class="nav-number">1.2.18.</span> <span class="nav-text">商品的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按键的实现"><span class="nav-number">1.2.19.</span> <span class="nav-text">按键的实现</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目开发"><span class="nav-number">1.</span> <span class="nav-text">项目开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目分析"><span class="nav-number">1.1.</span> <span class="nav-text">项目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">1.2.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提交评论"><span class="nav-number">1.2.1.</span> <span class="nav-text">提交评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区分"><span class="nav-number">1.2.2.</span> <span class="nav-text">区分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽离子组件"><span class="nav-number">1.2.3.</span> <span class="nav-text">抽离子组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网页中有两种跳转方式"><span class="nav-number">1.2.4.</span> <span class="nav-text">在网页中有两种跳转方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间过滤器："><span class="nav-number">1.2.5.</span> <span class="nav-text">时间过滤器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mint-UI-的部分注意"><span class="nav-number">1.2.6.</span> <span class="nav-text">Mint-UI 的部分注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于高亮的问题"><span class="nav-number">1.2.7.</span> <span class="nav-text">关于高亮的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子组件导入"><span class="nav-number">1.2.8.</span> <span class="nav-text">子组件导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件向子组件传值"><span class="nav-number">1.2.9.</span> <span class="nav-text">父组件向子组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决框架之间的样式冲突"><span class="nav-number">1.2.10.</span> <span class="nav-text">解决框架之间的样式冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决经典的两边布局"><span class="nav-number">1.2.11.</span> <span class="nav-text">解决经典的两边布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-props-的父组件向子组将传值与子路由的绑定之间的区别"><span class="nav-number">1.2.12.</span> <span class="nav-text">关于 props 的父组件向子组将传值与子路由的绑定之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入动画"><span class="nav-number">1.2.13.</span> <span class="nav-text">加入动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小球动画的优化"><span class="nav-number">1.2.14.</span> <span class="nav-text">小球动画的优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现加入购物车时候获得选择的数量"><span class="nav-number">1.2.15.</span> <span class="nav-text">实现加入购物车时候获得选择的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最大库存量"><span class="nav-number">1.2.16.</span> <span class="nav-text">获取最大库存量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何从购物中获取商品的数量"><span class="nav-number">1.2.17.</span> <span class="nav-text">如何从购物中获取商品的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#商品的删除"><span class="nav-number">1.2.18.</span> <span class="nav-text">商品的删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按键的实现"><span class="nav-number">1.2.19.</span> <span class="nav-text">按键的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现通过按键来决定总价；"><span class="nav-number">1.2.20.</span> <span class="nav-text">实现通过按键来决定总价；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回键的实现："><span class="nav-number">1.2.21.</span> <span class="nav-text">返回键的实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的错误"><span class="nav-number">1.2.22.</span> <span class="nav-text">遇到的错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.3.</span> <span class="nav-text">遇到的问题</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="music-App搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的  JSONP 的原理 ajax 请求受到同源策略的影响，不允许进行跨域请求，而 script 标签 src 属性中的连接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-21T15:53:04.804Z">
+<meta property="og:updated_time" content="2019-08-22T15:50:23.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目开发2.0">
 <meta name="twitter:description" content="music-App搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的  JSONP 的原理 ajax 请求受到同源策略的影响，不允许进行跨域请求，而 script 标签 src 属性中的连接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格">
@@ -328,7 +328,7 @@
 <h3 id="JSONP-的原理"><a href="#JSONP-的原理" class="headerlink" title="JSONP 的原理"></a>JSONP 的原理</h3><ol>
 <li>ajax 请求受到同源策略的影响，不允许进行跨域请求，而 script 标签 src 属性中的连接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格式的数据，而是返回一段调用某个函数的 js 代码，在 src 中进行了调用，这样就实现了调用。</li>
 </ol>
-<h2 id="stylus-CSS-的预处理框架"><a href="#stylus-CSS-的预处理框架" class="headerlink" title="stylus CSS 的预处理框架"></a>stylus CSS 的预处理框架</h2><h3 id="stylus-的概念"><a href="#stylus-的概念" class="headerlink" title="stylus 的概念"></a>stylus 的概念</h3><ol>
+<h1 id="stylus-CSS-的预处理框架"><a href="#stylus-CSS-的预处理框架" class="headerlink" title="stylus CSS 的预处理框架"></a>stylus CSS 的预处理框架</h1><h3 id="stylus-的概念"><a href="#stylus-的概念" class="headerlink" title="stylus 的概念"></a>stylus 的概念</h3><ol>
 <li>CSS 的预处理，顾名思义，预先处理 CSS ; stylus 给 CSS 添加了可编程的特性，也就说，在 stylus 中可以使用变量，函数，判断，循环一系列 CSS 没有的东西来编写样式文件，执行这一套后，课便以为 CSS 文件；</li>
 </ol>
 <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ol>
@@ -361,6 +361,105 @@
 
 <ol start="2">
 <li>属性会”向上冒泡“查找堆栈直到被发现，也就是说，向最近的父级选择器中寻找该属性对应的属性值并且应用上去</li>
+</ol>
+<h2 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h2><h3 id="插值-1"><a href="#插值-1" class="headerlink" title="插值"></a>插值</h3><ol>
+<li>支持通过使用{}字符包围表达式来插入值，其会变成标识符的一部分。</li>
+</ol>
+<h3 id="选择器插值"><a href="#选择器插值" class="headerlink" title="选择器插值"></a>选择器插值</h3><ol>
+<li>插值也可以在选择器上起作用。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">table</span><br><span class="line">    for raw in 1 2 3 4 5</span><br><span class="line">        tr:nth-child(&#123;row&#125;)</span><br><span class="line">            height: 10px * row</span><br><span class="line"></span><br><span class="line">也就是第一个子元素的height: 10px * 1; 第二个为height: 10px * 2</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="范围-包含边界-…-不包含"><a href="#范围-包含边界-…-不包含" class="headerlink" title="范围 .. 包含边界 … 不包含"></a>范围 .. 包含边界 … 不包含</h3><h3 id="加减-单位默认会进行转化，还剋拼接"><a href="#加减-单位默认会进行转化，还剋拼接" class="headerlink" title="加减 单位默认会进行转化，还剋拼接"></a>加减 单位默认会进行转化，还剋拼接</h3><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><ol>
+<li>像是 ES6 里面的默认参数</li>
+<li>参数是默认赋值，我们可以使用函数调用作为默认值</li>
+</ol>
+<h2 id="多个返回值"><a href="#多个返回值" class="headerlink" title="多个返回值"></a>多个返回值</h2><h3 id="相是数组一样通过索引来获取值；"><a href="#相是数组一样通过索引来获取值；" class="headerlink" title="相是数组一样通过索引来获取值；"></a>相是数组一样通过索引来获取值；</h3><h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h2 id="vue-中的-slot-插槽"><a href="#vue-中的-slot-插槽" class="headerlink" title="vue 中的 slot 插槽"></a>vue 中的 slot 插槽</h2><h3 id="相当于函数中的默认值，倘若父组件不传递值过来，那么默认的就是-slot-里面的数值"><a href="#相当于函数中的默认值，倘若父组件不传递值过来，那么默认的就是-slot-里面的数值" class="headerlink" title="相当于函数中的默认值，倘若父组件不传递值过来，那么默认的就是 slot 里面的数值"></a>相当于函数中的默认值，倘若父组件不传递值过来，那么默认的就是 slot 里面的数值</h3><h1 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h1><h2 id="addClass-与-hasClass"><a href="#addClass-与-hasClass" class="headerlink" title="addClass 与 hasClass"></a>addClass 与 hasClass</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export function addClass(el , className) &#123;</span><br><span class="line">    if(hasClass(el , className)) &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    const newClass = el.className.split(&apos; &apos;)</span><br><span class="line">    newClass.push(className)</span><br><span class="line">    el.className = newClass.join(&apos; &apos;)</span><br><span class="line">    //先将el.className拆分为字符串数组，其中他们是以逗号连接的，再将newClass  push进去，再让它们以空格连接</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export function hasClass(el , className) &#123;</span><br><span class="line">    let reg = new RegExp(&apos;(^|\\s) + className + (\\s|$)&apos;)</span><br><span class="line">    return reg.test(el.className)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="基本逻辑"><a href="#基本逻辑" class="headerlink" title="基本逻辑"></a>基本逻辑</h1><h2 id="轮播图的渲染时间"><a href="#轮播图的渲染时间" class="headerlink" title="轮播图的渲染时间"></a>轮播图的渲染时间</h2><ol>
+<li>因为轮播图是异步获取的，当 slider 在 mounted 渲染完成的时候，可能图片还没能获取到，因此我们需要判断，在 slider 上 v-if 判断，如果获取的数组的长度为 0 的时候，就隐藏 slot</li>
+</ol>
+<h2 id="Dots-的实现"><a href="#Dots-的实现" class="headerlink" title="Dots 的实现"></a>Dots 的实现</h2><ol>
+<li><p>通过获取的数据图片的多少来获取 dots 的数量，也是要注意获取 dots 的时间，因为一切都是要等获取到数据才能进行，因此 v-if 必不可少。</p>
+</li>
+<li><p>知道他有多少图片后再将根据他的 children 来获取 dots 的数量，建立一个空数组，通过 new Array（）的方法来获取数量；</p>
+</li>
+<li><p>接着通过遍历的方式，遍历到 dom 中</p>
+</li>
+</ol>
+<h2 id="Dots-的样式-active"><a href="#Dots-的样式-active" class="headerlink" title="Dots 的样式 active"></a>Dots 的样式 active</h2><ol>
+<li><p>分析：我们需要知道那个需要被激活，因此在遍历的时候还需要 index 来确定那个需要 active</p>
+</li>
+<li><p>我们还需要知道那个页面对应正在激活的 dot，因此在 mounted 的时候还需要获取到当前的页面值，在 better-scroll 中提供了一种方法，就是能够获取到当前的页面，</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.slider.on(&apos;scrollEnd&apos;, () =&gt; &#123;</span><br><span class="line">    let pageIndex = this.slider.getCurrentPage().pageX</span><br><span class="line">    this.currentPageIndex = pageIndex;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>通过 class 的绑定为其绑定样式即可</li>
+</ol>
+<h2 id="后端代理"><a href="#后端代理" class="headerlink" title="后端代理"></a>后端代理</h2><ol>
+<li><p>因为域名保护，因此我们无法拿到数据，只能通过后端代理来获取数据，前端无法绕过 Host 与 refer</p>
+</li>
+<li><p>前端请求修改为自己的 server 端，我们的地址再去请求服务端，通过 axios 请求来修改 Header 中 referer 与 Host 中的数据</p>
+</li>
+<li><p>反向代理：本方法是在自己的浏览器创建一个服务器，然后让自己的服务器去请求目标服务器。而且跨域是针对 JavaScript 来说的，JavaScript 是插入 HTML 页面后在浏览器上执行的脚本。服务器之间是可以随便请求数据而不受限制的。我们通过自己创建的服务器去请求目标服务器，然后在从我们客户端去请求我们自己创建的服务器，这就不存在跨域了。</p>
+</li>
+</ol>
+<h2 id="json-和-jsonp-的区别："><a href="#json-和-jsonp-的区别：" class="headerlink" title="json 和 jsonp 的区别："></a>json 和 jsonp 的区别：</h2><ol>
+<li><p>json 是一种格式，jsonp 是一种请求跨域资源的方式。</p>
+</li>
+<li><p>跨域：是指浏览器不能执行其他网站的脚本，它是由浏览器的同源策略造成的，是浏览器施加的安全限制。在跨域情况下，XMLHTTPRequest 是不能发送异步请求的。<br>所谓同源是指域名、协议、端口均相同。</p>
+</li>
+<li><p>那么，同是跨域方法，为什么轮播图的请求可以用 jsonp 的方式，而歌单的请求要使用反向代理，两个都是跨域方法。</p>
+</li>
+<li><p>比较两个请求 jsonp 和 proxyTable 反向代理的异同：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-jsonp原理：&lt;script&gt;标签里的src是没有跨域限制的，&lt;img&gt;标签里的src也是没有限制的，我们书写网页的过程中不难发现这一点。jsonp就是通过在本站脚本创建一个&lt;script&gt;便签，将地址指向第三方的API地址来达到第三方通讯的目的，并提供一个回调函数来接收数据，第三方响应为json数据的包装，这个是jsonp名字的由来（json padding）</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>jsonp 的局限性：只支持 GET 方式的 HTTP 请求，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题</li>
+</ol>
+<h1 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h1><h2 id="轮播图的实现"><a href="#轮播图的实现" class="headerlink" title="轮播图的实现"></a>轮播图的实现</h2><ol>
+<li><p>先定义三哥 props,确定好 loop、autoPlay、interval；</p>
+</li>
+<li><p>首先要手动计算轮播图的长度（包括展示的长度与 slider 的总长）</p>
+<ul>
+<li>涉及到的知识包括 mounted()生命周期函数</li>
+<li>定时器的使用；</li>
+<li>addClass 方法与 hasClass 方法的定义与使用；</li>
+<li>Vue 中的 ref 引用进而使用 dom</li>
+<li>可视宽度 clientWidth</li>
+<li>引用第三方库–better-scroll</li>
+</ul>
+</li>
+<li><p>初始化轮播图（为轮播图添加方法，全是 better-scroll 的 api）</p>
+</li>
+<li><p>autoPlay slider</p>
+<ul>
+<li>在 mounted 中判断一下，如果 this.slider 为 true 的时候执行 play 方法. play 方法的定义： 主要的思路在于让 pageIndex + 1</li>
+<li>定义一个定时器，setTimeout(() =&gt; {<br>this.slider.goToPage(pageIndex , 0 , 400)<br>}, this.interval)</li>
+<li>因为是色图 Timeout 只会执行一次，因此在 scroll 这个事件的时候，要判断<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(this.autoPlay) &#123;</span><br><span class="line">    clearTimeout(this.timer)//着拖动时关闭定时器</span><br><span class="line">    this.play()//即可</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><ol>
+<li><p>切换显示的窗口的时候，轮播图宽度未能及时改变</p>
+<ul>
+<li>需要在 mounted 监听窗口改变事件’resize’<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;resize&apos;, () =&gt; &#123;</span><br><span class="line">    if(!this.slider) &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    this._setSliderWidth(true)</span><br><span class="line">    this.slider.refresh()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>切换路由的时候，轮播图会重新获取数据</p>
+<ul>
+<li>不需要从新获取数据，因此我们在渲染组件的占位符中使用 keep-alive 包裹它，那么它就可以保存到缓存中就不会进行跳转了</li>
+</ul>
+</li>
+<li><p>当我们在在销毁组件的时候，记得关闭定时器，在生命周期 destoryed 中，<br>这是很好的编成习惯；</p>
+</li>
 </ol>
 
       
@@ -398,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/14/AJAX/" rel="next" title="AJAX">
-                <i class="fa fa-chevron-left"></i> AJAX
+              <a href="/2019/08/14/Bootstrap/" rel="next" title="Bootstrap4">
+                <i class="fa fa-chevron-left"></i> Bootstrap4
               </a>
             
           </div>
@@ -515,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#music-App"><span class="nav-number">1.</span> <span class="nav-text">music-App</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-vue-cli-脚手架"><span class="nav-number">1.1.</span> <span class="nav-text">搭建 vue-cli 脚手架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">1.2.</span> <span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP-的概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">JSONP 的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP-的原理"><span class="nav-number">1.2.2.</span> <span class="nav-text">JSONP 的原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stylus-CSS-的预处理框架"><span class="nav-number">1.3.</span> <span class="nav-text">stylus CSS 的预处理框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stylus-的概念"><span class="nav-number">1.3.1.</span> <span class="nav-text">stylus 的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">1.3.2.</span> <span class="nav-text">选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.4.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性查找"><span class="nav-number">1.4.2.</span> <span class="nav-text">属性查找</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#music-App"><span class="nav-number">1.</span> <span class="nav-text">music-App</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-vue-cli-脚手架"><span class="nav-number">1.1.</span> <span class="nav-text">搭建 vue-cli 脚手架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSONP"><span class="nav-number">1.2.</span> <span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP-的概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">JSONP 的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP-的原理"><span class="nav-number">1.2.2.</span> <span class="nav-text">JSONP 的原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stylus-CSS-的预处理框架"><span class="nav-number">2.</span> <span class="nav-text">stylus CSS 的预处理框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stylus-的概念"><span class="nav-number">2.0.1.</span> <span class="nav-text">stylus 的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.0.2.</span> <span class="nav-text">选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性查找"><span class="nav-number">2.1.2.</span> <span class="nav-text">属性查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插值"><span class="nav-number">2.2.</span> <span class="nav-text">插值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插值-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">插值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器插值"><span class="nav-number">2.2.2.</span> <span class="nav-text">选择器插值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">2.3.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#范围-包含边界-…-不包含"><span class="nav-number">2.3.1.</span> <span class="nav-text">范围 .. 包含边界 … 不包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加减-单位默认会进行转化，还剋拼接"><span class="nav-number">2.3.2.</span> <span class="nav-text">加减 单位默认会进行转化，还剋拼接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">2.4.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#返回值"><span class="nav-number">2.4.1.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认参数"><span class="nav-number">2.4.2.</span> <span class="nav-text">默认参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个返回值"><span class="nav-number">2.5.</span> <span class="nav-text">多个返回值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相是数组一样通过索引来获取值；"><span class="nav-number">2.5.1.</span> <span class="nav-text">相是数组一样通过索引来获取值；</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">3.</span> <span class="nav-text">Vue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-中的-slot-插槽"><span class="nav-number">3.1.</span> <span class="nav-text">vue 中的 slot 插槽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相当于函数中的默认值，倘若父组件不传递值过来，那么默认的就是-slot-里面的数值"><span class="nav-number">3.1.1.</span> <span class="nav-text">相当于函数中的默认值，倘若父组件不传递值过来，那么默认的就是 slot 里面的数值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础组件"><span class="nav-number">4.</span> <span class="nav-text">基础组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#addClass-与-hasClass"><span class="nav-number">4.1.</span> <span class="nav-text">addClass 与 hasClass</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本逻辑"><span class="nav-number">5.</span> <span class="nav-text">基本逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮播图的渲染时间"><span class="nav-number">5.1.</span> <span class="nav-text">轮播图的渲染时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dots-的实现"><span class="nav-number">5.2.</span> <span class="nav-text">Dots 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dots-的样式-active"><span class="nav-number">5.3.</span> <span class="nav-text">Dots 的样式 active</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端代理"><span class="nav-number">5.4.</span> <span class="nav-text">后端代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json-和-jsonp-的区别："><span class="nav-number">5.5.</span> <span class="nav-text">json 和 jsonp 的区别：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本思路"><span class="nav-number">6.</span> <span class="nav-text">基本思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮播图的实现"><span class="nav-number">6.1.</span> <span class="nav-text">轮播图的实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能优化"><span class="nav-number">7.</span> <span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#轮播图"><span class="nav-number">7.1.</span> <span class="nav-text">轮播图</span></a></li></ol></li></div>
             
 
           </div>
