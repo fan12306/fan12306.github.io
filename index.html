@@ -248,6 +248,254 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/better.-scoll/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/25/better.-scoll/" itemprop="url">
+                  better-scroll
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-25T19:29:34+08:00">
+                2019-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="better-scroll"><a href="#better-scroll" class="headerlink" title="better-scroll"></a>better-scroll</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="作用：重点解决移动端的各种滚动场景的需求"><a href="#作用：重点解决移动端的各种滚动场景的需求" class="headerlink" title="作用：重点解决移动端的各种滚动场景的需求"></a>作用：重点解决移动端的各种滚动场景的需求</h3><h3 id="作用区域"><a href="#作用区域" class="headerlink" title="作用区域"></a>作用区域</h3><ol>
+<li>better-scroll 是作用在外层 wrapper 容器上的，滚动的部分是 content 元素。这里要注意的是，better-scroll 只处理容器（wrapper）的第一个子元素（content）的滚动，其它的元素都会被忽略。</li>
+</ol>
+<h2 id="滚动原理"><a href="#滚动原理" class="headerlink" title="滚动原理"></a>滚动原理</h2><h3 id="父元素的固定高度要低于子元素的高度"><a href="#父元素的固定高度要低于子元素的高度" class="headerlink" title="父元素的固定高度要低于子元素的高度"></a>父元素的固定高度要低于子元素的高度</h3><h2 id="选项-基础"><a href="#选项-基础" class="headerlink" title="选项/基础"></a>选项/基础</h2><ol>
+<li>better-scroll 支持很多的参数配置，可以在初始化的时候传入第二个参数，</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let scroll = new BScroll(&apos;wrapper&apos; &#123;</span><br><span class="line">    scrollY: true,</span><br><span class="line">    click: true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这样就可实现纵向可点击活动效果</p>
+<h3 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h3><ol>
+<li><p>startX</p>
+<ul>
+<li>type: Number,</li>
+<li>default: 0,</li>
+<li>function: 横轴方向初始化位置</li>
+<li>function： 纵轴方向初始化位置（starY）</li>
+</ul>
+</li>
+<li><p>scrollX</p>
+<ul>
+<li>type: Boolean,</li>
+<li>default: false,</li>
+<li>function: 当设置为 true 的时候，可以开启横向滚动</li>
+<li>function： 当设置为 true 的时候，可以开启纵向滚动（scrollY）</li>
+</ul>
+</li>
+<li><p>freeScroll</p>
+<ul>
+<li>type：Boolean，</li>
+<li>default: false,</li>
+<li>function: 不限制滚动的方向</li>
+</ul>
+</li>
+<li><p>click: true 是否派发 click 事件，通常判断浏览器派发的 click 还 betterscroll 派发的 click，可以用_constructed，若是 bs 派发的则为 true</p>
+</li>
+<li><p>directionLockThreshold: 5</p>
+</li>
+<li><p>momentum: true 当快速滑动时是否开启滑动惯性</p>
+</li>
+<li><p>bounce: true 是否启用回弹动画效果</p>
+</li>
+<li><p>selectedIndex: 0 wheel 为 true 时有效，表示被选中的 wheel 索引</p>
+</li>
+<li><p>rotate: 25 wheel 为 true 时有效，表示被选中的 wheel 每一层的旋转角度</p>
+</li>
+<li><p>wheel: false 该属性是给 picker 组件使用的，普通的列表滚动不需要配置</p>
+</li>
+<li><p>snap: false 该属性是给 slider 组件使用的，普通的列表滚动不需要配置</p>
+</li>
+<li><p>snapLoop: false 是否可以无缝循环轮播</p>
+</li>
+<li><p>snapThreshold: 0.1 用手指滑动时页面可切换的阈值，大于这个阈值可以滑动的下一页</p>
+</li>
+<li><p>snapSpeed: 400, 轮播图切换的动画时间</p>
+</li>
+<li><p>swipeTime: 2500 swipe 持续时间</p>
+</li>
+<li><p>bounceTime: 700 弹力动画持续的毫秒数</p>
+</li>
+<li><p>adjustTime: 400 wheel 为 true 有用，调整停留位置的时间</p>
+</li>
+<li><p>swipeBounceTime: 1200 swipe 回弹 时间</p>
+</li>
+<li><p>deceleration: 0.001 滚动动量减速越大越快，建议不大于 0.01</p>
+</li>
+<li><p>momentumLimitTime: 300 符合惯性拖动的最大时间</p>
+</li>
+<li><p>momentumLimitDistance: 15 符合惯性拖动的最小拖动距离</p>
+</li>
+<li><p>resizePolling: 60 重新调整窗口大小时，重新计算</p>
+</li>
+<li><p>better-scroll 的时间间隔</p>
+</li>
+<li><p>preventDefault: true 是否阻止默认事件</p>
+</li>
+<li><p>preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ } 阻止默认事件</p>
+</li>
+<li><p>HWCompositing: true 是否启用硬件加速</p>
+</li>
+<li><p>useTransition: true 是否使用 CSS3 的 Transition 属性</p>
+</li>
+<li><p>useTransform: true 是否使用 CSS3 的 Transform 属性</p>
+</li>
+<li><p>probeType: 1 滚动的时候会派发 scroll 事件，会截流。2 滚动的时候实时派发 scroll 事件，不会截流。 3 除了实时派发 scroll 事件，在 swipe 的情况下仍然能实时派发 scroll 事件</p>
+</li>
+</ol>
+<h2 id="Events-事件"><a href="#Events-事件" class="headerlink" title="Events 事件"></a>Events 事件</h2><ol>
+<li>beforeScrollStart 滚动开始之前触发</li>
+<li>scrollStart 滚动开始时触发</li>
+<li>scroll 滚动时触发</li>
+<li>scrollCancel 取消滚动时触发</li>
+<li>scrollEnd 滚动结束时触发</li>
+<li>touchend 手指移开的时候触发</li>
+<li>flick 触发了 fastclick 的时候触发</li>
+<li>refresh 当 better-scroll 刷新的时候触发</li>
+<li>destroy 销毁的 better-scroll 的时候触发</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">实例</span><br><span class="line">cosnt scroll = new BScroll($this.$refs.wrapper,&#123;</span><br><span class="line">    probeType : 3</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">scroll.on(&apos;scrollEnd&apos;,(pos) =&gt; &#123;</span><br><span class="line">    console.log(pos)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数列表"><a href="#函数列表" class="headerlink" title="函数列表"></a>函数列表</h2><ol>
+<li><p>scrollTo(x,y,time,easing) 滚动到某个位置 x,y 代表坐标，time 表示动画的时间，easing 表示混动函数的，scroll.scrollTo(0,500)</p>
+</li>
+<li><p>scrollToElement(el,time,offsetX,offsetY,easing)表示滚动到某个 el ，el 代表的是 dom 元素，time 表示动画时间，offsetX 与 offsetY 表示坐标偏移量，easing 表示缓动动画</p>
+</li>
+<li><p>refresh（） 强制 scroll 重新计算，当 better-scroll 中的元素发生变化的时候调用此方法</p>
+</li>
+<li><p>getCurrentPage() 当 snap 为 true 时，获取滚动的当前页面，返回对象的结构为(x, y, pageX, pageY),其中 x，y 代表滚动横向哥纵向的位置：pageX，pageY 表示横向和纵向的页面索引，用法为 scroll.getCurrentPage().pageX</p>
+</li>
+<li><p>goToPage(x, y, time, easing) snap 为 true 滚动到对应的页面，x 表示横向页面索引，y 表示纵向索引，time 表示动画，easing 表示缓动函数</p>
+</li>
+<li><p>enable() 启用 better-scroll, 默认开启</p>
+</li>
+<li><p>disable 禁用 better-scroll</p>
+</li>
+<li><p>destroy 销毁 better-scroll，解绑时间</p>
+</li>
+</ol>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
+<li><p>better-scroll 的初始化时机很重要，因为它在初始化的时候，会计算父元素和子元素的高度和宽度，来决定是否可以纵向和横向滚动。因此，我们在初始化它的时候，必须确保父元素和子元素的内容已经正确渲染了。如果子元素或者父元素 DOM 结构发生改变的时候，必须重新调用 scroll.refresh() 方法重新计算来确保滚动效果的正常。所以同学们反馈的 better-scroll 不能滚动的原因多半是初始化 better-scroll 的时机不对，或者是当 DOM 结构发送变化的时候并没有重新计算 better-scroll。</p>
+</li>
+<li><p>Vue 为我们提供了获取 DOM 对象的接口—vue$refs，并且我们澡 mounted 的时候初始化 better-scroll，这个时候都渲染好了，我们可以正确计算 content 的正确高度</p>
+</li>
+<li><p>为了确保 DOM 已经完全渲染，可以演示 20 毫秒</p>
+</li>
+</ol>
+<h2 id="scroll-组件的抽象和封装"><a href="#scroll-组件的抽象和封装" class="headerlink" title="scroll 组件的抽象和封装"></a>scroll 组件的抽象和封装</h2><ol>
+<li>JS 的部分实际上就是对 better-scroll 座一层 Vue 的封装，通过 props 的形式，把一些的 better-scroll 定制化的控制权交给父组件，通过 methods 暴露一些方法对 better-scroll 的方法做一层代理，通过 watch 传入的 data，重新 refresh 确保滚动正常， 父组件只需要把数据通过 data 通过 props 传给 scroll 组件，觉可以保证组件的滚动效果</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/项目开发2-0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,6 +782,26 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const firstTouch = this.touches[0]</span><br><span class="line">const this.touch.y1 = firstTouch.pageY;</span><br><span class="line">const beginIndex = anchorIndex;</span><br><span class="line"></span><br><span class="line">@touchmove=&apos;onshortcutTouchMove&apos;</span><br><span class="line">onshortcutTouchMove(e) &#123;</span><br><span class="line">    const firstTouch = this.touches[0]</span><br><span class="line">    const this.touch.y2 = firstTouch.pageY</span><br><span class="line">    const datel = parseInt(this.touch.y2-this.touch.y1) / 18 | 0</span><br><span class="line">    const anchorIndex = this.beginIndex + datel</span><br><span class="line">    this.$refs.listview.scrollToElement((this.$refs.scroll[anchorIndex]) , 0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ol start="5">
+<li><p>右侧样式跟随高亮</p>
+<ol>
+<li>思路：通过得到页面 y 轴的坐标，继而计算出每个页面的高度与传进来的 scroll 的 y 轴坐标，如果传进的距离在两个高度之间即可</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">listenScroll: &#123;</span><br><span class="line">    type: Boolean,</span><br><span class="line">    dafault: false</span><br><span class="line">&#125;</span><br><span class="line">if(listenScroll) &#123;</span><br><span class="line">    this.scroll.on(&apos;scroll&apos;, (pos) =&gt; &#123;</span><br><span class="line">        this.$emit(&apos;ScrollY&apos;, pos)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">@ScrollY=&apos;ScrollY&apos;</span><br><span class="line">data() &#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        ScrollY = -1,</span><br><span class="line">        currentIndex = 0</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">methods:&#123;</span><br><span class="line">    ScrollY(pos) &#123;</span><br><span class="line">        ScrollY = pos.pageY</span><br><span class="line">    &#125;,</span><br><span class="line">    _calculateHeight() &#123;</span><br><span class="line">        let ListHeight =[]</span><br><span class="line">        let List = this.$refs.listGroup</span><br><span class="line">        let height = 0</span><br><span class="line">        ListHeight.push(height)</span><br><span class="line">        for(let i=0 , i &lt; List.length, i++) &#123;</span><br><span class="line">            let item = list[i]</span><br><span class="line">            height += item.clientHight</span><br><span class="line">            ListHeight.push(height)</span><br><span class="line">        &#125;</span><br><span class="line">        return ListHeight</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">watch() &#123;</span><br><span class="line"></span><br><span class="line">    data()&#123;</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">        this._calculateHeight()</span><br><span class="line">    &#125;, 20)&#125;,</span><br><span class="line">    ScrollY(newY) &#123;</span><br><span class="line">        let LightHight = this.ListHeight</span><br><span class="line">        if(-newY &gt; 0) &#123;</span><br><span class="line">            this.currentIndex = 0</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        for(let i = 0, i&lt; LightHeight.length-1, i++) &#123;</span><br><span class="line">            const height1 = LightHeight[i]</span><br><span class="line">            const height2 = LightHeight[i+1]</span><br><span class="line">            if(-newY &gt;= height1 &amp;&amp; -newY &lt; height2) &#123;</span><br><span class="line">             this.currentIndex = i</span><br><span class="line">             return</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">        this.currenIndex = LightHeight.length-2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">绑定class</span><br><span class="line">:class = &quot;&#123;&apos;current&apos; : currentIndex === index &#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>6.上方固定 title</p>
+<ol>
+<li>思路：先创建一个 fix-title 的 demo 在计算属性中判断，</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fixTitle() &#123;</span><br><span class="line">    if(this.scrollY &gt; 0) &#123;</span><br><span class="line">        return &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">    return this.data[this.currentIndex] ? this.data[this.currentIndex] : &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">还需要在fixedTitle中进行判断，fixed在显示与隐藏主要取决于有没有fixTiele</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>思路：主要是计算实时的 scrollY 轴的距离与 fixtitle 的值之间的差，当他们小于 0 的时候，就偏移即可<br>主要也是三个细节，当 newY 还在内部区域运动，当刚刚触碰到 title，在 title 中动，</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在watch中的height2+newY = scrollY</span><br><span class="line">const TITLE_HEIGHT= 30；</span><br><span class="line">scrollY(newVal) &#123;</span><br><span class="line">    let fixedTop = (newVal &gt; 0 &amp;&amp; newVal &lt; TITLE_HEIGHT) ? newVal-TITLE_HEIGHT : 0</span><br><span class="line">    if(this.fixedTop === fixedTop) &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    this.fixedTop = fixedTop</span><br><span class="line">    this.$refs.fixed.style.transform = `translate3d(0,$&#123;fixedTop&#125;px,0)`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="需求分析："><a href="#需求分析：" class="headerlink" title="需求分析："></a>需求分析：</h3><ol>
 <li><p>因为我们需要通过右侧的 shortcut 来快速定位到某个歌手，因此我们需要知道监听点击到的 dom 对象，并且把通过 better-scroll 里的 scrollToElement() 方法实现点击跳转；</p>
 <ul>
@@ -583,6 +851,68 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    export function createSong() &#123;</span><br><span class="line">        return new Song(&#123;</span><br><span class="line">            id: musicData.songid</span><br><span class="line">            sing: filterSinger(music.singer)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">//因为singerName可能有多个，并且展示的数据都是以/来分隔的，因此我们需要对数据做进一步处理</span><br><span class="line">    function filterName(singer) &#123;</span><br><span class="line">        let singerName = []</span><br><span class="line">        if(!singer) &#123;//若没有名字，直接返回</span><br><span class="line">            return singerName = &apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">        singer.forEach((item) =&gt; &#123;</span><br><span class="line">            singerName.push(item.name)</span><br><span class="line">        &#125;)</span><br><span class="line">        return singName.join(&apos;/&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">//将歌手的名字用/分隔开，并且返回</span><br></pre></td></tr></table></figure>
 
+<ol start="3">
+<li>在获取数据的时候我们还是需要对数据进行处理，因为我们只是需要 musicData 类里面的数据，因此</li>
+</ol>
+<h3 id="歌手详情页-1"><a href="#歌手详情页-1" class="headerlink" title="歌手详情页"></a>歌手详情页</h3><p>1.scroll 要滚动我们需要两个基本的要素：子元素要大于父元素，父元素要有固定的高度</p>
+<ol start="2">
+<li><p>歌手详情页中的歌单，需要监听滚动事件，并且是实时的 probetype= 3<br>因此我们在 created 的时候传递 probetype 的值与 listenScroll 的值（注意传递 probetype 的值要:probe-type=’probetype’）</p>
+</li>
+<li><p>因为我们监听了 listenScroll 的值，我们就会在父组件上获取列表实时的 pos.y</p>
+</li>
+<li><p>歌手详情页的高度不正确；</p>
+<ol>
+<li>原因是泪飙高度计算错误；</li>
+<li>设置它的高度即可<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">    this.$refs.list.$el.style.top = `(this.$refs.bgImage.clientHight)px`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>加上一个 layer 层，可以随着列表到达一定的高度</p>
+<ol>
+<li>与 fixedTitle 性质差不多，都是事先创建好一个 dom</li>
+<li>设置它的的 transform 的值随着 newY 的值改变即可</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    scrollY(newY) &#123;</span><br><span class="line">        this.translateY = Math.max(this.imageHeight,newsY)</span><br><span class="line">        this.$refs.layer.style[&apos;transform&apos;] = `translate4d(0,$&#123;translateY&#125;,0)`</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">mounted() &#123;</span><br><span class="line">    this.imageHeight = this.$refs.bgImage.style.clientHeight</span><br><span class="line">    this.minTranslate = -this.imageHeight + RESERVE_HEIGHT</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>让列表有 overflow-hiddent 的感觉</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    scrollY(newY) &#123;</span><br><span class="line">        let Zindex = 0</span><br><span class="line">        this.translateY = Math.max(this.imageHeight,newsY)</span><br><span class="line">        this.$refs.layer.style[&apos;transform&apos;] = `translate4d(0,$&#123;translateY&#125;,0)`</span><br><span class="line">        if(newY &gt; this.minTranslate) &#123;</span><br><span class="line">            this.zIndex = 10</span><br><span class="line">            this.$refs.bgImage.style.paddingTop = 0</span><br><span class="line">            this.$refs.bgImage.style.height = `$&#123;REVER_HEIGHT&#125;px`</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            ...</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">mounted() &#123;</span><br><span class="line">    this.imageHeight = this.$refs.bgImage.style.clientHeight</span><br><span class="line">    this.minTranslate = -this.imageHeight + RESERVE_HEIGHT</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="歌手播放页面"><a href="#歌手播放页面" class="headerlink" title="歌手播放页面"></a>歌手播放页面</h2><h3 id="展示播放页面"><a href="#展示播放页面" class="headerlink" title="展示播放页面"></a>展示播放页面</h3><ol>
+<li><p>因为我们可以从很多个方面进入歌曲播放页面，因此我们需要把 player 基础组件设置在 App 中，而它的展示与否取决于由 vuex 传过来的 playlist 与否</p>
+</li>
+<li><p>我们为 songList 组件传递添加一个点击事件，因为我们可以从歌单里面进入到播放器中，songlist 是一个基础组件，只需要派发出去谁被点击了，点击 index 是什么，然后我们在父组件上获取到所派发的时间</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">//songList</span><br><span class="line">@click=selectItem(song,index)//歌曲点击触发点击事件</span><br><span class="line">methods: &#123;</span><br><span class="line">    selectItem(item, index) &#123;</span><br><span class="line">        this.$emit(&apos;select&apos;, item, index)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//在父组件中，接受传来的参数</span><br><span class="line">@select=&apos;selectItem&apos;</span><br><span class="line">methods: &#123;</span><br><span class="line">    selectItem(item, index) &#123;</span><br><span class="line">        this.selectPlay = &#123;</span><br><span class="line">            list : this.songs,</span><br><span class="line">            index</span><br><span class="line">    // list并不是item，子组件只负责将他能提供的信息传给父组件，至于父组件用不用那是父组件的事</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//我们需要把全部歌曲传入vuex中，并且把当前点击歌曲的index传入vuex中</span><br><span class="line">watched:&#123;</span><br><span class="line">    ...mapMutations(&#123;</span><br><span class="line">        &apos;selectPlay&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">当我点击歌单选择歌曲的时候，对vuex执行了很多的commit的操作，因此我们封装了一个</span><br><span class="line">Actions</span><br><span class="line">import * as types from &apos;./mutation-types&apos;</span><br><span class="line">export const selectPlay(&#123;commit, state&#125;, &#123;list, index&#125;) &#123;</span><br><span class="line">    commit(types.SET_SEQUENCE_LIST, list)</span><br><span class="line">    commit(types.SET_PLAYLIST, list)</span><br><span class="line">    commit(types.SET_CURRENTINDEX, index)</span><br><span class="line">    commit(types.SET_FULL_SCREEN, true) ...</span><br><span class="line">&#125;</span><br><span class="line">在methods中定义</span><br><span class="line">methods: &#123;</span><br><span class="line">    ...mapActions([</span><br><span class="line">        &apos;selectPlay&apos;</span><br><span class="line">    ])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">接着我们需要在player中用到样式，</span><br><span class="line"> 那就可以在player组件中应用playlist了，</span><br><span class="line">computed: &#123;</span><br><span class="line">    ...mapGetters&#123;[</span><br><span class="line">        &apos;playlist&apos;，</span><br><span class="line">        &apos;fullScreen&apos;</span><br><span class="line">    ]&#125;</span><br><span class="line">&#125;</span><br><span class="line">当我们要修改样式的时候不能直接修改，我们需要通过vuex中mutations来进行操作</span><br><span class="line">methods: &#123;</span><br><span class="line">    ...mapMutations（&#123;</span><br><span class="line">        selectFullScreen: ‘SET_FULL_SCREEN’</span><br><span class="line">        这个意思就是通过使用this.selectFullScreen()这个方法来代替this.$store.commit(&quot;SET_FULL_SCREEN&quot;,())这个操作</span><br><span class="line">    &#125;</span><br><span class="line">    接着我们为需要改变vuex值的item绑定点击事件</span><br><span class="line">    open() &#123;</span><br><span class="line">        this.selectFullScreen(true)</span><br><span class="line">    &#125;</span><br><span class="line">    这样就可以设置样式了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="css-动画"><a href="#css-动画" class="headerlink" title="css 动画"></a>css 动画</h3><ol>
+<li>动画的三种实现方法<ol>
+<li>通过 transition 包裹需要动画的部分，可以添加 name 属性</li>
+<li>通过 vue 的钩子函数 before-enter enter after-enter<br>before-leave leave after-leave 它们都是时间，需要在 methods 中操作</li>
+<li>第三方的库 create-keyframe-animation</li>
+</ol>
+</li>
+<li>动画<ol>
+<li>transition 包裹 normal，mini</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//在css部分直接书写样式</span><br><span class="line">&amp;.normal-enter-active, &amp;.normal-leave-active &#123;</span><br><span class="line">  transition: all 0.4s;</span><br><span class="line"></span><br><span class="line">  .top, .bottom &#123;</span><br><span class="line">    transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&amp;.normal-enter, &amp;.normal-leave-to &#123;</span><br><span class="line">  opacity: 0;</span><br><span class="line"></span><br><span class="line">  .top &#123;</span><br><span class="line">    transform: translate3d(0, -100px, 0);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .bottom &#123;</span><br><span class="line">    transform: translate3d(0, 100px, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="钩子函数与第三方插件实现复杂动画"><a href="#钩子函数与第三方插件实现复杂动画" class="headerlink" title="钩子函数与第三方插件实现复杂动画"></a>钩子函数与第三方插件实现复杂动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition @enter=&apos;enter&apos;</span><br><span class="line">            @after-enter=&apos;afterEnter&apos;</span><br><span class="line">            @leave=&apos;leave&apos;</span><br><span class="line">            @leave-after=&apos;leaveEnter&apos;</span><br><span class="line">&gt;&lt;/transition&gt;</span><br><span class="line">methods: &#123;</span><br><span class="line">    enter(el, done) &#123;</span><br><span class="line">       const &#123;x, y, scale&#125; = this._getPosAndScale()</span><br><span class="line">       //我们需要使用第三方的插件</span><br><span class="line">       let animation = &#123;</span><br><span class="line">           0: &#123;</span><br><span class="line">               transform: `translate3d($&#123;x&#125;px, $&#123;y&#125;px, 0) scale($(scale))`</span><br><span class="line">           &#125;,</span><br><span class="line">           60: &#123;</span><br><span class="line">               transform: `translate3d(0, 0, 0) scale(1.1)`</span><br><span class="line">           &#125;,</span><br><span class="line">            100: &#123;</span><br><span class="line">               transform: `translate3d(0, 0, 0) scale(1)`</span><br><span class="line">            &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       //需要先注册</span><br><span class="line">       animations.registerAnimation(&#123;</span><br><span class="line">           name: &apos;move&apos;,</span><br><span class="line">           animation,</span><br><span class="line">           preset: &#123;</span><br><span class="line">               duration: 400,</span><br><span class="line">               easing: “Linear”</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">       //还需要运行</span><br><span class="line">       animations.runAnimation(this.$refs.cdWrapper, &apos;move&apos;, done)</span><br><span class="line">    &#125;</span><br><span class="line">    afterEnter(el) &#123;</span><br><span class="line">        animations.unregisterAnimation(&apos;move&apos;)</span><br><span class="line">        this.$refs.cdWrapper.style.animation = &apos;&apos;</span><br><span class="line">    需要在afterEnter中将全部animation全部停掉</span><br><span class="line">    &#125;,</span><br><span class="line">    leave(el, done) &#123;</span><br><span class="line">        const &#123;x, y, scale&#125; = this._getPosAndScale()</span><br><span class="line">        this.$refs.cdWrapper.style[&apos;transform&apos;] = `translate3d($&#123;x&#125;px, $&#123;y&#125;px, 0) scale($&#123;scale&#125;)`</span><br><span class="line">        this.$refs.cdWrapper.style.translation = &apos;all 0.5s&apos;</span><br><span class="line">        this.$refs.cdWrapper.addEventListener(&quot;transitionend&quot;, done);</span><br><span class="line">    &#125;,</span><br><span class="line">    afterLeave(el) &#123;</span><br><span class="line">        this.$refs.cdWrapper.style.transition = &quot;&quot;;</span><br><span class="line">        this.$refs.cdWrapper.style[&quot;transform&quot;] = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    _getPosAndScale() &#123;</span><br><span class="line">         我们需要获取小图片的位置信息，以及scale的放大比率</span><br><span class="line">        const targetWidth = 40</span><br><span class="line">        const paddingLeft = 40</span><br><span class="line">        const paddingBottom = 30</span><br><span class="line">        const paddingTop = 80</span><br><span class="line">        const width = window.innerWidth * 0.8</span><br><span class="line">        const scale = targetWidth/width</span><br><span class="line">        const x = -(window.innerWidth/2-paddingLeft)</span><br><span class="line">        const y = window.innerHeight-paddingTop-width/2-paddingBottom</span><br><span class="line">        return &#123;x, y, scale&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置样式"><a href="#设置样式" class="headerlink" title="设置样式"></a>设置样式</h3><ol>
+<li><p>我们需要在computed中计算出当playlist的样式使用的情况</p>
+</li>
+<li><p>我们需要在watch属性中时刻监视currentSong的变化，当我们点击停止开始按钮的时候，我们需要更改playing的值，因此</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    ...mapMutations([</span><br><span class="line">        &apos;playing&apos;</span><br><span class="line">    ])</span><br><span class="line">&#125;</span><br><span class="line">methods: &#123;</span><br><span class="line">    currentSong() &#123;</span><br><span class="line">        nextTick(() =&gt; &#123;</span><br><span class="line">            this.audio.play()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    playing(newvalue) &#123;</span><br><span class="line">        const audio = this.$refs.audio</span><br><span class="line">        newtTick(() =&gt; &#123;</span><br><span class="line">            newvalue ? this.audio.play() : this.audio.pause()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...mapMutations(&#123;</span><br><span class="line">    setPlayItem = &apos;SET_PLAYING&apos;</span><br><span class="line">&#125;)</span><br><span class="line">为我们它添加点击事件togglePlay()</span><br><span class="line">methods: &#123;</span><br><span class="line">    togglePlay() &#123;</span><br><span class="line">        this.setPlayItem(!this.playing)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
 <h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><ol>
 <li>切换显示的窗口的时候，轮播图宽度未能及时改变<ul>
 <li>需要在 mounted 监听窗口改变事件’resize’</li>
@@ -616,8 +946,23 @@
 <ol start="3">
 <li>vue 文件中将需要懒加载的图片绑定 v-bind:src 修改为 v-lazy</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="右边的-shoucut-细节处理"><a href="#右边的-shoucut-细节处理" class="headerlink" title="右边的 shoucut 细节处理"></a>右边的 shoucut 细节处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">右边侧面的无关区域的为null</span><br><span class="line">进行判断当数字为null的时候直接返回即可</span><br></pre></td></tr></table></figure>
 
+<ol start="4">
+<li>大致相同的页面我们可以开发出一个基础组件，数据我们通过 props 传入，那么这就免去很多的骚操作，还有数据的处理，我们可以定义一个 class 类，class 的功能远比对象的强，通过工厂式的方法，我们可以减免很多处理数据的代码以及时间</li>
+</ol>
+<h1 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h1><ol>
+<li><p>当在子组件上引用 ref 的时候引用的只是 vue.子组件，还需要通过 vue 中的$el 来获取到 DOM。</p>
+</li>
+<li><p>在计算属性上我们可以进行最后一步的数据处理，例如获得照片，因为我们逐句上的照片是 url 的形式，并且每一张照片都是不一样的，我们就利用 style 的 background-image 的方式来引入 url，这是第一册使用:style</p>
+</li>
+<li><p>边界问题，总是很小，但是很影响体验</p>
+<ol>
+<li>右侧的 shortcut 入口。无关区域的点击；当页面向上拉太多；点击入口与样式的关联；</li>
+<li>fixedTitle 的小细节，三宗情况，首先我们通过 height2+newY 拿到会变化额</li>
+</ol>
+</li>
+</ol>
 
           
         
@@ -738,60 +1083,66 @@
       
         
           
-            <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h2><ol>
+            <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="创建-XMLHttpRequest-对象"><a href="#创建-XMLHttpRequest-对象" class="headerlink" title="创建 XMLHttpRequest 对象"></a>创建 XMLHttpRequest 对象</h2><ol>
 <li>作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新</li>
-<li>语法： <code>variable = new XMLHttpRequest()</code><h2 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h2></li>
-<li>使用XMLHttpRequest对象的open()与send()</li>
-<li>语法： <code>xmlhttp.open(&#39;GET&#39; , &quot;ajax_info.text&quot; , true)</code> <ul>
-<li>规定请求的类型、URL以及是否异步处理请求<ul>
-<li>method： 请求的类型；GET或POST</li>
+<li>语法： <code>variable = new XMLHttpRequest()</code></li>
+</ol>
+<h2 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h2><ol>
+<li>使用 XMLHttpRequest 对象的 open()与 send()</li>
+<li>语法： <code>xmlhttp.open(&#39;GET&#39; , &quot;ajax_info.text&quot; , true)</code><ul>
+<li>规定请求的类型、URL 以及是否异步处理请求<ul>
+<li>method： 请求的类型；GET 或 POST</li>
 <li>url： 文件在服务器上的位置</li>
-<li>async： true（异步）或false（同步）</li>
+<li>async： true（异步）或 false（同步）</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>语法<code>xmlhttp.send()</code><ul>
 <li>将请求发送发送到服务器上<ul>
-<li>string： 仅用于POST请求<h3 id="GET还是POST"><a href="#GET还是POST" class="headerlink" title="GET还是POST"></a>GET还是POST</h3></li>
+<li>string： 仅用于 POST 请求</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<ul>
-<li>与post相比，GET更简单，并且在大部分情况下都可以使用，在以下情况下使用post<ol>
+<h3 id="GET-还是-POST"><a href="#GET-还是-POST" class="headerlink" title="GET 还是 POST"></a>GET 还是 POST</h3><ul>
+<li>与 post 相比，GET 更简单，并且在大部分情况下都可以使用，在以下情况下使用 post<ol>
 <li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
-<li>向服务器发送大量数据（POST没有数据数量限制）</li>
-<li>发送包含未知字符的用户输入，POST比GET更加可靠<h3 id="url-服务器上的文件"><a href="#url-服务器上的文件" class="headerlink" title="url-服务器上的文件"></a>url-服务器上的文件</h3></li>
+<li>向服务器发送大量数据（POST 没有数据数量限制）</li>
+<li>发送包含未知字符的用户输入，POST 比 GET 更加可靠</li>
 </ol>
 </li>
 </ul>
-<ol>
-<li>open发放的url参数是服务器文件额地址<ul>
-<li>xmlhttp.open(“GET” , “文件地址”)<h3 id="异步为TRUE"><a href="#异步为TRUE" class="headerlink" title="异步为TRUE"></a>异步为TRUE</h3></li>
+<h3 id="url-服务器上的文件"><a href="#url-服务器上的文件" class="headerlink" title="url-服务器上的文件"></a>url-服务器上的文件</h3><ol>
+<li>open 发放的 url 参数是服务器文件额地址<ul>
+<li>xmlhttp.open(“GET” , “文件地址”)</li>
 </ul>
 </li>
-<li>发送的请求是AJAX的时候第三个参数必须为true ，表示异步获取</li>
-<li>如需获得来自服务器的响应，请使用XMLHttpRequest对象的responseText或responseXML属性<ul>
+</ol>
+<h3 id="异步为-TRUE"><a href="#异步为-TRUE" class="headerlink" title="异步为 TRUE"></a>异步为 TRUE</h3><ol>
+<li>发送的请求是 AJAX 的时候第三个参数必须为 true ，表示异步获取</li>
+<li>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性<ul>
 <li>responseText 获得字符串形式的相应数据</li>
-<li>responeXML 获得XML形式的相应数据<h2 id="onreadystatechange事件"><a href="#onreadystatechange事件" class="headerlink" title="onreadystatechange事件"></a>onreadystatechange事件</h2></li>
+<li>responeXML 获得 XML 形式的相应数据</li>
 </ul>
 </li>
-<li>当请求被发送到服务器是，我们需要执行一些相应的任务，每当ready State改变时，就会触发onreadystatechange事件。</li>
+</ol>
+<h2 id="onreadystatechange-事件"><a href="#onreadystatechange-事件" class="headerlink" title="onreadystatechange 事件"></a>onreadystatechange 事件</h2><ol>
+<li>当请求被发送到服务器是，我们需要执行一些相应的任务，每当 ready State 改变时，就会触发 onreadystatechange 事件。</li>
 <li>三个重要属性<ul>
-<li>onreadystatechange： 存储函数或函数名，每当readyState属性改变时，就会触发调用还函数</li>
-<li>存有XMLHttpRequest的状态。从0~4发生变化<ul>
+<li>onreadystatechange： 存储函数或函数名，每当 readyState 属性改变时，就会触发调用还函数</li>
+<li>存有 XMLHttpRequest 的状态。从 0~4 发生变化<ul>
 <li>0：请求未初始化；</li>
-<li>1:  服务器已经建立</li>
+<li>1: 服务器已经建立</li>
 <li>2： 请求已经接受</li>
 <li>3： 请求处理中</li>
 <li>4：请求已经完成</li>
 </ul>
 </li>
-<li>status <ul>
+<li>status<ul>
 <li>200 : OK</li>
-<li>404: 为找到页面 </li>
+<li>404: 为找到页面</li>
 </ul>
 </li>
 </ul>
@@ -925,39 +1276,41 @@
 <li>text-warning 警告 （黄色）</li>
 <li>text-danger 危险</li>
 <li>text-secondary 副标题（浅灰）</li>
-<li>text-light 迁回文本 <h3 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h3></li>
-<li>bg-primary 颜色与文本一样（加个bg即可）颜色一样</li>
+<li>text-light 迁回文本</li>
+</ol>
+<h3 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h3><ol>
+<li>bg-primary 颜色与文本一样（加个 bg 即可）颜色一样</li>
 </ol>
 <hr>
 <h2 id="基础表格"><a href="#基础表格" class="headerlink" title="基础表格"></a>基础表格</h2><ol>
-<li>.table设置基本的表格样式</li>
+<li>.table 设置基本的表格样式</li>
 <li>条纹表格.table-striped</li>
 <li>带边框的表格.table-bordered</li>
 <li>鼠标悬停表格 .table-hover</li>
 <li>黑色背景表格 .table-dark</li>
-<li>响应式表格 .table-responsive (在屏幕狂赌小于992px时会创造水品滚动条)</li>
+<li>响应式表格 .table-responsive (在屏幕狂赌小于 992px 时会创造水品滚动条)<br><strong>以上五种可以任意组合 需要利用 table 的 html 结构 thead tr th tbody tr td</strong><br><strong>可以为上述的表头或者内容自由添加颜色</strong></li>
 </ol>
-<p><strong>以上五种可以任意组合 需要利用table的html结构thead tr th tbody tr td</strong>\</p>
-<h2 id="可以为上述的表头或者内容自由添加颜色"><a href="#可以为上述的表头或者内容自由添加颜色" class="headerlink" title="可以为上述的表头或者内容自由添加颜色"></a><strong>可以为上述的表头或者内容自由添加颜色</strong></h2><h2 id="图片形状"><a href="#图片形状" class="headerlink" title="图片形状"></a>图片形状</h2><ol>
+<hr>
+<h2 id="图片形状"><a href="#图片形状" class="headerlink" title="图片形状"></a>图片形状</h2><ol>
 <li>圆角 .rounded</li>
 <li>椭圆图形 .rounded-circle</li>
 <li>缩略图 .img-thumbnail(用于设置图片缩略图有边框)</li>
 <li>图片对齐方 .float-right .float-left</li>
-<li>响应式图片 .img-fluid (设置了max-width：100% ，height： auto)</li>
+<li>响应式图片 .img-fluid (设置了 max-width：100% ，height： auto)</li>
 </ol>
 <hr>
 <h2 id="信息提示框"><a href="#信息提示框" class="headerlink" title="信息提示框"></a>信息提示框</h2><ol>
-<li>加上一个.alert再添加颜色方面的单词即可</li>
+<li>加上一个.alert 再添加颜色方面的单词即可</li>
 <li>alert-danger .alter-primary .alter-warning .alter-success .alter-lighr .alter-info</li>
 <li>提示框添加链接 .alter-link</li>
-<li>关闭提示框 .alter-dismissible,在关闭按钮的链接上添加.close与data-dismiss=‘alter’来实现关闭的操作</li>
+<li>关闭提示框 .alter-dismissible,在关闭按钮的链接上添加.close 与 data-dismiss=‘alter’来实现关闭的操作</li>
 <li>提示框的动画 .fade .show 淡出淡入的动画</li>
 </ol>
 <hr>
 <h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><ol>
 <li>基本按钮 .btn</li>
 <li>主要按钮 .btn .btn-primary(与颜色的单词一样)</li>
-<li>可运用在标签a button input中</li>
+<li>可运用在标签 a button input 中</li>
 <li>按键设置边框 .btn-outline-(颜色值)</li>
 <li>不同大小的按钮 .btn-lg .btn-sm</li>
 <li>块级按钮 .btn-block</li>
@@ -971,19 +1324,19 @@
 </ol>
 <hr>
 <h2 id="徽章"><a href="#徽章" class="headerlink" title="徽章"></a>徽章</h2><ol>
-<li>如果需要使用.badge类，只需要将.badge类加上带有指定意义的颜色类（ .badge-primary)</li>
+<li>如果需要使用.badge 类，只需要将.badge 类加上带有指定意义的颜色类（ .badge-primary)</li>
 <li>药丸形状徽章 .badge-pill 与 .badge-primary</li>
-<li>记得要插入span标签</li>
+<li>记得要插入 span 标签</li>
 </ol>
 <hr>
 <h2 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h2><ol>
 <li>进度条的步骤<ul>
-<li>添加一个带有.progress类的div</li>
-<li>在上面div内，添加一个带有class.progress-bar的空的div</li>
-<li>添加带有百分比便是宽度style属性，表示进度条在某个位置</li>
+<li>添加一个带有.progress 类的 div</li>
+<li>在上面 div 内，添加一个带有 class.progress-bar 的空的 div</li>
+<li>添加带有百分比便是宽度 style 属性，表示进度条在某个位置</li>
 </ul>
 </li>
-<li>进度条的默认高度16px；可以用CSS属性来修改；</li>
+<li>进度条的默认高度 16px；可以用 CSS 属性来修改；</li>
 <li>进度条内添加文本；</li>
 <li>提供各种颜色的进度条；</li>
 <li>条纹进度条 .progress-bar-striped 设置进度条的条纹</li>
@@ -991,27 +1344,203 @@
 </ol>
 <hr>
 <h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><ol>
-<li>为ul设置.pagination类，在li上，添加.page-item类</li>
-<li>当前页码可以用.active类来设置高亮；</li>
-<li>面包屑导航 .breadcrumb和.breadcrumb-item active设置高亮</li>
+<li>为 ul 设置.pagination 类，在 li 上，添加.page-item 类</li>
+<li>当前页码可以用.active 类来设置高亮；</li>
+<li>面包屑导航 .breadcrumb 和.breadcrumb-item active 设置高亮</li>
 </ol>
 <hr>
 <h2 id="列表组"><a href="#列表组" class="headerlink" title="列表组"></a>列表组</h2><ol>
-<li>在ul上设置.list-group类，在li上.list-group-item类</li>
+<li>在 ul 上设置.list-group 类，在 li 上.list-group-item 类</li>
 <li>禁用的列表项 .disable</li>
-<li>链接列表  ul替换为div a替换为li .list-group-item-action</li>
+<li>链接列表 ul 替换为 div a 替换为 li .list-group-item-action</li>
 </ol>
 <hr>
-<h2 id="Flex弹性布局"><a href="#Flex弹性布局" class="headerlink" title="Flex弹性布局"></a>Flex弹性布局</h2><ol>
-<li>d-flex类来创建弹性容器</li>
-<li>d-inline-flex类来设置同一行</li>
-<li>d-flex justify-content-between<br>4 .align-content </li>
+<h2 id="Flex-弹性布局"><a href="#Flex-弹性布局" class="headerlink" title="Flex 弹性布局"></a>Flex 弹性布局</h2><ol>
+<li>d-flex 类来创建弹性容器</li>
+<li>d-inline-flex 类来设置同一行</li>
+<li>d-flex justify-content-between<br>4 .align-content</li>
 </ol>
 <hr>
 <h2 id="居中对齐"><a href="#居中对齐" class="headerlink" title="居中对齐"></a>居中对齐</h2><ol>
 <li>mx-auto 居中对齐</li>
 <li>w-* 设置宽度</li>
 </ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/08/05/node/" itemprop="url">
+                  node.js
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T19:29:34+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="node"><a href="#node" class="headerlink" title="node"></a>node</h1><h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><ul>
+<li>Node 是没有操作文件的能力的，需要引进 fs 模块，这个模块提供了文件操作的所有 API<br><code>var fs = require(&#39;fs&#39;)</code><br><code>fs.readFile()</code></li>
+<li>读取文件需要有两个参数<ul>
+<li>参数一： 要读取文件的路径；</li>
+<li>参数二： 一个回调函数 （promise 类型）要通过 toSTring 方法才能正确读取数据</li>
+</ul>
+</li>
+</ul>
+<h2 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h2><p><code>fs.writeFile()</code></p>
+<ul>
+<li>写文件需要三个参数：<ul>
+<li>文件路径；</li>
+<li>文件内容：</li>
+<li>回调函数：</li>
+</ul>
+</li>
+<li>成功获取则数据为一个对象，error 为 null</li>
+</ul>
+<h2 id="构建服务器-http"><a href="#构建服务器-http" class="headerlink" title="构建服务器 http"></a>构建服务器 http</h2><ul>
+<li>http 帮忙创建编写服务器</li>
+<li><code>http.createServer() server.on(&#39;request&#39; , funciton() {}</code>)但客户端请求发过来，就会自动触发服务器的 request 请求事件，然后执行第二个参数，回调处理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&apos;http&apos;);</span><br><span class="line">var server = http.createServer();</span><br><span class="line">server.on(&apos;request&apos; , function() &#123;</span><br><span class="line">    console.log(&apos;服务器成功&apos;)</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(3000 , function() &#123;</span><br><span class="line">    console.log(&apos;收到客户请求&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>server.on(&#39;request&#39; , funciton() {}</code>)`<ul>
+<li>request 请求事件处理函数，需要接受两个函数；<ul>
+<li>Requset 请求对象<ul>
+<li>请求对象可以用来获取客户端的一些请求信息</li>
+</ul>
+</li>
+<li>Response<ul>
+<li>响应对象可以用来给客户端发送响应消息</li>
+<li>write 方法可以用来给客户端发送响应数据，write 可以书写多次但是必须要 end 来结束响应，否则客户端会一直等待</li>
+<li>响应内容必须是字符串。不是的话就要用 JSON.stringify()方法转化</li>
+<li>简写属性 end 方法（参数为发送的信息）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/表示首页</li>
+</ul>
+</li>
+</ul>
+<h2 id="Node-中的-js"><a href="#Node-中的-js" class="headerlink" title="Node 中的 js"></a>Node 中的 js</h2><ul>
+<li>Node 为 js 提供了很多服务器级别的 API，这些 API 绝大多数都被包装到了模块中，需要使用 require 进行引用</li>
+<li>当运行函数遇到 require 就会跳转到对应的模块中执行相应的代码，然后回来</li>
+<li>相对路径要加./</li>
+<li>在 Node 中没有全局作用域，只有模块作用域</li>
+<li>可以省略后缀名，默认.js</li>
+<li>require（）方法的两个作用：<ul>
+<li>拿到文件模块并执行里面的代码；</li>
+<li>拿到被加载文件模块到处的接口对象</li>
+</ul>
+</li>
+</ul>
 
           
         
@@ -1306,185 +1835,6 @@
 <li>用 margin：50% auto 0; vw 与适口宽度相关，vh 表示视口宽度额 1%；</li>
 <li>用 margin： 5vh auto 0；translate： translateY（-50%）</li>
 </ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/node/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Junjie Fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/08/05/node/" itemprop="url">
-                  node.js
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T19:29:34+08:00">
-                2019-08-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="node"><a href="#node" class="headerlink" title="node"></a>node</h1><h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><ul>
-<li><p>Node是没有操作文件的能力的，需要引进fs模块，这个模块提供了文件操作的所有API<br><code>var fs = require(&#39;fs&#39;)</code><br><code>fs.readFile()</code></p>
-</li>
-<li><p>读取文件需要有两个参数</p>
-<ul>
-<li>参数一： 要读取文件的路径；</li>
-<li>参数二： 一个回调函数 （promise类型）要通过toSTring方法才能正确读取数据<h2 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h2><code>fs.writeFile()</code></li>
-</ul>
-</li>
-<li><p>写文件需要三个参数：</p>
-<ul>
-<li>文件路径；</li>
-<li>文件内容：</li>
-<li>回调函数：</li>
-</ul>
-</li>
-<li><p>成功获取则数据为一个对象，error为null</p>
-<h2 id="构建服务器-http"><a href="#构建服务器-http" class="headerlink" title="构建服务器 http"></a>构建服务器 http</h2></li>
-<li><p>http帮忙创建编写服务器</p>
-</li>
-<li><p><code>http.createServer() server.on(&#39;request&#39; , funciton() {}</code>)但客户端请求发过来，就会自动触发服务器的 request 请求事件，然后执行第二个参数，回调处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&apos;http&apos;);</span><br><span class="line">var server = http.createServer();</span><br><span class="line">server.on(&apos;request&apos; , function() &#123;</span><br><span class="line">    console.log(&apos;服务器成功&apos;)</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(3000 , function() &#123;</span><br><span class="line">    console.log(&apos;收到客户请求&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>server.on(&#39;request&#39; , funciton() {}</code>)`</p>
-<ul>
-<li>request 请求事件处理函数，需要接受两个函数；<ul>
-<li>Requset请求对象<ul>
-<li>请求对象可以用来获取客户端的一些请求信息</li>
-</ul>
-</li>
-<li>Response<ul>
-<li>响应对象可以用来给客户端发送响应消息</li>
-<li>write方法可以用来给客户端发送响应数据，write可以书写多次但是必须要end来结束响应，否则客户端会一直等待</li>
-<li>响应内容必须是字符串。不是的话就要用JSON.stringify()方法转化</li>
-<li>简写属性end方法（参数为发送的信息）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>/表示首页<h2 id="Node中的js"><a href="#Node中的js" class="headerlink" title="Node中的js"></a>Node中的js</h2></li>
-</ul>
-</li>
-<li><p>Node为js提供了很多服务器级别的API，这些API绝大多数都被包装到了模块中，需要使用require进行引用</p>
-</li>
-<li><p>当运行函数遇到require就会跳转到对应的模块中执行相应的代码，然后回来</p>
-</li>
-<li><p>相对路径要加./</p>
-</li>
-<li><p>在Node中没有全局作用域，只有模块作用域</p>
-</li>
-<li><p>可以省略后缀名，默认.js</p>
-</li>
-<li><p>require（）方法的两个作用：</p>
-<ul>
-<li>拿到文件模块并执行里面的代码；</li>
-<li>拿到被加载文件模块到处的接口对象</li>
-</ul>
-</li>
-</ul>
 
           
         
@@ -1836,16 +2186,16 @@
 </li>
 <li><p>解决方案：</p>
 <ol>
-<li><p>那么可以将其拼接为一个以 id 为属性名，以 selected 的值为属性值，拼接出一个对象；</p>
+<li>那么可以将其拼接为一个以 id 为属性名，以 selected 的值为属性值，拼接出一个对象；</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var store = mew Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        shopCar: []</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    getters: &#123;</span><br><span class="line">        getAllSelected(state) &#123;</span><br><span class="line">            var o = &#123;&#125;;</span><br><span class="line">            state.shopCar.some(item =&gt; &#123;</span><br><span class="line">                o[item.id] = item.selected;</span><br><span class="line">            &#125;)</span><br><span class="line">            return o</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调用 this.$store.getters.getAllSelected[item.id]就可以获得 select 的值，绑定到官方提供的 v-model 中，但是并没有起到双向数据绑定；</p>
-</li>
-<li><p>通过 change 事件监听到其 value 的改变，并且通过<br><code>this.$store.commit(id , this.$store.getters.getAllSelected[item.id])</code><br>来实现更新 store 与 localStorage 的数据更新<br><code>val为形参，代表this.$store.getters.getAllSelected[item.id]</code></p>
+
+<ol start="2">
+<li>调用 this.$store.getters.getAllSelected[item.id]就可以获得 select 的值，绑定到官方提供的 v-model 中，但是并没有起到双向数据绑定；</li>
+<li>通过 change 事件监听到其 value 的改变，并且通过<br><code>this.$store.commit(id , this.$store.getters.getAllSelected[item.id])</code><br>来实现更新 store 与 localStorage 的数据更新<br><code>val为形参，代表this.$store.getters.getAllSelected[item.id]</code></li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">changeBtnState(id , val) &#123;</span><br><span class="line">    this.$store.commit(&apos;upBtnState&apos; , &#123;id, selected: val&#125;)</span><br><span class="line">&#125;</span><br><span class="line">    var store = mew Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        shopCar: []</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        upBtnState(state, info) &#123;</span><br><span class="line">            state.shopCCar.some(item =&gt; &#123;</span><br><span class="line">                if(item.id == info.id) &#123;</span><br><span class="line">                    item.selected = info.selected;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            localStorage.setItem(&apos;shopCar&apos; , JSON.stringify(shopCar))</span><br><span class="line">            //保存到本地仓储中</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
 </li>
 </ul>
 <h3 id="实现通过按键来决定总价；"><a href="#实现通过按键来决定总价；" class="headerlink" title="实现通过按键来决定总价；"></a>实现通过按键来决定总价；</h3><ul>
@@ -2106,35 +2456,35 @@
 <li><p>get()方法</p>
 <ul>
 <li>作用：获取服务器数据；</li>
-<li>参数 <ul>
+<li>参数<ul>
 <li>服务器网址；</li>
 <li>可选参数；</li>
 </ul>
 </li>
 <li>Vue.$http.get()</li>
-<li>通过.then来获取服务器返回的数据返回成功的回调函数。</li>
-<li>想要获取成功的回调函数需要result.body来获取</li>
+<li>通过.then 来获取服务器返回的数据返回成功的回调函数。</li>
+<li>想要获取成功的回调函数需要 result.body 来获取</li>
 </ul>
 </li>
 <li><p>post()方法</p>
 <ul>
 <li>作用：上传数组给服务器；</li>
 <li>Vue.$http.post()</li>
-<li>限制：手动的post发送的请求没有表单格式，需要进一步处理，需要配置参数emulateJSON: true;</li>
+<li>限制：手动的 post 发送的请求没有表单格式，需要进一步处理，需要配置参数 emulateJSON: true;</li>
 <li>参数：<ul>
 <li>服务器网址；</li>
 <li>可选参数 ，需要上传的数据以对象的形式提交；</li>
-<li>设置表单的emulateJSON：true；</li>
+<li>设置表单的 emulateJSON：true；</li>
 </ul>
 </li>
-<li>通过then调取获取成功的函数</li>
-<li>想要获取成功的回调函数需要result.body来获取</li>
+<li>通过 then 调取获取成功的函数</li>
+<li>想要获取成功的回调函数需要 result.body 来获取</li>
 </ul>
 </li>
 <li><p>jsonp()方法</p>
 <ul>
 <li>Vue.$http.jsonp()</li>
-<li>通过then调取获取成功的函数</li>
+<li>通过 then 调取获取成功的函数</li>
 </ul>
 </li>
 </ul>
@@ -2144,7 +2494,7 @@
 <li>若启用的数据接口的根域名。那么在每次请求的时候需要的相对路径，前面不能带/ ，否则不会启用路径拼接。</li>
 </ul>
 </li>
-<li>每次post都要配置emulateJSON 的话会很繁琐<ul>
+<li>每次 post 都要配置 emulateJSON 的话会很繁琐<ul>
 <li>Vue.http.emulateJSON = true;</li>
 </ul>
 <hr>
@@ -2155,176 +2505,242 @@
 <li>v-enter （v-leave）时间点</li>
 <li>v-enter-active （v-leave-active）时间段</li>
 <li>v-enter-to （v-leave-to）时间点</li>
-<li>需要动画的元素被transition包裹起来 transition是有Vue官方提供</li>
-<li>为.v-enter or .v-leave-to 设置CSS样式就可为</li>
+<li>需要动画的元素被 transition 包裹起来 transition 是有 Vue 官方提供</li>
+<li>为.v-enter or .v-leave-to 设置 CSS 样式就可为</li>
 </ul>
 </li>
-<li>修改v-前缀<ul>
-<li>在transition内添加name属性可以设置独立的CSS样式<ul>
+<li>修改 v-前缀<ul>
+<li>在 transition 内添加 name 属性可以设置独立的 CSS 样式<ul>
 <li>例如 name: ‘my’ my-enter</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>钩子函数-动画的生命函数 半场动画<ul>
-<li>动画的钩子函数表示第一个参数el 表示要执行动画的DOM元素，是原生的JS DOM元素 可以认为el是通过document.getElementById()获取到的<ul>
-<li>beforeEnter(el){<br>  表示动画入场之前，此时动画尚未开始，可设置动画的初始样式<br>}</li>
-<li>enter(el,done){<br>  表示动画开始之后的样式，可以设置动画完成之后的样式;<br>  done就是afterEnter函数，调用done函数能供解决延时问题<br>}</li>
-<li>afterEnter(el) {<br>  动画完成之后会调用该函数<br>}</li>
+<li>动画的钩子函数表示第一个参数 el 表示要执行动画的 DOM 元素，是原生的 JS DOM 元素 可以认为 el 是通过 document.getElementById()获取到的<ul>
+<li>beforeEnter(el){<br>表示动画入场之前，此时动画尚未开始，可设置动画的初始样式<br>}</li>
+<li>enter(el,done){<br>表示动画开始之后的样式，可以设置动画完成之后的样式;<br>done 就是 afterEnter 函数，调用 done 函数能供解决延时问题<br>}</li>
+<li>afterEnter(el) {<br>动画完成之后会调用该函数<br>}</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>在实现列表过渡时，不能使用transition包裹，需要使用transition-group包裹<ul>
-<li>必须要为每一个属性设置：key绑定</li>
-<li>v-move与v-leave-active 配合使用能够使列表元素渐渐离开;<ul>
+<li>在实现列表过渡时，不能使用 transition 包裹，需要使用 transition-group 包裹<ul>
+<li>必须要为每一个属性设置：key 绑定</li>
+<li>v-move 与 v-leave-active 配合使用能够使列表元素渐渐离开;<ul>
 <li>v-leave-active = absolute;</li>
 </ul>
 </li>
-<li>给translation-group添加一个appear能实现缓慢进去；</li>
-<li>通过设定tag属性制定translation-group渲染的元素，默认为span，</li>
+<li>给 translation-group 添加一个 appear 能实现缓慢进去；</li>
+<li>通过设定 tag 属性制定 translation-group 渲染的元素，默认为 span，</li>
 </ul>
 <hr>
 </li>
 </ul>
-<h2 id="Vue组件化"><a href="#Vue组件化" class="headerlink" title="Vue组件化"></a>Vue组件化</h2><ul>
-<li>组件的含义： <ul>
-<li>组建的出现就是为了拆分Vue实例的代码量，能够让我们以不同的组件，来划分不同功能模块</li>
+<h2 id="Vue-组件化"><a href="#Vue-组件化" class="headerlink" title="Vue 组件化"></a>Vue 组件化</h2><ul>
+<li>组件的含义：<ul>
+<li>组建的出现就是为了拆分 Vue 实例的代码量，能够让我们以不同的组件，来划分不同功能模块</li>
 <li>组件化与模块化的区别<ul>
 <li>模块化是为了后台开发是分层开发，保证每个功能职能专一；</li>
-<li>组件化是从UI界面的角度进行划分，前端的组件化，方便UI组建的重用<h2 id="创建Vue组件"><a href="#创建Vue组件" class="headerlink" title="创建Vue组件"></a>创建Vue组件</h2></li>
+<li>组件化是从 UI 界面的角度进行划分，前端的组件化，方便 UI 组建的重用</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>使用Vue.extend创建；</li>
-<li>通过template属性，指定组件要展示的HTML结构</li>
-<li>返回值为创建出来的组件模板对象的名称；</li>
-<li>Vue.component(展示的名字 ， Vue.extend的返回值)<ul>
-<li>驼峰命名法改为英文就好</li>
+</ul>
+<h2 id="创建-Vue-组件"><a href="#创建-Vue-组件" class="headerlink" title="创建 Vue 组件"></a>创建 Vue 组件</h2><ul>
+<li><p>使用 Vue.extend 创建；</p>
+</li>
+<li><p>通过 template 属性，指定组件要展示的 HTML 结构</p>
+</li>
+<li><p>返回值为创建出来的组件模板对象的名称；</p>
+</li>
+<li><p>Vue.component(展示的名字 ， Vue.extend 的返回值)</p>
+</li>
+<li><p>驼峰命名法改为英文就好</p>
+</li>
+<li><p>通过字面量定义组件</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li>通过字面量定义组件<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">        Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">        template: &lt;h3&gt;&lt;/h3&gt;//不需要Vue.extend()</span><br><span class="line">         &#125;)</span><br><span class="line">- 与第二种类似</span><br><span class="line">    - 通过template： #temp；在外部定义组件结构，有提示与高亮。</span><br><span class="line">        - ``` </span><br><span class="line">              Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">                 template: #temp;</span><br><span class="line">               &#125;)</span><br><span class="line">               &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">                    //想展示的代码</span><br><span class="line">               &lt;/template&gt;</span><br><span class="line">- 创建私有组件</span><br><span class="line">    - 在Vue实例中，有components 可建立私有组件</span><br><span class="line">- 注意事项：</span><br><span class="line">    - 不论哪种形式创建的Vue将组建，都只能拥有一个根元素</span><br><span class="line">### 过滤器</span><br><span class="line">1. 只能在v-bind中使用;</span><br><span class="line">2. 源数据并没有改变 , 第一个蚕食为过滤器的名字;管道夫后面那个数据就是过滤器名字;第二个参数为一个回调函数,处理需要过滤的数据;</span><br><span class="line">3. 过滤器还能够传递参数.传递的参数为回调函数的之后的几个参数;</span><br><span class="line">4. 还可以多次调用过滤器;</span><br><span class="line">5. 格式化时间</span><br></pre></td></tr></table></figure>
+<li><p>与第二种类似</p>
+<ul>
+<li>通过 template： #temp；在外部定义组件结构，有提示与高亮。<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;someName&apos; , &#123;</span><br><span class="line">   template: #temp;</span><br><span class="line"> &#125;)</span><br><span class="line"> &lt;template id=&apos;temp&apos;&gt;</span><br><span class="line">      //想展示的代码</span><br><span class="line"> &lt;/template&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>创建私有组件</p>
+<ul>
+<li>在 Vue 实例中，有 components 可建立私有组件</li>
+</ul>
+</li>
+<li><p>注意事项：</p>
+<ul>
+<li>不论哪种形式创建的 Vue 将组建，都只能拥有一个根元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ol>
+<li>只能在 v-bind 中使用;</li>
+<li>源数据并没有改变 , 第一个蚕食为过滤器的名字;管道夫后面那个数据就是过滤器名字;第二个参数为一个回调函数,处理需要过滤的数据;</li>
+<li>过滤器还能够传递参数.传递的参数为回调函数的之后的几个参数;</li>
+<li>还可以多次调用过滤器;</li>
+<li>格式化时间</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(&apos;data&apos; , function(dataStr) &#123;</span><br><span class="line">    var dt = new Date(dataStr)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<h3 id="组件的-data-与-methods"><a href="#组件的-data-与-methods" class="headerlink" title="组件的 data 与 methods"></a>组件的 data 与 methods</h3><ul>
+<li><p>组件中拥有 data 数据</p>
+<ul>
+<li>组建的 data 与实例的 data 不一样，组件中的 data 必须是一个 function，<br>还必须返回一个对象</li>
+<li>使用方法与实例的 data 方法一样</li>
+</ul>
 </li>
+<li><p>组件进行切换</p>
+<ul>
+<li>利用 v-for 与 v-else 结合使用，但是只能两个来回切换。对于多个切换无能为力。</li>
+<li>Vue 提供了 component 元素，来展示对应组件，他是一个占位符，:is 属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号’’</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;component :is=&apos;comName&apos;&gt;&lt;/component&gt;</span><br><span class="line">    - 通过改变事件来改变comName即可实现组件的切换，没有限制数量</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>组件过渡</p>
+<ul>
+<li><p>在直接用 translation 包裹住就好，（组件切换动画）</p>
+</li>
+<li><p>通过 mode 属性来实现组建切换时候的模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">beforeEnter() &#123;</span><br><span class="line">    this.flag =! this.flag</span><br><span class="line">&#125;</span><br><span class="line">功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vue 中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在 transition 上</p>
+<ul>
+<li>beforeEnter() {}</li>
+<li>enter() {}</li>
+<li>afterEnter() {}</li>
 </ul>
 </li>
 </ul>
-<p>Vue.filter(‘data’ , function(dataStr) {<br>    var dt = new Date(dataStr)<br>})</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 组件的data与methods</span><br><span class="line">- 组件中拥有data数据</span><br><span class="line">     - 组建的data与实例的data不一样，组件中的data必须是一个function，</span><br><span class="line">        还必须返回一个对象</span><br><span class="line">     - 使用方法与实例的data方法一样</span><br><span class="line">- 组件进行切换</span><br><span class="line">    - 利用v-for与v-else结合使用，但是只能两个来回切换。对于多个切换无能为力。</span><br><span class="line">    - Vue提供了component元素，来展示对应组件，他是一个占位符，:is属性，可以用来制定要展示的组件名称，属性内为字符串要加一层单引号&apos;&apos;</span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;component :is=&apos;comName&apos;&gt;&lt;/component&gt;
-    - 通过改变事件来改变comName即可实现组件的切换，没有限制数量
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 组件过渡</span><br><span class="line">    - 在直接用translation包裹住就好，（组件切换动画）</span><br><span class="line">    - 通过mode 属性来实现组建切换时候的模式</span><br></pre></td></tr></table></figure>
-
-    beforeEnter() {
-        this.flag =! this.flag
-    }
-    功能： 1.控制物体的显示与掩藏；2.直接跳过动画的下半场
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">        - Vue中动画分为两个部分，使用钩子函数，拆分为两个部分 定义在transition上</span><br><span class="line">            - beforeEnter() &#123;&#125;</span><br><span class="line">            - enter() &#123;&#125;</span><br><span class="line">            - afterEnter() &#123;&#125;</span><br><span class="line">- 父组件与子组件</span><br><span class="line">    - 子组件默认无法访问父组件的data上的数据和methods中的方法</span><br><span class="line">    - 父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</span><br><span class="line">    - 若子组件想用父组件传下来的数据，需要在components中props中定义一下;</span><br><span class="line">    - props是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</span><br><span class="line">    - 使用父组件的方法，并且向父组件传参</span><br><span class="line">        - 通过字面量的方式创建模板对象，</span><br></pre></td></tr></table></figure>
-
-    @function=&apos;show&apos;
-        const com1 = {
-            template: &apos;#com2&apos;,
-            methods: {
-                this.$emit(&apos;function&apos;,向父组件爨氐的参数)
-            }
-        }
-        //在实例内部定义一个私有组件
-        methods: [
-            show() {
-                console.log(&apos;父组件内部的方法&apos;)
-            }
-        ]
-        components： {
-            com1
-        }
-- 子组件通过调用父组件方法，顺便向父组件传递数据
-    - emit(定义的方法名，子组件向父组件传递的参数。。。)</code></pre><ul>
-<li>ref 获取DOM元素<ul>
-<li>ref可引用DOM元素，键值为创建的名字，键值为一个对象可通过innerText获取内部文字</li>
-<li>也可以获取组建内部的data数据与方法，</li>
+</li>
+</ul>
+</li>
+<li><p>父组件与子组件</p>
+<ul>
+<li><p>子组件默认无法访问父组件的 data 上的数据和 methods 中的方法</p>
+</li>
+<li><p>父组件可以在引用子组件时，通过属性绑定的形式，把需要的传递的数据，以属性绑定的形式，传递到子组件内部，供子组件使用；</p>
+</li>
+<li><p>若子组件想用父组件传下来的数据，需要在 components 中 props 中定义一下;</p>
+</li>
+<li><p>props 是一个数组组件中的所有的数据都是由父组件传递下来的,里面的数据都是只读的</p>
+</li>
+<li><p>使用父组件的方法，并且向父组件传参</p>
+<ul>
+<li>通过字面量的方式创建模板对象，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@function=&apos;show&apos;</span><br><span class="line">    const com1 = &#123;</span><br><span class="line">        template: &apos;#com2&apos;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            this.$emit(&apos;function&apos;,向父组件爨氐的参数)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //在实例内部定义一个私有组件</span><br><span class="line">    methods: [</span><br><span class="line">        show() &#123;</span><br><span class="line">            console.log(&apos;父组件内部的方法&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    components： &#123;</span><br><span class="line">        com1</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>子组件通过调用父组件方法，顺便向父组件传递数据</p>
+<ul>
+<li>emit(定义的方法名，子组件向父组件传递的参数。。。)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ref 获取 DOM 元素</p>
+<ul>
+<li>ref 可引用 DOM 元素，键值为创建的名字，键值为一个对象可通过 innerText 获取内部文字</li>
+<li>也可以获取组建内部的 data 数据与方法，</li>
 <li>获取路径为实例上有个原生属性$refs.定义的名字.想要获取的内容</li>
 </ul>
 <hr>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2></li>
+</li>
 </ul>
-<p><strong>前端路由：</strong> 在单页面中通过hash改变来切换页面的方式，称之为前端页面;</p>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><strong>前端路由：</strong> 在单页面中通过 hash 改变来切换页面的方式，称之为前端页面;</p>
 <ul>
-<li><p>当导入Vue.router包后，在window全局对象中就会生出一个路由的构造函数叫做VueRouter</p>
+<li><p>当导入 Vue.router 包后，在 window 全局对象中就会生出一个路由的构造函数叫做 VueRouter</p>
 </li>
 <li><p>生成构造函数之后可以为其传递一个配置对象；</p>
 </li>
 <li><p>routes：为配置规则，有两个必须的属性，是一个数组；</p>
 <ul>
-<li>属性1： path ，表示监听哪个路由地址；</li>
-<li>属性2： component ，展示conponent对应的组件<ul>
-<li>component的值必须是一个模板对象，不能是一个组建名称</li>
+<li>属性 1： path ，表示监听哪个路由地址；</li>
+<li>属性 2： component ，展示 conponent 对应的组件<ul>
+<li>component 的值必须是一个模板对象，不能是一个组建名称</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>在实例上有router，需要在router上注册一下构造函数返回的对象<br>  <code>router: router //router为构造函数返回的对象</code></p>
+<li><p>在实例上有 router，需要在 router 上注册一下构造函数返回的对象<br><code>router: router //router为构造函数返回的对象</code></p>
 </li>
-<li><p><router-view>是由Vue提供的元素，专门用来当作占位符，将来匹配道德路由规则就会展示在router-view上</router-view></p>
+<li><p><router-view>是由 Vue 提供的元素，专门用来当作占位符，将来匹配道德路由规则就会展示在 router-view 上</router-view></p>
 </li>
 <li><p>路由的过程</p>
 <ul>
-<li>由事件触发网址的改变，进而被vue实例中的router监听到网站的变化，再而到路由构造函实例寻找相应的匹配规则，成功后，通过相应的组件展示相应的模板</li>
+<li>由事件触发网址的改变，进而被 vue 实例中的 router 监听到网站的变化，再而到路由构造函实例寻找相应的匹配规则，成功后，通过相应的组件展示相应的模板</li>
 </ul>
 </li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    &lt;router-link to=&apos;对应的网址&apos;&gt;&lt;/router-link&gt;</span><br><span class="line">        - 默认渲染a标签，可通过tag改变渲染的标签</span><br><span class="line">    ···</span><br><span class="line">- radirect强制执行某个页面</span><br><span class="line">- 路由选中高亮的两种方法：（由标签router-link提供，也就是说要在这里面才能实现高亮）</span><br><span class="line">    - vue原生的类名.router-link-active中设置选中时元素高亮</span><br><span class="line">    - 在构造函数内设置一个linkActiveClass属性再设置相应的名称</span><br><span class="line">- 路由规则定义参数</span><br><span class="line">    - 如果在路由中使用查询字符串，给路由传递参数，不需要改变路由规则里的path值</span><br><span class="line">    - 通过原生$router.query.（id&amp;name）可以获取相应的参数</span><br></pre></td></tr></table></figure>
-
-<pre><code> &lt;router-link to=&quot;/login?id=10&amp;name=fan&quot;&gt;登陆&lt;/router-link&gt;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 通过原生$router.params.id&amp;name 可以获取相应的参数</span><br></pre></td></tr></table></figure></code></pre><p>   <router-link to="/login/23/fan">登陆</router-link><br>   //需要改变匹配规则的path</p>
-<pre><code>{path: &apos;/login/:id/:name&apos;, component: login},
-在下一位为匹配道德是id，或者name</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 通过children实现路由嵌套</span><br></pre></td></tr></table></figure>
-
-<p>   routes: [</p>
-<pre><code>    {
-        path: &apos;/account&apos;,
-        component: account,
-        children:  [ 
-            {path: &apos;login&apos;,component: login},
-            {path: &apos;register&apos; , component: register}
-        ]
-        //子路由的path前不要带/否则是以根路径开始访问
-    },
-],</code></pre><p>   ```</p>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&apos;对应的网址&apos;&gt;&lt;/router-link&gt;</span><br><span class="line">    - 默认渲染a标签，可通过tag改变渲染的标签</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>radirect 强制执行某个页面</p>
+</li>
+<li><p>路由选中高亮的两种方法：（由标签 router-link 提供，也就是说要在这里面才能实现高亮）</p>
+<ul>
+<li>vue 原生的类名.router-link-active 中设置选中时元素高亮</li>
+<li>在构造函数内设置一个 linkActiveClass 属性再设置相应的名称</li>
+</ul>
+</li>
+<li><p>路由规则定义参数</p>
+<ul>
+<li><p>如果在路由中使用查询字符串，给路由传递参数，不需要改变路由规则里的 path 值</p>
+</li>
+<li><p>通过原生$router.query.（id&amp;name）可以获取相应的参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login?id=10&amp;name=fan&quot;&gt;登陆&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过原生$router.params.id&amp;name 可以获取相应的参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login/23/fan&quot;&gt;登陆&lt;/router-link&gt;</span><br><span class="line">//需要改变匹配规则的path</span><br><span class="line"> &#123;path: &apos;/login/:id/:name&apos;, component: login&#125;,</span><br><span class="line"> 在下一位为匹配道德是id，或者name</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>通过 children 实现路由嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">           &#123;</span><br><span class="line">               path: &apos;/account&apos;,</span><br><span class="line">               component: account,</span><br><span class="line">               children:  [</span><br><span class="line">                   &#123;path: &apos;login&apos;,component: login&#125;,</span><br><span class="line">                   &#123;path: &apos;register&apos; , component: register&#125;</span><br><span class="line">               ]</span><br><span class="line">               //子路由的path前不要带/否则是以根路径开始访问</span><br><span class="line">           &#125;,</span><br><span class="line">       ],</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>命名化视图</p>
 <ul>
-<li>通过给<rount-view>添加name属性即可</rount-view></li>
+<li>通过给<rount-view>添加 name 属性即可</rount-view></li>
 </ul>
+</li>
+<li><p>watch 属性监听 data 中指定的数据变化，然后触发 watch 中的对应的处理函数</p>
 <ul>
-<li>watch属性监听data中指定的数据变化，然后触发watch中的对应的处理函数<ul>
 <li>有两个参数：<ul>
 <li>newvalue 最新的的数字；</li>
 <li>oldvalue 次新的数字；</li>
 </ul>
 </li>
-<li>可监听非DOM的元素</li>
-<li>使用watch来监听路由的地址的变化；<br><code>watch: &#39;$route.path&#39;(newVal, oldVal) {...}</code></li>
+<li>可监听非 DOM 的元素</li>
+<li>使用 watch 来监听路由的地址的变化；<br><code>watch: &#39;$route.path&#39;(newVal, oldVal) {...}</code></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p>computed属性</p>
+<li><p>computed 属性</p>
 <ul>
 <li>可以定义一些属性，这些属性叫做计算属性，本质就是一个方法，只不过我们在使用这些计算属性的时候把他们的名称直接当作属性来是同的，并不会把计算属性直接当作方法去调用<ul>
 <li>注意： 极端属性在应用的时候千万不要加（）去调用，直接把她当成属性用就好；</li>
-<li>注意： 只要计算属性这个function内部所有用到的data数据发生变化，就会立即重新计算这个计算属性的值；</li>
+<li>注意： 只要计算属性这个 function 内部所有用到的 data 数据发生变化，就会立即重新计算这个计算属性的值；</li>
 <li>注意： 计算属性的的求值结果会被缓存起来；如果计算属性方法中所有的数据都没有发生过变化，不会对计算属性求值；</li>
 </ul>
 <hr>
-<h2 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h2></li>
+</li>
 </ul>
 </li>
-<li><p>只是提供了几个常用的的下载包的YRL的地址，并能让我们在这几个地址之间很方便的进行切换，但是我们要装包的时候都是使用装包工具 npm</p>
-<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2></li>
-<li><p>（含义）是一个前端项目构建工具，他是机遇Node.js开发出来的工具</p>
-</li>
+</ul>
+<h2 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h2><ul>
+<li>只是提供了几个常用的的下载包的 YRL 的地址，并能让我们在这几个地址之间很方便的进行切换，但是我们要装包的时候都是使用装包工具 npm</li>
+</ul>
+<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><ul>
+<li>（含义）是一个前端项目构建工具，他是机遇 Node.js 开发出来的工具</li>
 </ul>
 
           
@@ -2403,7 +2819,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

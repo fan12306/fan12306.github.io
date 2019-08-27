@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="AJAX创建XMLHttpRequest对象 作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新 语法： variable = new XMLHttpRequest()向服务器发送请求 使用XMLHttpRequest对象的open()与send() 语法： xmlhttp.open(&amp;#39;GET&amp;#39; , &amp;quot;ajax_info.">
+<meta name="description" content="AJAX创建 XMLHttpRequest 对象 作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新 语法： variable = new XMLHttpRequest()  向服务器发送请求 使用 XMLHttpRequest 对象的 open()与 send() 语法： xmlhttp.open(&amp;#39;GET&amp;#39; , &amp;quot;aj">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AJAX">
 <meta property="og:url" content="http://yoursite.com/2019/08/14/AJAX/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="AJAX创建XMLHttpRequest对象 作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新 语法： variable = new XMLHttpRequest()向服务器发送请求 使用XMLHttpRequest对象的open()与send() 语法： xmlhttp.open(&amp;#39;GET&amp;#39; , &amp;quot;ajax_info.">
+<meta property="og:description" content="AJAX创建 XMLHttpRequest 对象 作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新 语法： variable = new XMLHttpRequest()  向服务器发送请求 使用 XMLHttpRequest 对象的 open()与 send() 语法： xmlhttp.open(&amp;#39;GET&amp;#39; , &amp;quot;aj">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-15T02:28:50.040Z">
+<meta property="og:updated_time" content="2019-08-25T03:27:35.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AJAX">
-<meta name="twitter:description" content="AJAX创建XMLHttpRequest对象 作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新 语法： variable = new XMLHttpRequest()向服务器发送请求 使用XMLHttpRequest对象的open()与send() 语法： xmlhttp.open(&amp;#39;GET&amp;#39; , &amp;quot;ajax_info.">
+<meta name="twitter:description" content="AJAX创建 XMLHttpRequest 对象 作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新 语法： variable = new XMLHttpRequest()  向服务器发送请求 使用 XMLHttpRequest 对象的 open()与 send() 语法： xmlhttp.open(&amp;#39;GET&amp;#39; , &amp;quot;aj">
 
 
 
@@ -322,60 +322,66 @@
       
 
       
-        <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h2><ol>
+        <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="创建-XMLHttpRequest-对象"><a href="#创建-XMLHttpRequest-对象" class="headerlink" title="创建 XMLHttpRequest 对象"></a>创建 XMLHttpRequest 对象</h2><ol>
 <li>作用： 用于在后台与服务器交流数据，这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新</li>
-<li>语法： <code>variable = new XMLHttpRequest()</code><h2 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h2></li>
-<li>使用XMLHttpRequest对象的open()与send()</li>
-<li>语法： <code>xmlhttp.open(&#39;GET&#39; , &quot;ajax_info.text&quot; , true)</code> <ul>
-<li>规定请求的类型、URL以及是否异步处理请求<ul>
-<li>method： 请求的类型；GET或POST</li>
+<li>语法： <code>variable = new XMLHttpRequest()</code></li>
+</ol>
+<h2 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h2><ol>
+<li>使用 XMLHttpRequest 对象的 open()与 send()</li>
+<li>语法： <code>xmlhttp.open(&#39;GET&#39; , &quot;ajax_info.text&quot; , true)</code><ul>
+<li>规定请求的类型、URL 以及是否异步处理请求<ul>
+<li>method： 请求的类型；GET 或 POST</li>
 <li>url： 文件在服务器上的位置</li>
-<li>async： true（异步）或false（同步）</li>
+<li>async： true（异步）或 false（同步）</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>语法<code>xmlhttp.send()</code><ul>
 <li>将请求发送发送到服务器上<ul>
-<li>string： 仅用于POST请求<h3 id="GET还是POST"><a href="#GET还是POST" class="headerlink" title="GET还是POST"></a>GET还是POST</h3></li>
+<li>string： 仅用于 POST 请求</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<ul>
-<li>与post相比，GET更简单，并且在大部分情况下都可以使用，在以下情况下使用post<ol>
+<h3 id="GET-还是-POST"><a href="#GET-还是-POST" class="headerlink" title="GET 还是 POST"></a>GET 还是 POST</h3><ul>
+<li>与 post 相比，GET 更简单，并且在大部分情况下都可以使用，在以下情况下使用 post<ol>
 <li>无法使用缓存文件（更新服务器上的文件或数据库）</li>
-<li>向服务器发送大量数据（POST没有数据数量限制）</li>
-<li>发送包含未知字符的用户输入，POST比GET更加可靠<h3 id="url-服务器上的文件"><a href="#url-服务器上的文件" class="headerlink" title="url-服务器上的文件"></a>url-服务器上的文件</h3></li>
+<li>向服务器发送大量数据（POST 没有数据数量限制）</li>
+<li>发送包含未知字符的用户输入，POST 比 GET 更加可靠</li>
 </ol>
 </li>
 </ul>
-<ol>
-<li>open发放的url参数是服务器文件额地址<ul>
-<li>xmlhttp.open(“GET” , “文件地址”)<h3 id="异步为TRUE"><a href="#异步为TRUE" class="headerlink" title="异步为TRUE"></a>异步为TRUE</h3></li>
+<h3 id="url-服务器上的文件"><a href="#url-服务器上的文件" class="headerlink" title="url-服务器上的文件"></a>url-服务器上的文件</h3><ol>
+<li>open 发放的 url 参数是服务器文件额地址<ul>
+<li>xmlhttp.open(“GET” , “文件地址”)</li>
 </ul>
 </li>
-<li>发送的请求是AJAX的时候第三个参数必须为true ，表示异步获取</li>
-<li>如需获得来自服务器的响应，请使用XMLHttpRequest对象的responseText或responseXML属性<ul>
+</ol>
+<h3 id="异步为-TRUE"><a href="#异步为-TRUE" class="headerlink" title="异步为 TRUE"></a>异步为 TRUE</h3><ol>
+<li>发送的请求是 AJAX 的时候第三个参数必须为 true ，表示异步获取</li>
+<li>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性<ul>
 <li>responseText 获得字符串形式的相应数据</li>
-<li>responeXML 获得XML形式的相应数据<h2 id="onreadystatechange事件"><a href="#onreadystatechange事件" class="headerlink" title="onreadystatechange事件"></a>onreadystatechange事件</h2></li>
+<li>responeXML 获得 XML 形式的相应数据</li>
 </ul>
 </li>
-<li>当请求被发送到服务器是，我们需要执行一些相应的任务，每当ready State改变时，就会触发onreadystatechange事件。</li>
+</ol>
+<h2 id="onreadystatechange-事件"><a href="#onreadystatechange-事件" class="headerlink" title="onreadystatechange 事件"></a>onreadystatechange 事件</h2><ol>
+<li>当请求被发送到服务器是，我们需要执行一些相应的任务，每当 ready State 改变时，就会触发 onreadystatechange 事件。</li>
 <li>三个重要属性<ul>
-<li>onreadystatechange： 存储函数或函数名，每当readyState属性改变时，就会触发调用还函数</li>
-<li>存有XMLHttpRequest的状态。从0~4发生变化<ul>
+<li>onreadystatechange： 存储函数或函数名，每当 readyState 属性改变时，就会触发调用还函数</li>
+<li>存有 XMLHttpRequest 的状态。从 0~4 发生变化<ul>
 <li>0：请求未初始化；</li>
-<li>1:  服务器已经建立</li>
+<li>1: 服务器已经建立</li>
 <li>2： 请求已经接受</li>
 <li>3： 请求处理中</li>
 <li>4：请求已经完成</li>
 </ul>
 </li>
-<li>status <ul>
+<li>status<ul>
 <li>200 : OK</li>
-<li>404: 为找到页面 </li>
+<li>404: 为找到页面</li>
 </ul>
 </li>
 </ul>
@@ -499,7 +505,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -538,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX"><span class="nav-number">1.</span> <span class="nav-text">AJAX</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">1.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向服务器发送请求"><span class="nav-number">1.2.</span> <span class="nav-text">向服务器发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET还是POST"><span class="nav-number">1.2.1.</span> <span class="nav-text">GET还是POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url-服务器上的文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">url-服务器上的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步为TRUE"><span class="nav-number">1.2.3.</span> <span class="nav-text">异步为TRUE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onreadystatechange事件"><span class="nav-number">1.3.</span> <span class="nav-text">onreadystatechange事件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AJAX"><span class="nav-number">1.</span> <span class="nav-text">AJAX</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-XMLHttpRequest-对象"><span class="nav-number">1.1.</span> <span class="nav-text">创建 XMLHttpRequest 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向服务器发送请求"><span class="nav-number">1.2.</span> <span class="nav-text">向服务器发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET-还是-POST"><span class="nav-number">1.2.1.</span> <span class="nav-text">GET 还是 POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url-服务器上的文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">url-服务器上的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步为-TRUE"><span class="nav-number">1.2.3.</span> <span class="nav-text">异步为 TRUE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onreadystatechange-事件"><span class="nav-number">1.3.</span> <span class="nav-text">onreadystatechange 事件</span></a></li></ol></li></ol></div>
             
 
           </div>
