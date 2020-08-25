@@ -1,0 +1,725 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="异步与性能分块的程序 只有一个现在进行，其余的则会将来执行 从现在到未来的‘等待’，最简单的方法是使用回调函数 任何时候只要把代码包装成一个函数形式，并且以事件执行，那么我们就创建了一个将来执行的块，也由此将程序引入异步  异步控制台事件循环 所有环境都有共同的点（线程），它们提供了一种机制来处理程序中多个快的执行，且执行每块时调用的 javaScript 引擎，这总集中被称为事件循环  setT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步Done！">
+<meta property="og:url" content="http://yoursite.com/2019/09/20/异步Done！/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="异步与性能分块的程序 只有一个现在进行，其余的则会将来执行 从现在到未来的‘等待’，最简单的方法是使用回调函数 任何时候只要把代码包装成一个函数形式，并且以事件执行，那么我们就创建了一个将来执行的块，也由此将程序引入异步  异步控制台事件循环 所有环境都有共同的点（线程），它们提供了一种机制来处理程序中多个快的执行，且执行每块时调用的 javaScript 引擎，这总集中被称为事件循环  setT">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-04T01:48:45.518Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="异步Done！">
+<meta name="twitter:description" content="异步与性能分块的程序 只有一个现在进行，其余的则会将来执行 从现在到未来的‘等待’，最简单的方法是使用回调函数 任何时候只要把代码包装成一个函数形式，并且以事件执行，那么我们就创建了一个将来执行的块，也由此将程序引入异步  异步控制台事件循环 所有环境都有共同的点（线程），它们提供了一种机制来处理程序中多个快的执行，且执行每块时调用的 javaScript 引擎，这总集中被称为事件循环  setT">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/20/异步Done！/">
+
+
+
+
+
+  <title> 异步Done！ | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/异步Done！/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                异步Done！
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-20T17:22:59+08:00">
+                2019-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="异步与性能"><a href="#异步与性能" class="headerlink" title="异步与性能"></a>异步与性能</h1><h2 id="分块的程序"><a href="#分块的程序" class="headerlink" title="分块的程序"></a>分块的程序</h2><ul>
+<li>只有一个现在进行，其余的则会将来执行</li>
+<li>从现在到未来的‘等待’，最简单的方法是使用回调函数</li>
+<li>任何时候只要把代码包装成一个函数形式，并且以事件执行，那么我们就创建了一个将来执行的块，也由此将程序引入异步</li>
+</ul>
+<h3 id="异步控制台"><a href="#异步控制台" class="headerlink" title="异步控制台"></a>异步控制台</h3><h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><ul>
+<li><p>所有环境都有共同的点（线程），它们提供了一种机制来处理程序中多个快的执行，且执行每块时调用的 javaScript 引擎，这总集中被称为事件循环</p>
+</li>
+<li><p>setTImeout()并没有把你的回调函数挂在事件循环队列中，他所做的事设定一个定时器。当定时器到时后，环境会把你的的回调函数放在事件循环中，这样，在未来某个时刻的 tick 会摘下并执行这个回调 ，它的精度并不是很高</p>
+</li>
+</ul>
+<ol>
+<li>所有的同步任务都在主线程上执行形成一个任务栈</li>
+<li>主线程之外还存在一个任务队列，只要异步任务有了运行结果，就在任务队列中放置一个事件</li>
+<li>一旦执行栈中的所有同步任务完成，系统就会读取任务队列中看看还有那些事件，那些对应的异步任务结束等待状态进入执行栈开始执行</li>
+</ol>
+<h2 id="并行线程"><a href="#并行线程" class="headerlink" title="并行线程"></a>并行线程</h2><ul>
+<li><p>异步是现在和将来的时间间隙，并行是关于能够同时发生的事情</p>
+</li>
+<li><p>并线计算最常见的工具就是进程与线程。进程和线程独立运行，并可能同时运行；在不同的处理器，甚至不同的计算机上，但多个线程能够贡献单个进程的内存</p>
+</li>
+<li><p>线程不会中断，但是并行的时候可能有两个不同的线程在运行，因此可能出现竞态</p>
+</li>
+</ul>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><ul>
+<li><p>可以看作是‘进程级’的并行。</p>
+</li>
+<li><p>JavaScript 一次只能处理一个事件，所以没有严格地同时发生，</p>
+</li>
+</ul>
+<h3 id="非交互"><a href="#非交互" class="headerlink" title="非交互"></a>非交互</h3><ul>
+<li>独立运行，不会相互影响</li>
+</ul>
+<h3 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h3><ul>
+<li>可能出现竞态，需要看谁先完成，可以通过协调来完成竟态条件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var res = []</span><br><span class="line"></span><br><span class="line">function response(data) &#123;</span><br><span class="line">    if(data.url == &apos;&apos;) &#123;</span><br><span class="line">        res[0] = data</span><br><span class="line">    &#125;else if(data.url == &apos;&apos;) &#123;</span><br><span class="line">        res[1] = data</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以运用判断条件(a &amp;&amp; b) ，需要两个都请求到了才符合条件，江湖人称门</li>
+<li>只有第一名取胜，成为竟态，可以通过！门来作为判断条件</li>
+</ul>
+<h3 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h3><ul>
+<li>简单来说就是运行很大一个数据的时候我们需要将其分割为一部分一部分这样运行，不然用户体验效果很差</li>
+</ul>
+<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><ul>
+<li><p>所有任务可以分成两种，一种是 同步任务（synchronous），另一种是 异步任务（asynchronous） 。</p>
+<ul>
+<li><p>同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。</p>
+</li>
+<li><p>异步任务指的是，不进入主线程、而进入”任务队列”（task queue）的任务，只有 “任务队列”通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>所以，当在执行过程中遇到一些类似于 setTimeout 等异步操作的时候，会交给浏览器的其他模块进行处理，当到达 setTimeout 指定的延时执行的时间之后，回调函数会放入到任务队列之中。</p>
+<p>当然，一般不同的异步任务的回调函数会放入不同的任务队列之中。等到调用栈中所有任务执行完毕之后，接着去执行任务队列之中的回调函数。</p>
+<h2 id="回调函数的两个问题和异步顺序"><a href="#回调函数的两个问题和异步顺序" class="headerlink" title="回调函数的两个问题和异步顺序"></a>回调函数的两个问题和异步顺序</h2><ol>
+<li><p>控制反转问题</p>
+</li>
+<li><p>回调地狱问题</p>
+</li>
+<li><p>异步的顺序问题</p>
+</li>
+</ol>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><h3 id="控制反转反转"><a href="#控制反转反转" class="headerlink" title="控制反转反转"></a>控制反转反转</h3><ol>
+<li><p>我们不把自己的程序交给第三方，而是希望第三方给我们提供了解其任务何时结束的能力，然后再由我们自己的代码来决定下一步做什么</p>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/02/前端面试题/" rel="next" title="前端面试题">
+                <i class="fa fa-chevron-left"></i> 前端面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/29/移动端适配/" rel="prev" title="移动端适配">
+                移动端适配 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Junjie Fan">
+          <p class="site-author-name" itemprop="name">Junjie Fan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异步与性能"><span class="nav-number">1.</span> <span class="nav-text">异步与性能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分块的程序"><span class="nav-number">1.1.</span> <span class="nav-text">分块的程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步控制台"><span class="nav-number">1.1.1.</span> <span class="nav-text">异步控制台</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件循环"><span class="nav-number">1.2.</span> <span class="nav-text">事件循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行线程"><span class="nav-number">1.3.</span> <span class="nav-text">并行线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-number">1.4.</span> <span class="nav-text">并发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非交互"><span class="nav-number">1.4.1.</span> <span class="nav-text">非交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交互"><span class="nav-number">1.4.2.</span> <span class="nav-text">交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协作"><span class="nav-number">1.4.3.</span> <span class="nav-text">协作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务"><span class="nav-number">1.5.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调函数的两个问题和异步顺序"><span class="nav-number">1.6.</span> <span class="nav-text">回调函数的两个问题和异步顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise"><span class="nav-number">1.7.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制反转反转"><span class="nav-number">1.7.1.</span> <span class="nav-text">控制反转反转</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Junjie Fan</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

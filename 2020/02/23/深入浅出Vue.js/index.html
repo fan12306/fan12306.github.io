@@ -1,0 +1,1130 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="深入浅出Vue.js变化侦测 作用：侦测数据变化，对相应的视图进行改变。  Vue.js 会自动生成Dom，并且输出显示到页面上来，这个过程称为渲染。通常运行时的时候，总是在渲染的。因此如何确定那个状态发生了什么变化。   什么是变化侦测 Vue.js 采用的是‘拉’ 这个方式的变化侦测。到了Vue 2.0 引入了虚拟dom 时就把更新粒度改为中等粒度，也就是一个状态绑定的不是dom，而是组件。当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/02/23/深入浅出Vue.js/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="深入浅出Vue.js变化侦测 作用：侦测数据变化，对相应的视图进行改变。  Vue.js 会自动生成Dom，并且输出显示到页面上来，这个过程称为渲染。通常运行时的时候，总是在渲染的。因此如何确定那个状态发生了什么变化。   什么是变化侦测 Vue.js 采用的是‘拉’ 这个方式的变化侦测。到了Vue 2.0 引入了虚拟dom 时就把更新粒度改为中等粒度，也就是一个状态绑定的不是dom，而是组件。当">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-21T03:51:39.854Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="深入浅出Vue.js变化侦测 作用：侦测数据变化，对相应的视图进行改变。  Vue.js 会自动生成Dom，并且输出显示到页面上来，这个过程称为渲染。通常运行时的时候，总是在渲染的。因此如何确定那个状态发生了什么变化。   什么是变化侦测 Vue.js 采用的是‘拉’ 这个方式的变化侦测。到了Vue 2.0 引入了虚拟dom 时就把更新粒度改为中等粒度，也就是一个状态绑定的不是dom，而是组件。当">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/23/深入浅出Vue.js/">
+
+
+
+
+
+  <title>  | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/深入浅出Vue.js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-23T10:19:51+08:00">
+                2020-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="深入浅出Vue-js"><a href="#深入浅出Vue-js" class="headerlink" title="深入浅出Vue.js"></a>深入浅出Vue.js</h1><h2 id="变化侦测"><a href="#变化侦测" class="headerlink" title="变化侦测"></a>变化侦测</h2><ol>
+<li><p>作用：侦测数据变化，对相应的视图进行改变。</p>
+</li>
+<li><p>Vue.js 会自动生成Dom，并且输出显示到页面上来，这个过程称为渲染。通常运行时的时候，总是在渲染的。因此如何确定那个状态发生了什么变化。</p>
+</li>
+</ol>
+<h3 id="什么是变化侦测"><a href="#什么是变化侦测" class="headerlink" title="什么是变化侦测"></a>什么是变化侦测</h3><ul>
+<li>Vue.js 采用的是‘拉’ 这个方式的变化侦测。到了Vue 2.0 引入了虚拟dom 时就把更新粒度改为中等粒度，也就是一个状态绑定的不是dom，而是组件。当状态发生变化的时候，会通知组件，组件内在进行虚拟dom，进行比对从而减少依赖的数量。</li>
+</ul>
+<h3 id="如何追踪变化"><a href="#如何追踪变化" class="headerlink" title="如何追踪变化"></a>如何追踪变化</h3><ul>
+<li>在 JS 中，我们可以通过Object.defineProperty()与proxy 来追踪对象的变化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function defineReactive(obj, key, val) &#123;</span><br><span class="line">    Object.defineProperty(obj, key, &#123;</span><br><span class="line">        enumerable: true,</span><br><span class="line">        configuration: true,</span><br><span class="line">        get() &#123;</span><br><span class="line">            return val</span><br><span class="line">        &#125;,</span><br><span class="line">        set(val, newVal) &#123;</span><br><span class="line">            if(val === newVal) &#123;</span><br><span class="line">                return </span><br><span class="line">            &#125;</span><br><span class="line">            val = newVal</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何收集依赖"><a href="#如何收集依赖" class="headerlink" title="如何收集依赖"></a>如何收集依赖</h2><ul>
+<li><p>在Vue.js 中，模板中使用数据相当于组件使用数据，因此数据发生变化的时候，会通知组件，组件内在进行虚拟dom的对比，进而重新渲染</p>
+</li>
+<li><p>先收集使用到数据的所有依赖，然后再进行一次遍历循环</p>
+</li>
+<li><p>总的来说是，getter收集依赖，setter触发依赖</p>
+</li>
+</ul>
+<h2 id="依赖收集放在哪里"><a href="#依赖收集放在哪里" class="headerlink" title="依赖收集放在哪里"></a>依赖收集放在哪里</h2><ul>
+<li>我们有了明确的目标，在getter中收集依赖，收集的依赖我们就放在window.target 中</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">fanction defineReactive(obj, key, val) &#123;</span><br><span class="line">    let dep = new Dep()</span><br><span class="line">    Object.defineProperty(obj, key, &#123;</span><br><span class="line">        enumerable: true,</span><br><span class="line">        configuration: true,</span><br><span class="line">        get() &#123;</span><br><span class="line">            dep.depend()</span><br><span class="line">            return val</span><br><span class="line">        &#125;,</span><br><span class="line">        set(newVal) &#123;</span><br><span class="line">            if(val === newVal) &#123;</span><br><span class="line">                return </span><br><span class="line">            &#125;</span><br><span class="line">            val = newVal</span><br><span class="line">            dep.notify()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dep &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        this.subs = []</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    addSubs(sub) &#123;</span><br><span class="line">        this.subs.push(sub)</span><br><span class="line">    &#125;</span><br><span class="line">    removeSubs(sub) &#123;</span><br><span class="line">        new Dep().remove(sub)</span><br><span class="line">    &#125;</span><br><span class="line">    depend() &#123;</span><br><span class="line">        if(window.target) &#123;</span><br><span class="line">            this.subs.push(window.target)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    notify() &#123;</span><br><span class="line">        const subs = [...this.subs]</span><br><span class="line">        for(let i = 0; i &lt; subs.length; i++) &#123;</span><br><span class="line">            subs[i].update()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    _remove(arr, item) &#123;</span><br><span class="line">        if(arr.length) &#123;</span><br><span class="line">            const index = arr.indexOf(item)</span><br><span class="line">            if(index &gt; -1) &#123;</span><br><span class="line">                arr.split(index, 1)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="依赖是谁"><a href="#依赖是谁" class="headerlink" title="依赖是谁"></a>依赖是谁</h2><ul>
+<li><p>属性变化的时候通知谁，我们要通知的地方有很多，而且类型也不一样，因此我们需要抽象出一个类，我们专门收集这个类下的实例，通知也只通知他一个。接着在通知其他地方，我们把这个类叫做Watcher</p>
+</li>
+<li><p>因此我们很清晰，我们需要收集的是Watcher</p>
+</li>
+</ul>
+<h2 id="什么是Watcher"><a href="#什么是Watcher" class="headerlink" title="什么是Watcher"></a>什么是Watcher</h2><ul>
+<li>Watcher 是一个中介角色，当数据发生变化的时候，通知其他地方</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">wm.$watch(&apos;a.b.c&apos;, function(newVal, olaVal) &#123;</span><br><span class="line">     // do something ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在上面这个例子中，我们可以知道，当属性a.b.c ，发生变化的时候，出发参数二的回调函数</p>
+</li>
+<li><p>我们只需要在 a.b.c 中的将Watcher 的实例添加入 Dep 中就可以了，只要属性发生改变，通知Wacher，在进行回调函数的进行</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Watcher(vm, expOrFn, cb) &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        this.vm = vm</span><br><span class="line">        // 执行this.getter(),就是可以读取被watch的数据；</span><br><span class="line">        this.getter = parsePath(expOrFn)</span><br><span class="line">        this.cb = cd</span><br><span class="line">        this.value = this.get()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get() &#123;</span><br><span class="line">        window.target = this</span><br><span class="line">        const val = this.getter.call(this.vm, this.vm)</span><br><span class="line">        window.target = undefined</span><br><span class="line">        return val</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    update() &#123;</span><br><span class="line">        const olaValue = this.value</span><br><span class="line">        this.value = this.get()</span><br><span class="line">        this.cb.call(this.vm, this.value, oldValue)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>代码中可以将自己主动添加到 a.b.c 中的Dep，因为在get() 中window.target = this ,也就是设置为当前Watcher 的实例，然后在读一下 a.b.c 的属性值，也就触发了 Dep 的收集依赖的机制，依赖注入Dep中之后，只要a.b.c 的属性值一旦发生改变，就会触发Watcher 的update 的方法，执行响应的回调函数</li>
+</ul>
+<h2 id="递归侦测所有子属性"><a href="#递归侦测所有子属性" class="headerlink" title="递归侦测所有子属性"></a>递归侦测所有子属性</h2><ul>
+<li>我们基本已经完成数据侦测。但是我们只能侦测一个某个对象的某一个属性。因此我们需要创建一类叫做observe，来将某个数据上的所有属性都变成getter与setter，然后追踪他们的变化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Observe&#123;</span><br><span class="line">    constructor(val) &#123;</span><br><span class="line">        this.val = val</span><br><span class="line">        if(!Array.from(val)) &#123;</span><br><span class="line">            this.walk(val)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    walk(obj) &#123;</span><br><span class="line">        const keys = Object.keys(obj)</span><br><span class="line">        for(let i = 0; i &lt; keys.length; i ++) &#123;</span><br><span class="line">            defineReactive(obj, keys[i], obj[keys[i]])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function definedReactive(obj, key, value) &#123;</span><br><span class="line">    if(typeof obj === &apos;Object&apos;) &#123;</span><br><span class="line">        new Observe(obj)</span><br><span class="line">    &#125;</span><br><span class="line">    let dep = new Dep()</span><br><span class="line">    Object.defineProperty(obj, key, &#123;</span><br><span class="line">        enumerable: true,</span><br><span class="line">        configurable: true,</span><br><span class="line">        get(val) &#123;</span><br><span class="line">            dep.depend()</span><br><span class="line">            return val</span><br><span class="line">        &#125;,</span><br><span class="line">        set(newVal) &#123;</span><br><span class="line">            if(val === newVal) &#123;</span><br><span class="line">                return </span><br><span class="line">            &#125;</span><br><span class="line">            val = newVal</span><br><span class="line">            dep.notify()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>Data 通过Observe 类将其中的所有属性转换成getter与setter，外界通过Watcher 来读取数据的时候，触发getter，这样就会将watcher 的实例注入到Dep 中成为依赖，当数据发生改变，触发setter，进而会向Dep 中的Watcher发送通知，Watcher 接收到信息后，就会向外界传递改变，或者通知视图发生改变，或者执行回调函数</li>
+</ul>
+<h2 id="Array-的变化侦测"><a href="#Array-的变化侦测" class="headerlink" title="Array 的变化侦测"></a>Array 的变化侦测</h2><ul>
+<li>因为我们使用Array 的原生方法，它是无法触发getter与setter。</li>
+</ul>
+<h3 id="如何追踪变化-1"><a href="#如何追踪变化-1" class="headerlink" title="如何追踪变化"></a>如何追踪变化</h3><ol>
+<li>我们可以通过自己定义的方法覆盖原生数组的方法。每当我们操作数组就是在操作我们自己定义在拦截器的方法。</li>
+</ol>
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const arrayProto = Array.prototype</span><br><span class="line">const arrayMethods = Object.create(arrayProto)</span><br><span class="line">[&apos;push&apos;, &apos;pop&apos;, &apos;unshift&apos;, &apos;shift&apos;, &apos;splice&apos;, &apos;sort&apos;, &apos;reverse&apos;].map(function(method)&#123;</span><br><span class="line">    const original = arrayMethods[method]</span><br><span class="line">    Object.defineProperty(arrayMethods, method, &#123;</span><br><span class="line">        value: function mutator(...args) &#123;</span><br><span class="line">            return original.apply(this, ...args)</span><br><span class="line">            const ob = this.__ob__ // 新增（拦截器中获取Observer实例）</span><br><span class="line">            ob.dep.notify() // 新增（向依赖发送消息）</span><br><span class="line">        &#125;,</span><br><span class="line">        enumerable: true,</span><br><span class="line">        writable: true,</span><br><span class="line">        configurable: true</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们需要用我们自己创建的方法来覆盖 Array 中原生的方法</li>
+</ul>
+<h3 id="使用拦截器覆盖Array-原型"><a href="#使用拦截器覆盖Array-原型" class="headerlink" title="使用拦截器覆盖Array 原型"></a>使用拦截器覆盖Array 原型</h3><ul>
+<li><p>我们只希望在拦截操作只针对那些被侦测的变化的数据生效</p>
+</li>
+<li><p>我们通过Observe 将对象变成响应式的对象，那么我们也在Observe中使用拦截器，覆盖那些数组的原型对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Observe &#123;</span><br><span class="line">    constructor(value) &#123;</span><br><span class="line">        this.value = value</span><br><span class="line">        if(Array.isArray(value) &#123;</span><br><span class="line">            value.__proto__ = arrayMethods</span><br><span class="line">        &#125;)else &#123;</span><br><span class="line">            this.walk(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="将拦截器方法挂载到数组的属性上"><a href="#将拦截器方法挂载到数组的属性上" class="headerlink" title="将拦截器方法挂载到数组的属性上"></a>将拦截器方法挂载到数组的属性上</h3><ul>
+<li><p>为了兼容有些浏览器不兼容 <strong>proto</strong> 的属性，因此我们需要兼容</p>
+</li>
+<li><p>Vue 的做法很粗暴，直接将这些方法强行加到依赖中</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const hasProto = &apos;__proto__&apos; in value</span><br><span class="line">const arrayKeys = Object.getOwnPropertyNames(arrayMethods)</span><br><span class="line">class Observe &#123;</span><br><span class="line">    constructor(value) &#123;</span><br><span class="line">        this.value = value</span><br><span class="line">       if(Array.isArray(value)) &#123;</span><br><span class="line">           argument = hasProto ? protoArgument : copyArgument</span><br><span class="line">           argument(value, arrayMethods, arrayKeys)</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           this.walk(value)</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> function protoArgument(target, src, keys) &#123;</span><br><span class="line">                target.__proto__ = src</span><br><span class="line">&#125;</span><br><span class="line"> function copyArgument(target, src, keys) &#123;</span><br><span class="line">        for(let i = 0; i &lt; keys.length; i++) &#123;</span><br><span class="line">            const key = keys[i]</span><br><span class="line">            dep(target, src, src[key])</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何收集依赖-1"><a href="#如何收集依赖-1" class="headerlink" title="如何收集依赖"></a>如何收集依赖</h3><ol>
+<li>数组也是在getter中收集依赖，因为当我们在调用对象上某个数组的时候，我们是通过key来调用的，因此我们在读取数组的时候也会触发getter</li>
+</ol>
+<ul>
+<li>因此，Array在getter中收集依赖，在拦截器中触发依赖</li>
+</ul>
+<h3 id="依赖列表存在哪儿"><a href="#依赖列表存在哪儿" class="headerlink" title="依赖列表存在哪儿"></a>依赖列表存在哪儿</h3><ol>
+<li><p>我们知道数组在getter中收集依赖，在拦截器中触发依赖，因此依赖保存的位置就很关键了，他既要能被getter访问到也要被拦截器访问到</p>
+</li>
+<li><p>保存在Observe的实例上 </p>
+</li>
+</ol>
+<h3 id="收集依赖"><a href="#收集依赖" class="headerlink" title="收集依赖"></a>收集依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function defineReactive(data, key, value)&#123;</span><br><span class="line">    // 创建Observe 实例 (新增)</span><br><span class="line">    let childOb = observe(value)</span><br><span class="line">    let dep = new Dep()</span><br><span class="line">    Object.defineProperty(data, key, &#123;</span><br><span class="line">        get() &#123;</span><br><span class="line">            dep.depend()</span><br><span class="line">            if(childOb) &#123;</span><br><span class="line">                // 收集数组的依赖 （新增）</span><br><span class="line">                childOb.dep.depend(value)</span><br><span class="line">            &#125;</span><br><span class="line">            return value</span><br><span class="line">        &#125;,</span><br><span class="line">        set(newVal) &#123;</span><br><span class="line">            if(value === newVal) &#123;</span><br><span class="line">                return </span><br><span class="line">            &#125;</span><br><span class="line">            value = newVal</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function observe(value) &#123;</span><br><span class="line">    if(isObject(value)) &#123;</span><br><span class="line">        return </span><br><span class="line">    &#125;</span><br><span class="line">    let ob</span><br><span class="line">    if(hasOwn(value, &apos;__ob__&apos;) &amp;&amp; value.__ob_ instance Observe) &#123;</span><br><span class="line">        ob = value.__ob__</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        ob = new Observe(value)</span><br><span class="line">    &#125;</span><br><span class="line">    return ob</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在拦截器上获取Observe-实例"><a href="#在拦截器上获取Observe-实例" class="headerlink" title="在拦截器上获取Observe 实例"></a>在拦截器上获取Observe 实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function def(data, key, value, enumerable) &#123;</span><br><span class="line">    Object.defineProperty(data, key, &#123;</span><br><span class="line">        value: value,</span><br><span class="line">        enumerable: !!enumerable,</span><br><span class="line">        configurable: true,</span><br><span class="line">        writable: true</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在类Observe 的实例中创建一个__ob__ 的属性</span><br><span class="line"></span><br><span class="line">拦截器中</span><br><span class="line">const ob = this.__ob__</span><br><span class="line">ob.dep.notify()</span><br><span class="line"></span><br><span class="line">对添加上来的元素也进行</span><br><span class="line">对每个元素observe方法</span><br></pre></td></tr></table></figure>
+
+<h3 id="侦测数组中元素"><a href="#侦测数组中元素" class="headerlink" title="侦测数组中元素"></a>侦测数组中元素</h3><ol>
+<li>将数组中的数据变成getter、setter属性类型的数据；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Observe&#123;</span><br><span class="line">    constructor(val) &#123;</span><br><span class="line">        this.val = val</span><br><span class="line">        if(Array.isArray(val)) &#123;</span><br><span class="line">            this.observerArray(val) // 新增</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            this.walk(val)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 侦测数组的每一项 </span><br><span class="line">    observeArray(items) &#123;</span><br><span class="line">        for(let i = 0, l = items.length; i&lt; l; i++) &#123;</span><br><span class="line">            observe(items[i])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对于新增数组元素的变化"><a href="#对于新增数组元素的变化" class="headerlink" title="对于新增数组元素的变化"></a>对于新增数组元素的变化</h3><ol>
+<li>我们仅仅需要将新增的元素拿过来，进行数据侦测就好了，因此有下面的代码；</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">const arrayProto = Array.prototype</span><br><span class="line">const arrayMethods = Object.create(arrayProto)</span><br><span class="line">[&apos;push&apos;, &apos;pop&apos;, &apos;unshift&apos;, &apos;shift&apos;, &apos;splice&apos;, &apos;sort&apos;, &apos;reverse&apos;].map(function(method)&#123;</span><br><span class="line">    const original = arrayMethods[method]</span><br><span class="line">    Object.defineProperty(arrayMethods, method, &#123;</span><br><span class="line">        value: function mutator(...args) &#123;</span><br><span class="line">            const result = original.apply(this, ...args)</span><br><span class="line">            const ob = this.__ob__ </span><br><span class="line"></span><br><span class="line">            // 新增，对于method的处理</span><br><span class="line">            let inserted</span><br><span class="line">            switch(method) &#123;</span><br><span class="line">                case &apos;push&apos;:</span><br><span class="line">                case &apos;unshift&apos;:</span><br><span class="line">                    inserted = args</span><br><span class="line">                    breakObserver</span><br><span class="line">                case &apos;splice&apos;:</span><br><span class="line">                    inserted = args.slice(2)</span><br><span class="line">                    break</span><br><span class="line">            &#125;</span><br><span class="line">            if(inserted) ob.observeArray(inserted) // 新增，将新增的元素经过Observer</span><br><span class="line"></span><br><span class="line">            ob.dep.notify()</span><br><span class="line">            return result</span><br><span class="line">        &#125;,</span><br><span class="line">        enumerable: true,</span><br><span class="line">        writable: true,</span><br><span class="line">        configurable: true</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="变化侦测相关api实现原理"><a href="#变化侦测相关api实现原理" class="headerlink" title="变化侦测相关api实现原理"></a>变化侦测相关api实现原理</h2><h3 id="vm-watch-方法"><a href="#vm-watch-方法" class="headerlink" title="vm.$watch() 方法"></a>vm.$watch() 方法</h3><ol>
+<li><p>用于观察一个表达式或者computed函数在Vue.js 实例上的变化。回调函数别调用的时候，会从参数中获取新的数据，和旧的数据。</p>
+</li>
+<li><p>表达式返回一个取消观察的函数，用来停止触发回调</p>
+</li>
+<li><p>deep 用来发现对象内部值的变化</p>
+</li>
+<li><p>immediate 将立即以表达式的当前值触发回调</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.watch = function(expOrFn, cb, options=&#123;&#125;) &#123;</span><br><span class="line">    const vm = this</span><br><span class="line">    const watcher = new Watcher(vm, expOrFn, cd, options)</span><br><span class="line">    if(options.immediate) &#123;</span><br><span class="line">        cb.call(vm, watcher.value)</span><br><span class="line">    &#125;</span><br><span class="line">    return function unwatchFn() &#123;</span><br><span class="line">        watcher.teardown()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="watcher-teardown-实现方法"><a href="#watcher-teardown-实现方法" class="headerlink" title="watcher.teardown 实现方法"></a>watcher.teardown 实现方法</h3><ul>
+<li>也就是取消观察数据，也就是将watcher实例从dep依赖列表中删除</li>
+<li>首先我们要知道谁订阅了该Watcher，在通过某方法告诉dep剔除该watcher<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Watcher &#123;</span><br><span class="line">    constructor(value, expOrFn, cb) &#123;</span><br><span class="line">        this.value = this.get()</span><br><span class="line">        if(typeof expOrFn === &apos;function&apos;) &#123;</span><br><span class="line">            this.getter = expOrFn</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            this.getter = keyparse(expOrFn)</span><br><span class="line">        &#125;</span><br><span class="line">        this.dep = [] // 新增</span><br><span class="line">        this.depIds = new Set() // 新增</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    // 新增 在watcher中收集依赖，这样就可以让watch知道，有谁订阅了自己</span><br><span class="line">    addDep() &#123;</span><br><span class="line">        const id = this.dep.id</span><br><span class="line">        if(!this.depIds.has(id)) &#123;</span><br><span class="line">            this.depIds.add(id)</span><br><span class="line">            this.depIds.push(dep)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="teardown实现原理"><a href="#teardown实现原理" class="headerlink" title="teardown实现原理"></a>teardown实现原理</h3><ul>
+<li>前面说到了我们使用depIds来记录自己订阅了哪些dep，那么我们需要移除的时候就可以通知这些dep，将依赖从列表中将其去除；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 从所有依赖项的Dep列表中将自己移除；</span><br><span class="line"></span><br><span class="line">teardown() &#123;</span><br><span class="line">    let i = this.deps.length</span><br><span class="line">    while(i--)&#123;</span><br><span class="line">        this.deps[i].removeSub(this)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dep中；</span><br><span class="line">export default class Dep() &#123;</span><br><span class="line">    removeSub(sub) &#123;</span><br><span class="line">        const index = this.subs.indexOf(sub)</span><br><span class="line">        if(index &gt; -1) &#123;</span><br><span class="line">            return this.subs.splice(index, 1S)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vm-set"><a href="#vm-set" class="headerlink" title="vm.$set()"></a>vm.$set()</h2><h3 id="对于Array的处理"><a href="#对于Array的处理" class="headerlink" title="对于Array的处理"></a>对于Array的处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">export function set(target, key, value) &#123;</span><br><span class="line">    // 代码解析1</span><br><span class="line">    if(Array.isArray(target) &amp;&amp; isValidArrayKey(key)) &#123;</span><br><span class="line">        target.length = Math.max(target.length, key)</span><br><span class="line">        target.splice(key ,1, value)</span><br><span class="line">        return value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 代码解析2</span><br><span class="line">    if(key in target) &amp;&amp; !(key in Object.prototype) &#123;</span><br><span class="line">        target[value] = val</span><br><span class="line">        return value</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 代码解析3</span><br><span class="line">    const ob = target.__ob__</span><br><span class="line">    if(target._isVue || (ob &amp;&amp; ob.vmCount)) &#123;</span><br><span class="line">        warn(...)</span><br><span class="line">    &#125;</span><br><span class="line">    if(!ob) &#123;</span><br><span class="line">        target[key] = value</span><br><span class="line">        return value</span><br><span class="line">    &#125;</span><br><span class="line">    defineReactive(ob.value, key, val)</span><br><span class="line">    ob.dep.notify()</span><br><span class="line">    return value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>代码解析：如果传来的target是Array，并且key是有效的，那么先设置length属性，再将val设置到target中的指定位置，因为我们调用了splice方法，拦截器会侦测到target的变化，会自动将其变成响应性；</p>
+</li>
+<li><p>代码解析：由于传入的key已经存在了target中，那么这句算是修改数据，因此target就是已经侦测到了key的变化，因此我么直接改变数据就好；</p>
+</li>
+<li><p>代码解析：到了重头戏-新增属性；先获取其ob属性，先进行异常判断，target不能够是Vue实例，或者根数据，否则发出警告；如果发现ob是没有的，说明用户想增加一个不是响应性数据的属性，因此直接添加就好，如果有，那么我们需要将其变成getter、setter形式，并且触发依赖通知；</p>
+</li>
+</ol>
+<h2 id="vm-delete"><a href="#vm-delete" class="headerlink" title="vm.$delete()"></a>vm.$delete()</h2><h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">export function del(target, key, val) &#123;</span><br><span class="line">    if(Array.isArray(target) &amp;&amp; isValidArrayKey(key)) &#123;</span><br><span class="line">        target.splice(key, 1)</span><br><span class="line">        return </span><br><span class="line">    &#125;</span><br><span class="line">    const ob = target.__ob__</span><br><span class="line">    if(target._isVue || (ob &amp;&amp; ob.vmCount)) &#123;</span><br><span class="line">        warn(...)</span><br><span class="line">    &#125;</span><br><span class="line">    if(!hasOwn(target, val)) &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    delete target[key]</span><br><span class="line"></span><br><span class="line">    if(!ob)&#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ob.dep.notify()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码很简单：大概的意思是如果target是数组，那么我们使用方法进行删除，那么在拦截器中就会向依赖发送通知，那么删除的是实例或者根数据就会发送通知，如果该数据不存在对象中，那么就会直接退出，删除了对象后就要判断其是否需要继续依赖的触发；</p>
+<h2 id="模板编译"><a href="#模板编译" class="headerlink" title="模板编译"></a>模板编译</h2><h3 id="将模板编译成渲染函数"><a href="#将模板编译成渲染函数" class="headerlink" title="将模板编译成渲染函数"></a>将模板编译成渲染函数</h3><ul>
+<li>含义：模板编译的主要目标是生成渲染函数，而渲染函数的作用是每次执行它，它就会使用当前最新的状态生成一份新的vnode，然后使用这个vnode进行渲染；</li>
+</ul>
+<ol>
+<li><p>分为两个步骤：</p>
+<ul>
+<li>先将模板解析成AST树，</li>
+<li>然后再使用AST生成渲染函数</li>
+</ul>
+</li>
+<li><p>但是静态节点不需要总是重新渲染，所以再生成AST之前，在生成渲染函数之前，需要遍历一遍AST，给所有静态节点做一个标记，这样这虚拟DOM中更新节点时，如果发现节点上有静态标记，那么就不从新渲染</p>
+</li>
+<li><p>逻辑分为</p>
+<ul>
+<li>将模板解析成AST树 （解析器）</li>
+<li>将静态节点打上标记 （优化器）</li>
+<li>使用AST生成渲染函数 （代码生成器）</li>
+</ul>
+</li>
+</ol>
+<h2 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
+<li><p>将模板解析成为AST树</p>
+<ul>
+<li>AST：是一个使用js对象来表示Dom节点对象，一个对象代表一个节点，对象中的属性包括了Dom节点的各种数据，包括父节点，子节点，标签名，属性。</li>
+</ul>
+</li>
+</ol>
+<h3 id="内部运行原理"><a href="#内部运行原理" class="headerlink" title="内部运行原理"></a>内部运行原理</h3><ol>
+<li>子解析器：<ul>
+<li>HTML解析器 （最主要）</li>
+<li>文本解析器</li>
+<li>过滤器解析器</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>解析HTML过程中，HTML解析器不断触发各种的钩子函数，开始标签钩子函数，结束标签钩子函数，文本钩子函数，注释钩子函数。在钩子函数中构建AST的各种节点</p>
+</li>
+<li><p>我们通过维护一个栈来保持AST的层级关系，每当解析到 &lt; 就触发start 钩子函数，并且将当前构建节点推入栈中，解析到 &gt; 就触发end钩子函数，并将当前节点推出栈中</p>
+</li>
+</ul>
+<h3 id="HTML解析器"><a href="#HTML解析器" class="headerlink" title="HTML解析器"></a>HTML解析器</h3><ol>
+<li><p>运行原理</p>
+<ul>
+<li><p>解析HTML模板就是一个循环的过程，每轮循环都要截取HTML中的一小段字符串，直到HTML模板被截成空的字符串，才终止循环，最常见的是开始标签，结束标签，文本标签，注释标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// HTML解析器的钩子函数</span><br><span class="line">parseHTML(template, &#123;</span><br><span class="line">    start(tag, attrs, unary) &#123;</span><br><span class="line">        // 每当解析标签的开始位置时，触发该函数；</span><br><span class="line">    &#125;,</span><br><span class="line">    end() &#123;</span><br><span class="line">        // 每当解析标签的结束位置时，触发该函数；</span><br><span class="line">    &#125;,</span><br><span class="line">    chars() &#123;</span><br><span class="line">        // 每当解析文本时，触发该函数；</span><br><span class="line">    &#125;,</span><br><span class="line">    comment() &#123;</span><br><span class="line">        // 每当解析到注释时，触发该函数；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板如何确定开始标签：</p>
+<ul>
+<li><p>通过正则表达式匹配 <code>&lt;div&gt;&lt;/div&gt;</code> 才能通过匹配</p>
+</li>
+<li><p>解析到标签开始时，会触发 start 钩子函数，这个钩子函数有三个参数，tag，attrs，unary 分别的意思是标签名，属性，是否为自闭和</p>
+</li>
+<li><p>开始标签被分为三个部分</p>
+<ul>
+<li>标签名</li>
+<li>属性</li>
+<li>结尾</li>
+</ul>
+</li>
+<li><p>通过正则表达式进行属性匹配，可能存在，存在就匹配，但是一次只能匹配一个，他们通过匹配完后剩下的模板是否符合标签属性匹配正则表达式来直到是否还有标签尚未匹配</p>
+</li>
+<li><p>解析自闭和标签作用：可以通过是否含有自闭和标签来考虑是否需要推入层级栈中，也是通过正则表达式匹配</p>
+</li>
+</ul>
+</li>
+<li><p>截取结束标签</p>
+<ul>
+<li>一样的道理，通过正则表达式进行截取，并且触发end钩子函数</li>
+</ul>
+</li>
+<li><p>截取注释，条件注释，DOCTYPE 都是通过正则表达式来截取</p>
+</li>
+<li><p>截取文本</p>
+<ul>
+<li>我们不需要正则表达式来匹配，当我们匹配 &lt; 的时候可能会有很多中情况，开始标签，结束标签。当我们匹配到的不是 &lt; ,那么它一定是文本，<ul>
+<li>当文本中含有 &lt; 时，可以匹配剩下的模板，看看是否符合开始标签，结束标签，注释标签，倘若都不符合，那么它就是文本中的一部分，那么就会追加上次截取的内容。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用栈维护dom的层级</p>
+</li>
+<li><p>整体逻辑</p>
+</li>
+</ol>
+<h3 id="文本解析器"><a href="#文本解析器" class="headerlink" title="文本解析器"></a>文本解析器</h3><ol>
+<li>HTML 中已经有了解析文本的功能，但是有一些文本是带有变量的，因此还需要进一步解析，倘若解析出来的文本带有变量则说明有返回值，则会执行二次加工代码，没有就会返回undefined，则是纯文本。</li>
+</ol>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><p>解析器主要是将模板解析为AST树</p>
+</li>
+<li><p>生成AST树需要借助HTML解析器不断的触发钩子函数，生成一个一个的节点，</p>
+</li>
+<li><p>最终HTML解析器解析完成后，我们可以得到一个完整带有DOM层级的AST</p>
+</li>
+<li><p>HTML解析器的原理实际上是一个循环的过程，每一次截取模板中的一部分代码，根据不同的类型的字符串触发不同的钩子函数，最后模板字符串截空为止</p>
+</li>
+<li><p>文本解析器是对文本的二次加工，</p>
+</li>
+</ol>
+<h2 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h2><ol>
+<li><p>作用：在AST中找出静态子树并打上标记</p>
+<ul>
+<li>好处一: 每次重新渲染的时候，不需要为静态子树创建新节点</li>
+<li>好处二: 在虚拟DOM 中打补丁的时候可以跳过</li>
+</ul>
+</li>
+<li><p>通过递归AST树，来标记静态节点，倘若其子节点不是静态节点，那么不标记为静态节点，静态节点需要其子节点全部是静态节点。</p>
+</li>
+<li><p>标记玩静态节点，需要向上递归找到静态根节点。</p>
+</li>
+<li><p>如果一个静态根节点的子节点是一个文本节</p>
+</li>
+</ol>
+<p>+点，那么不标记其为静态根节点。如果一个静态根节点没有子节点，页不标记为静态根节点</p>
+<h2 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a>代码生成器</h2><ol>
+<li><p>其实就是字符串的拼接过程</p>
+</li>
+<li><p>通过递归AST来生成节点，先生成根节点，然后在子节点的字符串生成后，将其拼接到根节点的参数中，子节点的子节点生成后在拼接到子节点的参数中。</p>
+</li>
+</ol>
+<h1 id="实例方法与全局API-的实现方法"><a href="#实例方法与全局API-的实现方法" class="headerlink" title="实例方法与全局API 的实现方法"></a>实例方法与全局API 的实现方法</h1><ol>
+<li>当我们执行new Vue() 时，会调用一系列_init 方法，该方法实现一系列初始化方法。</li>
+</ol>
+<h2 id="数据相关的实例方法"><a href="#数据相关的实例方法" class="headerlink" title="数据相关的实例方法"></a>数据相关的实例方法</h2><ol>
+<li><p>vm.$watch()</p>
+<ul>
+<li>该方法的实现方法是在Watcher 上进行再次封装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.watch = function(expOrFn, cb, options) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>vm.$set()</p>
+</li>
+<li><p>vm.$delete()</p>
+</li>
+</ol>
+<h2 id="事件相关的实例方法"><a href="#事件相关的实例方法" class="headerlink" title="事件相关的实例方法"></a>事件相关的实例方法</h2><ol>
+<li><p>vm.$on()</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$on = function(event, fn) &#123;</span><br><span class="line">    const vm = this</span><br><span class="line">    if(Array.isArray(event)) &#123;</span><br><span class="line">        for(let i = 0; i = event.length; i++) &#123;</span><br><span class="line">            this.$on(event[i], fn)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        (vm_events || (vm_events[event] = [])).push(fn)</span><br><span class="line">    &#125;</span><br><span class="line">    return vm</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果event是数组，那么event是数组时，需要遍历数组；再将每一项递归调用vm.$on() 监听</li>
+</ul>
+</li>
+<li><p>vm.$off()</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype.$off = function(event, fn) &#123;</span><br><span class="line">    const vm = this</span><br><span class="line">    if(!arguments.length) &#123;</span><br><span class="line">        vm._events = Object.assign(null)</span><br><span class="line">        return vm</span><br><span class="line">    &#125;</span><br><span class="line">    if(Array.isArray(event)) &#123;</span><br><span class="line">        for(let i = 0; i &lt; event.length; i++) &#123;</span><br><span class="line">            this.off(event[i], fn)</span><br><span class="line">        &#125;</span><br><span class="line">        return vm</span><br><span class="line">    &#125;</span><br><span class="line">    const cbs. = vm._events[event]</span><br><span class="line">    if(!cbs) &#123;</span><br><span class="line">        return vm</span><br><span class="line">    &#125;</span><br><span class="line">    if(arguments.length === 1) &#123;</span><br><span class="line">        vm._events[event] = null</span><br><span class="line">        return vm</span><br><span class="line">    &#125;</span><br><span class="line">    if(fn) &#123;</span><br><span class="line">        const cbs = vm._events[event]</span><br><span class="line">        if(!cbs) &#123;</span><br><span class="line">            return vm</span><br><span class="line">        &#125;</span><br><span class="line">        let i = cbs.length</span><br><span class="line">        while(i--) &#123;</span><br><span class="line">            cb = cbs[i]</span><br><span class="line">            if(cb === fn || cb.fn === fn) &#123;</span><br><span class="line">                cbs.split(i, 1)</span><br><span class="line">                break</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return vm</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vm.$once()</p>
+</li>
+</ol>
+<ul>
+<li>用法：监听一个自定义事件，但是只触发一次，在第一次触发之后移除监听器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    Vue.prototype.$once = function(event, fn) &#123;</span><br><span class="line">        const vm = this</span><br><span class="line">        function on() &#123;</span><br><span class="line">            vm.$off(event, on) &#123;</span><br><span class="line">            fn.apply(vm, argument)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        on.fn = fn</span><br><span class="line">        vm.$on(event, on)</span><br><span class="line">        return vm</span><br><span class="line">    &#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">4. vm.$emit(event, [...args])</span><br><span class="line"></span><br><span class="line">- 触发当前实例上的事件，附加参数都会传给监听器对调</span><br></pre></td></tr></table></figure>
+
+<pre><code>Vue.prototype.emit(event, [...args]) {
+    const vm = this
+    const cbs = vm._events[event]
+    if(cbs) {
+        const arg = [...args].slice(1)
+        for(let i = 0; i &lt; cbs.length; i++) {
+            try{
+                cbs.apply(vm, [...arg])
+            }catch(e) {
+                handleError()
+            }
+        }
+    }
+    return vm
+}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 生命周期相关的实例方法</span><br><span class="line"></span><br><span class="line">1. vue.$forceUpdate()</span><br><span class="line">- 用法：强制刷新，仅仅只会影响实力本身以及插入插槽内容的子组件</span><br></pre></td></tr></table></figure>
+
+<p> Vue.prototype.forceUpdate = function() {<br>     const vm = this<br>     if(vm._watcher) {<br>         vm._watcher.update()<br>     }<br> }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. vm.$destroy()</span><br><span class="line"></span><br><span class="line">- 用法销毁一个实例，会触发beforeDestroy 与 destroy 函数，断开自己与父级的链接，销毁所有watcher，，移除所有时间监听器</span><br><span class="line"></span><br><span class="line">3. vm.nextTick()</span><br><span class="line"></span><br><span class="line">    - 用法：接受一个回调作为参数，它的作用是将回调延迟到下次Dom更新周期之后执行</span><br><span class="line"></span><br><span class="line">    - 使用场景：当更新了状态数据后，需要对新Dom做一些操作，但我们这是我们其实获取不到更新后的dom，因为还没渲染。这个时候我们就要使用nextTick方法了</span><br><span class="line"></span><br><span class="line">    - 下一次dom更新周期：</span><br><span class="line">        - 在Vue.js中，状态发生改变，watcher会收到通知，然后触发虚拟dom进行渲染流程。然而watcher触发渲染流程这个操作不是一个同步的过程，是一个异步的过程。Vue.js中有一个队列，每当渲染的时候，就会将watcher推入到队列中，在下一次事件循环的时候再让watcher触发渲染</span><br><span class="line">        - 下次更新周期就是下次微任务执行时更新dom。而vm.$nickTick 其实是将回调添加到微任务中。默认添加到微任务中</span><br><span class="line"></span><br><span class="line">    - 为什么Vue.js 要使用异步更新队列</span><br><span class="line">        - 从Vue 2.o 开始我们使用了虚拟dom，变化侦测只能到组件级别，组件内的所有用到的状态的变化都会通知到一个watcher。然后在让组件进行虚拟dom比较，也就是说，如果同一个事件循环中，有两个状态发生了变化，那么watcher就会收到两份通知，从而进行两次渲染，其实并不需要，虚拟dom会对整个组件进行渲染，所以只需要等所有状态都修改完了，一次性将整个组件的dom渲染到最新即可。</span><br><span class="line"></span><br><span class="line">    - 什么是事件循环</span><br><span class="line"></span><br><span class="line">    1. js是单线程非阻塞语言，只有一个主线程来处理所有任务，非阻塞是指当遇到异步代码的时候会将其挂起，当异步任务处理完毕后，主线程再根据一定的规则去执行相应的回调。实际上，当遇到异步任务时会将其加入到任务队列中，并不会立即去执行他的回调，而是等待执行栈中所有的任务执行完成之后，主线程就回去微任务队列中查看是否有事件存在，如果存在就会依次执行微任务队列中的事件对应回调，直到为空，然后再去宏任务队列中去一个时间，把对应回调加入到当前执行栈中，当前执行栈中的所有任务执行完毕后又会去查看微任务队列时候有任务存在，进而重复这个循环</span><br><span class="line"></span><br><span class="line">    - 什么是执行栈</span><br><span class="line"></span><br><span class="line">    1. 当我们调用一个方法的时候就会产生一个执行环境，这个环境拥有自己私有变量，有上层的作用域指向，有this对象，这个执行环境添加到一个栈中，这个站就是执行栈。执行栈是储存执行上下文的地方，当我们执行一个方法的时候，js就会生成一个执行上下文，并将其推入到栈顶，当执行完成的时候就会将其销毁，回到上一个方法的执行上下文，返回这个过程，直到执行栈中的所有代码全部执行完毕，这个执行上下文的栈就叫做执行栈</span><br><span class="line"></span><br><span class="line">4. vue.$mount()</span><br><span class="line"></span><br><span class="line">- 用法： 如果在vue实例化的时候没有设置el的属性，那么我们可以使用该方法手动挂载一个未挂载的实例</span><br></pre></td></tr></table></figure>
+
+<pre><code>Vue.prototype.$mount = function(el) {
+    const options = this.$options
+    if(!options.render) {
+        const template = options.template
+        if(template) {
+            if(typeof template === &apos;String&apos;) {
+                if(template.chatAt(0) === &apos;#&apos;) {
+                    template = idToTemplate
+                }else if(template.nodeType) {
+                    template = template.innerHTML
+                }
+            }else {
+                warm()
+                return this
+            }
+        }else if(el) {
+            template = getOuterHTML(el)
+        }
+        if(template) {
+            const {render} = compileToFunction(
+                template,
+                {...},
+                this
+            )
+            options.render = render
+        }
+    }
+    return mount.call(this, el)
+}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 全局api实现</span><br><span class="line"></span><br><span class="line">1. Vue.extent()</span><br><span class="line"></span><br><span class="line">- 作用：创建一个子类，让他继承Vue 身上的一些功能</span><br><span class="line"></span><br><span class="line">2. Vue.set()</span><br><span class="line"></span><br><span class="line">3. Vue.delete()</span><br><span class="line"></span><br><span class="line">4. Vue.component()</span><br><span class="line"></span><br><span class="line">5. Vue.directive(id, [definition])</span><br><span class="line"></span><br><span class="line">- 作用：注册或获取全局指令，而不是让指令生效</span><br></pre></td></tr></table></figure>
+
+<pre><code>Vue.options = object.create(null)
+Vue.options[&apos;directive&apos;] = object.crete(null)
+Vue.directive = function(id, definition) {
+    if(!definition) {
+        return this.options[&apos;directive&apos;][id]
+    }else {
+     if(typeof definition === &apos;function&apos;) {
+         definition = {bend: definition, update: definition}
+     }
+     this.options[&apos;directive][id] = definition
+     return definition
+    }
+}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 只要有definition 那么就是获取，没有就要根据传进来的definition来进行判断，没有指定，那么就默认执行bind update函数</span><br><span class="line"></span><br><span class="line">6. Vue.filter()</span><br><span class="line"></span><br><span class="line">- 作用：注册或获取全局过滤器</span><br></pre></td></tr></table></figure>
+
+<pre><code>Vue.options = Object.create(null)
+ASSET_TYPES.forEach(type =&gt; {
+    Vue.options[type + &apos;s&apos;] = object.create(null)
+})
+ASSET_TYPE.forEach(type =&gt; {
+    Vue[type] = function(id, definition) {
+        if(!definition) {
+            return this.options[type + &apos;s&apos;]
+        }else {
+            if(type === &apos;directive&apos; &amp;&amp; typeof definition === &apos;function&apos;) {
+                definition = {bind: definition, update: definition}
+            }
+        }
+        this.options[type + &apos;s&apos;] = definition
+        return definition
+    }
+})</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 生命周期</span><br><span class="line"></span><br><span class="line">## 生命周期图示</span><br><span class="line"></span><br><span class="line">1. 初始化阶段</span><br><span class="line"></span><br><span class="line">    - 从 new Vue 到 created 之间的阶段叫初始化阶段</span><br><span class="line">    - 这个阶段主要的目的是在Vue.js 实力上初始化一些属性，事件，以及响应式数据</span><br><span class="line"></span><br><span class="line">2. 模板编译阶段</span><br><span class="line"></span><br><span class="line">    - cong created 到 beforeMount 之间的阶段叫模板编译阶段</span><br><span class="line">    - 将模板编译成渲染函数，只存在完整阶段</span><br><span class="line"></span><br><span class="line">3. 挂载阶段</span><br><span class="line"></span><br><span class="line">    - beforeMount 到 mounted 之间为挂载阶段</span><br><span class="line">    - 将模板渲染到指定DOM元素中，在挂载的过程中，vue.js会开启watcher来持续追踪依赖的变化</span><br><span class="line"></span><br><span class="line">4. 卸载阶段</span><br><span class="line"></span><br><span class="line">    - 调用vm.$destroy方法，进入卸载阶段</span><br><span class="line">    - Vue.js 会将自身从父组件中删除，取消实例上所有依赖的追踪并且移除所有的事件监听器</span><br><span class="line"></span><br><span class="line">## 源码看生命周期</span><br><span class="line"></span><br><span class="line">### new Vue() 被调用时发生了什么</span><br><span class="line"></span><br><span class="line">1. 触发的一系列初始化流程都是在_init 方法中启动的。</span><br><span class="line"></span><br><span class="line">2. 挂载了$options 属性，然后初始化</span><br></pre></td></tr></table></figure>
+
+<pre><code>    Vue.prototype._init = function(options) {
+        vm.$options = mergeOptions(
+            resolveConstructorOptions(vm.constructor),
+            options || {},
+            vm
+        )
+
+        initLifecycle(vm)
+        initEvents(vm)-
+        initRender(vm)
+        callHook(vm, &apos;beforeCreate&apos;)
+
+        initInjections(vm)
+        initState(vm)
+        initProvide(vm)
+        callHook(vm, &apos;created&apos;)
+
+        if(vm.$options.el) {
+            vm.$mount(vm.$options.el)
+        }
+    }
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- callHook 实现原理</span><br><span class="line"></span><br><span class="line">1. 触发用户设置的生命周期钩子，而用户设置的生命钩子函数可以从参数中获取，用户传进的options会与构造函数的options合并生成新的options，赋值给vm.$options 属性，</span><br><span class="line"></span><br><span class="line">2. 合并options过程中会找出options中所有key是钩子函数的名字，并将他转为数组</span><br><span class="line"> - 因为Vue.mixin 方法最终也是写入options 中的，因此它会影响之后创建的所有实例，而Vue.js 在初始化的时候会将用户设置的options与构造函数中options合并生成新的options，并赋值给vm.$options，也就是搜vue.mixin 可能也设置有生命周期函数，因此在同一个生命周期钩子内，可能同时存在两个钩子函数，我们需要触发两个钩子函数</span><br></pre></td></tr></table></figure>
+
+    function callHook(vm, hook) {
+        const handles = vm.options[hook]
+        if(handles) {
+            for(let i = 0; i &lt; handles.length; i++) {
+                try{
+                    handles[i].call(vm)
+                }catch(err) {
+                    handleError(e, vm, `${hook} hook`)
+                }
+            }
+        }
+    }
+ ```</code></pre><h2 id="初始化实例属性"><a href="#初始化实例属性" class="headerlink" title="初始化实例属性"></a>初始化实例属性</h2><h2 id="初始化事件"><a href="#初始化事件" class="headerlink" title="初始化事件"></a>初始化事件</h2><ol>
+<li><p>含义：是指将父组件在模板中使用的v-on注册的事件添加到子组件的事件系统中</p>
+</li>
+<li><p>在模板编译阶段，我们就能够识别某个标签上的所有属性，其中就包括使用v-on注册的事件，将整一个模板编译成渲染函数的时候，渲染函数会执行生成一份vNode，随后进行虚拟dom对比。判断是组件还是平台标签<br>简单来说，v-on写在组件中，那么会将这个事件注册到Vue事件系统中，写在原生标签上，则会注册到浏览器事件中</p>
+</li>
+<li><p>子组件在初始化时，有可能接受到来自父组件注册的事件。而子组件内部自身定义的事件只有在虚拟dom的对比结果来确定是注册事件还是卸载事件，因此在初始化阶段，被创建的事件指的是父组件在模板中使用v-on监听子组件内触发的事件</p>
+</li>
+<li><p>模板编译阶段，在编译到组件标签的时候，会实例化子组件，同时将绑定的事件解析问Object，并且通过参数传递给子组件，可以在参数中获取父组件向自己注册的事件</p>
+</li>
+<li><p>通过listener与oldListener 对比来知道是添加事件，还是删除事件，通过normalizeEvent来判断是否有修饰符</p>
+</li>
+</ol>
+<h2 id="初始化inject"><a href="#初始化inject" class="headerlink" title="初始化inject"></a>初始化inject</h2><ol>
+<li><h2 id="初始化状态"><a href="#初始化状态" class="headerlink" title="初始化状态"></a>初始化状态</h2></li>
+<li><p>这里的状态指的是：props，methods，data， computed，watch </p>
+</li>
+<li><p>初始化的顺序是上述的顺序</p>
+</li>
+</ol>
+<h3 id="初始化props"><a href="#初始化props" class="headerlink" title="初始化props"></a>初始化props</h3><ol>
+<li><p>在模板编译阶段，当解析器解析到标签是组件标签的时候，就会实例化子组件，然后将标签上的属性解析成Object并且传入子组件中，其中传入子组件的数据就包括有props数据</p>
+</li>
+<li><p>传进来的props会根据是数组还是对象进行不同的操作，对于数组就遍历一遍数组，然后判断是否是String类型，是就将其化为驼峰形式的字符串，不然就要警告</p>
+</li>
+</ol>
+<h3 id="初始化methods-与-初始化-data"><a href="#初始化methods-与-初始化-data" class="headerlink" title="初始化methods 与 初始化 data"></a>初始化methods 与 初始化 data</h3><ol>
+<li>都是一些验证是否合法，并且将方法挂载到vm上</li>
+</ol>
+<h3 id="初始化computed"><a href="#初始化computed" class="headerlink" title="初始化computed"></a>初始化computed</h3><ol>
+<li><p>computed 是定义在vm上的一个特殊的getter 方法，之所以特殊就是该get并不是用户提供的函数，而是Vue.js内部的一个代理函数。在代理函数中可以结合watcher实现缓存与收集依赖等功能</p>
+</li>
+<li><p>计算属性的结果会被缓存，且只有在计算属性所依赖的响应式属性或者说计算属性的返回值发生变化时才会会重新计算，如何知道计算属性的返回值发生了变化，其实是结合了watcher的dirty属性分辨的：当它为true的时候，说明需要重新计算“计算属性”的返回值，当为false的时候，说明没有变</p>
+</li>
+<li><p>当计算属性中的内容发生变化后，计算属性的watcher与组建的watcher都会收到通知，计算属性就会将自己dirty设置为true，那么下次读取计算属性的时候就会重新计算一次值。然后组件的watcher也会收到通知，从而执行render函数进行重新渲染，</p>
+</li>
+<li><p>在模板中使用了一个数据渲染视图时，如果这个数据恰好是计算属性，那么就会读取计算属性中的值，就会触发计算属性的getter方法（初始化计算属性是的vm上的getter方法）</p>
+</li>
+<li><p>getter 方法触发时会做的两件事情</p>
+<ol>
+<li>计算当前计算属性的值，此时会使用watcher去观测计算属性中的所有其他数据的变化。同时将watcher中的dirty设置为false，再次读取的时候就不会重新计算，除非计算属性的所依赖的数据发生变化</li>
+<li>当计算属性所依赖的值发生变化的时候，通知watcher从而进行重新渲染</li>
+</ol>
+</li>
+<li><p>计算属性有一个特点就是缓存，计算属性所依赖的数据没有发生变化的时候，就会反复获取计算属性，计算函数并不会反复执行。</p>
+</li>
+</ol>
+<h2 id="初始化watch"><a href="#初始化watch" class="headerlink" title="初始化watch"></a>初始化watch</h2><h1 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h1><ol>
+<li><p>为列表渲染设置属性key</p>
+<ul>
+<li>在更新子节点是，需要从旧虚拟节点列表中查找与新虚拟节点相同的节点进行更新，如果这个查找过程设置了key，那么查找速度会快很多。简而言之就是为了提高性能</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/22/深浅拷贝原理/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/12/设计模式与开发实践/" rel="prev" title="设计模式与开发实践">
+                设计模式与开发实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Junjie Fan">
+          <p class="site-author-name" itemprop="name">Junjie Fan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深入浅出Vue-js"><span class="nav-number">1.</span> <span class="nav-text">深入浅出Vue.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变化侦测"><span class="nav-number">1.1.</span> <span class="nav-text">变化侦测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是变化侦测"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是变化侦测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何追踪变化"><span class="nav-number">1.1.2.</span> <span class="nav-text">如何追踪变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何收集依赖"><span class="nav-number">1.2.</span> <span class="nav-text">如何收集依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖收集放在哪里"><span class="nav-number">1.3.</span> <span class="nav-text">依赖收集放在哪里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖是谁"><span class="nav-number">1.4.</span> <span class="nav-text">依赖是谁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Watcher"><span class="nav-number">1.5.</span> <span class="nav-text">什么是Watcher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归侦测所有子属性"><span class="nav-number">1.6.</span> <span class="nav-text">递归侦测所有子属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-的变化侦测"><span class="nav-number">1.8.</span> <span class="nav-text">Array 的变化侦测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何追踪变化-1"><span class="nav-number">1.8.1.</span> <span class="nav-text">如何追踪变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拦截器"><span class="nav-number">1.8.2.</span> <span class="nav-text">拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用拦截器覆盖Array-原型"><span class="nav-number">1.8.3.</span> <span class="nav-text">使用拦截器覆盖Array 原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将拦截器方法挂载到数组的属性上"><span class="nav-number">1.8.4.</span> <span class="nav-text">将拦截器方法挂载到数组的属性上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何收集依赖-1"><span class="nav-number">1.8.5.</span> <span class="nav-text">如何收集依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖列表存在哪儿"><span class="nav-number">1.8.6.</span> <span class="nav-text">依赖列表存在哪儿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收集依赖"><span class="nav-number">1.8.7.</span> <span class="nav-text">收集依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在拦截器上获取Observe-实例"><span class="nav-number">1.8.8.</span> <span class="nav-text">在拦截器上获取Observe 实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侦测数组中元素"><span class="nav-number">1.8.9.</span> <span class="nav-text">侦测数组中元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于新增数组元素的变化"><span class="nav-number">1.8.10.</span> <span class="nav-text">对于新增数组元素的变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变化侦测相关api实现原理"><span class="nav-number">1.9.</span> <span class="nav-text">变化侦测相关api实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vm-watch-方法"><span class="nav-number">1.9.1.</span> <span class="nav-text">vm.$watch() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#watcher-teardown-实现方法"><span class="nav-number">1.9.2.</span> <span class="nav-text">watcher.teardown 实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#teardown实现原理"><span class="nav-number">1.9.3.</span> <span class="nav-text">teardown实现原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vm-set"><span class="nav-number">1.10.</span> <span class="nav-text">vm.$set()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对于Array的处理"><span class="nav-number">1.10.1.</span> <span class="nav-text">对于Array的处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vm-delete"><span class="nav-number">1.11.</span> <span class="nav-text">vm.$delete()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现原理"><span class="nav-number">1.11.1.</span> <span class="nav-text">实现原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板编译"><span class="nav-number">1.12.</span> <span class="nav-text">模板编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将模板编译成渲染函数"><span class="nav-number">1.12.1.</span> <span class="nav-text">将模板编译成渲染函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解析器"><span class="nav-number">1.13.</span> <span class="nav-text">解析器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">1.13.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部运行原理"><span class="nav-number">1.13.2.</span> <span class="nav-text">内部运行原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML解析器"><span class="nav-number">1.13.3.</span> <span class="nav-text">HTML解析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本解析器"><span class="nav-number">1.13.4.</span> <span class="nav-text">文本解析器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-1"><span class="nav-number">1.13.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化器"><span class="nav-number">1.14.</span> <span class="nav-text">优化器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码生成器"><span class="nav-number">1.15.</span> <span class="nav-text">代码生成器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例方法与全局API-的实现方法"><span class="nav-number">2.</span> <span class="nav-text">实例方法与全局API 的实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据相关的实例方法"><span class="nav-number">2.1.</span> <span class="nav-text">数据相关的实例方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件相关的实例方法"><span class="nav-number">2.2.</span> <span class="nav-text">事件相关的实例方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化实例属性"><span class="nav-number">2.3.</span> <span class="nav-text">初始化实例属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化事件"><span class="nav-number">2.4.</span> <span class="nav-text">初始化事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化inject"><span class="nav-number">2.5.</span> <span class="nav-text">初始化inject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化状态"><span class="nav-number">2.6.</span> <span class="nav-text">初始化状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化props"><span class="nav-number">2.6.1.</span> <span class="nav-text">初始化props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化methods-与-初始化-data"><span class="nav-number">2.6.2.</span> <span class="nav-text">初始化methods 与 初始化 data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化computed"><span class="nav-number">2.6.3.</span> <span class="nav-text">初始化computed</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化watch"><span class="nav-number">2.7.</span> <span class="nav-text">初始化watch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最佳实践"><span class="nav-number">3.</span> <span class="nav-text">最佳实践</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Junjie Fan</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

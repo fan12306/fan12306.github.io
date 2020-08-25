@@ -1,0 +1,748 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="webpack webpack 是把整一个项目当做成一个整体，通过一个主文件，webpack 将从这个项目中所有依赖的文件，并且将他们他报成一个或者多个浏览器可识别的 js 文件  webpack-dev-server webpack 是我们的打包机，webpack-dev-server 会创建一个本地服务器，监听代码的修改，并且自动刷新修改后的结果。  需要在 webpack.config.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack">
+<meta property="og:url" content="http://yoursite.com/2019/10/03/webpack/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="webpack webpack 是把整一个项目当做成一个整体，通过一个主文件，webpack 将从这个项目中所有依赖的文件，并且将他们他报成一个或者多个浏览器可识别的 js 文件  webpack-dev-server webpack 是我们的打包机，webpack-dev-server 会创建一个本地服务器，监听代码的修改，并且自动刷新修改后的结果。  需要在 webpack.config.js">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-15T07:10:45.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack">
+<meta name="twitter:description" content="webpack webpack 是把整一个项目当做成一个整体，通过一个主文件，webpack 将从这个项目中所有依赖的文件，并且将他们他报成一个或者多个浏览器可识别的 js 文件  webpack-dev-server webpack 是我们的打包机，webpack-dev-server 会创建一个本地服务器，监听代码的修改，并且自动刷新修改后的结果。  需要在 webpack.config.js">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/03/webpack/">
+
+
+
+
+
+  <title> webpack | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-03T19:07:29+08:00">
+                2019-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><ol>
+<li>webpack 是把整一个项目当做成一个整体，通过一个主文件，webpack 将从这个项目中所有依赖的文件，并且将他们他报成一个或者多个浏览器可识别的 js 文件</li>
+</ol>
+<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><ol>
+<li><p>webpack 是我们的打包机，webpack-dev-server 会创建一个本地服务器，监听代码的修改，并且自动刷新修改后的结果。</p>
+</li>
+<li><p>需要在 webpack.config.js 中的 devServer 属性中配置：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">contentBase, 为文件提供本地服务器</span><br><span class="line">port, 坚挺的端口，默认为8080</span><br><span class="line">inline， 设置为true，源文件发生变化自动刷新页面</span><br><span class="line">historyApiFallback, 依赖HTML5 API， 如果设置为true，所有页面跳转指向index.html</span><br><span class="line"></span><br><span class="line">devServer: &#123;</span><br><span class="line">    contentBase: &apos;./dist&apos;, //本地服务器所加载页面的目录</span><br><span class="line">    port: 3000,</span><br><span class="line">    inline: true, //不跳转</span><br><span class="line">    historyApiFallback: true //实时刷新</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">然后我们在根目录下创建webpack。config.js,在“package.json”添加两个命令用于本地开发和生产发布：</span><br><span class="line"></span><br><span class="line">&quot;script&quot;: &#123;</span><br><span class="line">    &quot;server&quot;: &apos;webpack-dev-server&apos;</span><br><span class="line">    &quot;build&quot;: &apos;webpack&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="entry"><a href="#entry" class="headerlink" title="entry"></a>entry</h2><ol>
+<li>用来写入口文件，它将是整个依赖关系的根，它指示 webpack 应该从哪个模块开始入手，来作为其构建内部以来图的开始。入口文件较多时，把 entry 写成一个对象，默认为./src</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">    main: &apos;./src/index.js&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><ol>
+<li>即使有多个入口文件，但是只有一个出口文件,告诉 webpack 在哪里输出他所创建的 bundles，也可指定 bundles 的名称，默认位置为./dist。整个应用节后都会呗编译到输出文件夹中去，之基础的属性包括 filename: (文件名) 和 path： （输出路径）必须是绝对路径</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">filename, 输出文件的名称</span><br><span class="line">path： 输出路径</span><br><span class="line"></span><br><span class="line">output: &#123;</span><br><span class="line">    filename: &apos;bundle.js&apos;,</span><br><span class="line">    path: path.resolve(&apos;&apos;,&apos;&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Loaders"><a href="#Loaders" class="headerlink" title="Loaders"></a>Loaders</h2><ol>
+<li><p>因为 webpack 只能处理 js 文件，像是 css，png，woff，xml 等等的文件类型，webpack 无法进行处理，因此 Loader 可以理解问 webpack 的编译器，使得 webpack 可以处理一些非 js 的文件，使用释放的 loader 可是实现这个功能，</p>
+</li>
+<li><p>webapck 中配置 loader 有两个属性：</p>
+</li>
+</ol>
+<ul>
+<li>test 属性: 标志有哪些后缀的文件应该被处理，是一个正则表达式</li>
+<li>use 属性： 指定 test 类型的文件应该使用哪个 loader 惊醒预处理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module.export: &#123;</span><br><span class="line">    module: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            test: /\.css$/,</span><br><span class="line">            use: [&quot;style-loader&quot;, &quot;css-loader&quot;]</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>该文件指定了所有的 css 文件在 import 的时候都必须经过 css-loader 的预处理，处理后才能在 javascript 模块中直接使用 import 语句导入 css 模块，使用钱需要 npm</li>
+</ol>
+<h2 id="Plugins"><a href="#Plugins" class="headerlink" title="Plugins"></a>Plugins</h2><ol>
+<li>loader 用于转换非 javascript 的文件，而插件可以用于执行范围更广的任务，包括打包、优化、压缩、搭建服务器等等。要是用一个插件，一般先 npm 安装 在配置文件中引入，最后将其实例化传递给 plugins 在数组属性</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line"></span><br><span class="line">module.export: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        new webpack.optimize.UglifyJsPlugin()</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h2><ol>
+<li><p>production, 生产模式</p>
+</li>
+<li><p>development, 开发模式</p>
+</li>
+<li><p>webpack 会自动对代码进行涯叔等优化，上去了配置的麻烦</p>
+</li>
+</ol>
+<h2 id="动态生成-bundle-js-和-index-html"><a href="#动态生成-bundle-js-和-index-html" class="headerlink" title="动态生成 bundle.js 和 index.html"></a>动态生成 bundle.js 和 index.html</h2><ol>
+<li><p>动态生成就是至在打包后的模块名称内插入 hash 至，是的每一次生成的模块具有不同的名称，贰 index.html 之所以要动态是因为生成是因为每次打包生成的模块名称不同，所以在 HTML 文档内引入是也要更嗨标签，这样才能保险和功能每次都能引用到正确的 js 文件</p>
+</li>
+<li><p>动态生成 bundle 文件，是为了防止林兰其缓存机制阻碍文件的更新，在每次修改代码之后，文件名中的 hash 都会发生方法改变，强制浏览器进行刷新，获取当前最新的文件</p>
+</li>
+<li><p>添加 hash 至</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: __dirname + &apos;/dist&apos;</span><br><span class="line">    filaname: &quot;[name].[hash]&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>如何添加到 html 文件中</li>
+</ol>
+<ul>
+<li>每一次打包过后文件的名称都会发生改变，html-webpack-plugin 的插件，可以自动生成 HTML 文件，安装到开发环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm i html-webpack-plugin --save-dev</span><br><span class="line"></span><br><span class="line">const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line"></span><br><span class="line">module.export: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        new HtmlWebpackPlugin(</span><br><span class="line">            //option配置</span><br><span class="line">        )</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>有用的配置 title</li>
+</ol>
+<h2 id="清理-dist-文件夹"><a href="#清理-dist-文件夹" class="headerlink" title="清理/dist 文件夹"></a>清理/dist 文件夹</h2><ol>
+<li><p>由于每次生成的 js 文件都不同名，并且无法覆盖，都保存在/dist 下</p>
+</li>
+<li><p>使用 cleanWebpackPlugin 插件</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const &#123;CleanWebpackPlugin&#125; from &apos;clean-webpack-plugin&apos;</span><br><span class="line">module.export: &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        new cleanWebpackPlugin([&apos;dist&apos;])</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><ol>
+<li><p>source maps 进行调试，使得我们在浏览器中可以看到哦源代码，进而续航打断点调试<br>module.export: {<br>devtool: ‘source-map’<br>}</p>
+</li>
+<li><p>自动打包</p>
+<ul>
+<li>watch 模式</li>
+<li>webpack-dev-server</li>
+<li>webpack-dev-middleware</li>
+</ul>
+</li>
+<li><p>热处理模块<br>devserver: {<br>hot: true<br>}<br>引入两个插件到 webpack 配置文件</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const webpack = require(&apos;webpack&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    devserver: &#123;</span><br><span class="line">        hot: true</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        new webpack.NameModulePlugin()</span><br><span class="line">        new webpack.HotModuleReplacementPlugin()</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在入口文件上添加</span><br><span class="line">if(module.hot) &#123;</span><br><span class="line">    module.hot.accept(&apos;./print.js&apos;, function() &#123;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/29/移动端适配/" rel="next" title="移动端适配">
+                <i class="fa fa-chevron-left"></i> 移动端适配
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/11/布局/" rel="prev" title="布局">
+                布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Junjie Fan">
+          <p class="site-author-name" itemprop="name">Junjie Fan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack"><span class="nav-number">1.</span> <span class="nav-text">webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">1.1.</span> <span class="nav-text">webpack-dev-server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#entry"><span class="nav-number">1.2.</span> <span class="nav-text">entry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#output"><span class="nav-number">1.3.</span> <span class="nav-text">output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loaders"><span class="nav-number">1.4.</span> <span class="nav-text">Loaders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugins"><span class="nav-number">1.5.</span> <span class="nav-text">Plugins</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mode"><span class="nav-number">1.6.</span> <span class="nav-text">Mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态生成-bundle-js-和-index-html"><span class="nav-number">1.7.</span> <span class="nav-text">动态生成 bundle.js 和 index.html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清理-dist-文件夹"><span class="nav-number">1.8.</span> <span class="nav-text">清理/dist 文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建开发环境"><span class="nav-number">1.9.</span> <span class="nav-text">搭建开发环境</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Junjie Fan</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

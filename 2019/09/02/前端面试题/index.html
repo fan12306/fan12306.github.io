@@ -1,0 +1,944 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="前端面试题html 与 css 类display 属性 block :　 CSS1 块对象的默认值。将对象强制作为块对象呈递，为对象之后添加新行 可以定义高度和宽度 none :　 CSS1 隐藏对象。与 visibility 属性的 hidden 值不同，其不为被隐藏的对象保留其物理空间 inline :　 CSS1 内联对象的默认值。将对象强制作为内联对象呈递，从对象中删除行 inline-b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试题">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/前端面试题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前端面试题html 与 css 类display 属性 block :　 CSS1 块对象的默认值。将对象强制作为块对象呈递，为对象之后添加新行 可以定义高度和宽度 none :　 CSS1 隐藏对象。与 visibility 属性的 hidden 值不同，其不为被隐藏的对象保留其物理空间 inline :　 CSS1 内联对象的默认值。将对象强制作为内联对象呈递，从对象中删除行 inline-b">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-10T01:31:32.223Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试题">
+<meta name="twitter:description" content="前端面试题html 与 css 类display 属性 block :　 CSS1 块对象的默认值。将对象强制作为块对象呈递，为对象之后添加新行 可以定义高度和宽度 none :　 CSS1 隐藏对象。与 visibility 属性的 hidden 值不同，其不为被隐藏的对象保留其物理空间 inline :　 CSS1 内联对象的默认值。将对象强制作为内联对象呈递，从对象中删除行 inline-b">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/02/前端面试题/">
+
+
+
+
+
+  <title> 前端面试题 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/前端面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端面试题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-02T11:03:23+08:00">
+                2019-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前端面试题"><a href="#前端面试题" class="headerlink" title="前端面试题"></a>前端面试题</h1><h2 id="html-与-css-类"><a href="#html-与-css-类" class="headerlink" title="html 与 css 类"></a>html 与 css 类</h2><h3 id="display-属性"><a href="#display-属性" class="headerlink" title="display 属性"></a>display 属性</h3><ol>
+<li>block :　 CSS1 块对象的默认值。将对象强制作为块对象呈递，为对象之后添加新行 可以定义高度和宽度</li>
+<li>none :　 CSS1 隐藏对象。与 visibility 属性的 hidden 值不同，其不为被隐藏的对象保留其物理空间</li>
+<li>inline :　 CSS1 内联对象的默认值。将对象强制作为内联对象呈递，从对象中删除行</li>
+<li>inline-block :　 IE5.5 将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内 inherit: 看 display 默认是不具备继承性的，使用 inherit 可以让其继承父对象的 display 属性。</li>
+</ol>
+<h3 id="overflow-属性"><a href="#overflow-属性" class="headerlink" title="overflow 属性"></a>overflow 属性</h3><ol>
+<li>参数是 scroll 时候，必会出现滚动条。</li>
+<li>参数是 auto 时候，子元素内容大于父元素时出现滚动条。</li>
+<li>参数是 visible 时候，溢出的内容出现在父元素之外。</li>
+<li>参数是 hidden 时候，溢出隐藏。</li>
+</ol>
+<h3 id="a-标签的-target-属性在何处打开链接文档"><a href="#a-标签的-target-属性在何处打开链接文档" class="headerlink" title="a 标签的 target 属性在何处打开链接文档"></a>a 标签的 target 属性在何处打开链接文档</h3><ol>
+<li>_blank 在新窗口打开被链接文档</li>
+<li>_self 默认 在相同的框架中打开被链接文档</li>
+<li>_parent 在父框架集中打开被链接文档</li>
+<li>_top 在整个窗口中打开被链接文档</li>
+<li>framename 在指定的框架中打开被链接文档</li>
+</ol>
+<h3 id="clear-属性"><a href="#clear-属性" class="headerlink" title="clear 属性"></a>clear 属性</h3><ol>
+<li>只能影响使用清楚的元素本身，不能影响其他元素。</li>
+</ol>
+<h3 id="alt-标签与-title-标签"><a href="#alt-标签与-title-标签" class="headerlink" title="alt 标签与 title 标签"></a>alt 标签与 title 标签</h3><ol>
+<li>alt 是 html 标签的属性，而 title 既是 html 标签，又是 html 属性。</li>
+<li>title 标签这个不用多说，网页的标题就是写在<title></title>这对标签之内的。</li>
+<li>title 作为属性时，用来为元素提供额外说明信息。例如，给超链接标签 a 添加了 title 属性，把鼠标移动到该链接上面是，就会显示 title 的内容，以达到补充说明或者提示的效果。</li>
+<li>而 alt 属性则是用来指定替换文字，只能用在 img、area 和 input 元素中（包括 applet 元素），用于网页中图片无法正常显示时给用户提供文字说明使其了解图像信息。</li>
+</ol>
+<h3 id="Document-与-html"><a href="#Document-与-html" class="headerlink" title="Document 与 html"></a>Document 与 html</h3><ol>
+<li><!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。</html></li>
+<li>严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</li>
+<li>DOCTYPE 不存在或格式不正确会导致文档以混杂模式呈现。</li>
+</ol>
+<h3 id="Width-auto-amp-Width-100"><a href="#Width-auto-amp-Width-100" class="headerlink" title="Width: auto &amp; Width: 100%"></a>Width: auto &amp; Width: 100%</h3><ol>
+<li><p>width: auto 其父元素的 content 的值为子元素的（content + padding + border + margin）</p>
+</li>
+<li><p>width: 100% 其父元素的 content 的值为子元素的（content） 因为子元素的 content 将其父元素 content 撑满，子元素的 border，padding， margin 则会被溢出父盒子。</p>
+</li>
+</ol>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><ol>
+<li><p>IE 模型： box-sizing: border-box 元素宽度 = border + padding + content</p>
+</li>
+<li><p>W3C 模型： box-sizing: content-box 元素宽度 = content</p>
+</li>
+</ol>
+<h3 id="domContentLoaded-与-load"><a href="#domContentLoaded-与-load" class="headerlink" title="domContentLoaded 与 load"></a>domContentLoaded 与 load</h3><ol>
+<li>domContentLoaded 事件早于 onload 事件<br>onload 事件触发时，页面上所有的 DOM，样式表，脚本，图片，flash 都已经加载完成了，domContentLoaded 事件触发时，仅当 DOM 加载完成，不包括样式表，图片，flash。</li>
+</ol>
+<h3 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h3><ol>
+<li>在 HTML 4.01 中，&lt;!DOCTYPE&gt; 声明引用 DTD，因为 HTML 4.01 基于 SGML。DTD 规定了标记语言的规则，这样浏览器才能正确地呈现内容。 HTML5 不基于 SGML，所以不需要引用 DTD。 在 HTML 4.01 中有三种 &lt;!DOCTYPE&gt; 声明。在 HTML5 中只有一种： <!DOCTYPE html></li>
+</ol>
+<h3 id="border-0-border-style-none"><a href="#border-0-border-style-none" class="headerlink" title="border: 0, border-style: none"></a>border: 0, border-style: none</h3><ol>
+<li>border:none 表示边框样式无,border:0 表示边框宽度为 0;</li>
+<li>当定义了 border:none,即隐藏了边框的显示,实际就是边框宽度为 0.</li>
+<li>当定义边框时,必须定义边框的显示样式.因为边框默认样式为不显示 none,所以仅设置边框宽度,由于样式不存在,边框的宽度也自动被设置为 0.</li>
+</ol>
+<h3 id="CSS-Sprites"><a href="#CSS-Sprites" class="headerlink" title="CSS Sprites"></a>CSS Sprites</h3><ol>
+<li>CSS Sprites 在国内很多人叫 css 精灵，是一种网页图片应用处理方式。它允许你将一个页面涉及到的所有零星图片都包含到一张大图中去，这样一来，当访问该页面时，载入的图片就不会像以前那样一幅一幅地慢慢显示出来了。</li>
+<li>利用 CSS 的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position 可以用数字精确的定位出背景图片的位置。</li>
+<li>利用 CSS Sprites 能很好地减少网页的 http 请求，从而大大的提高页面的性能，这也是 CSS Sprites 最大的优点，也是其被广泛传播和应用的主要原因；<br>CSS Sprites 能减少图片的字节，曾经比较过多次 3 张图片合并成 1 张图片的字节总是小于这 3 张图片的字节总和。</li>
+<li>解决了网页设计师在图片命名上的困扰，只需对一张集合的图片上命名就可以了，不需要对每一个小元素进行命名，从而提高了网页的制作效率。<br>更换风格方便，只需要在一张或少张图片上修改图片的颜色或样式，整个网页的风格就可以改变。维护起来更加方便。</li>
+</ol>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="flash-接口与-js-的通信"><a href="#flash-接口与-js-的通信" class="headerlink" title="flash 接口与 js 的通信"></a>flash 接口与 js 的通信</h3><ol>
+<li>Flash 提供了 ExternalInterface 接口与 JavaScript 通信 - 两个方法：call 和 addCallback - 作用：call 让 Flash 调用 js 里的方法，addCallback 是用来注册 flash 函数让 js 调用。 1. 什么是 Interpolator？<br>通俗易懂的说，Interpolator 负责控制动画变化的速率，使得基本的动画效果能够以匀速、加速、减速、抛物线速率等各种速率变化。</li>
+</ol>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><ol>
+<li>js 可以使用 jsonp 进行跨域 1. JSONP 由两部分组成：回调函数和数据 2. 回调函数是接收到响应时应该在页面中调用的函数，其名字一般在请求中指定。 3. 数据是传入回调函数中的 JSON 数据。 - 优点：能够直接访问响应文本，可用于浏览器与服务器间的双向通信。 - 缺点：JSONP 从其他域中加载代码执行，其他域可能不安全；<br>难以确定 JSONP 请求是否失败。</li>
+<li>通过修改 document.domain 来跨子域<ol>
+<li>将页面的 document.domain 设置为相同的值，页面间可以互相访问对方的 JavaScript 对象。</li>
+</ol>
+<ul>
+<li>注意：<ul>
+<li>不能将值设置为 URL 中不包含的域；</li>
+<li>松散的域名不能再设置为紧绷的域名。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用 window.name 来进行跨域</li>
+</ol>
+<h3 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h3><ol>
+<li>Wekbit 是一个开源的 Web 浏览器引擎，也就是浏览器的内核。Apple 的 Safari, Google 的 Chrome, Nokia S60 平台的默认浏览器，Apple 手机的默认浏览器，Android 手机的默认浏览器均采用的 Webkit 作为器浏览器内核。Webkit 的采用程度由 此可见一斑，理所当然的成为了当今主流的三大浏览器内核之一。另外两个分别是 Gecko 和 Trident，大名鼎鼎的 Firefox 便是使用的 Gecko 内核，而微软的 IE 系列则使用的是 Trident 内核。</li>
+<li>另外，搜狗浏览器是双核的，双核并不是指一个页面由 2 个内核同时处理,而是所有网页（通常是标准通用标记语言的应用超文本标记语言）由 webkit 内核处理,只有银行网站用 IE 内核</li>
+</ol>
+<h3 id="web-storage"><a href="#web-storage" class="headerlink" title="web storage"></a>web storage</h3><ol>
+<li>sessionStorage：存储特定于某个会话的数据，该数据只保留到浏览器关闭。</li>
+<li>globalStorage：目的是跨越会话存储数据，不过要指定哪些域可以访问该数据。如果不使用 removeItem() 或 delete 删除，或者用户未清除浏览器缓存，存储在 globalStorage 上的数据会一直保留在磁盘上。所以 globalStorage 非常适合在客户端存储文档或长期保留用户偏好设置。</li>
+<li>localStorage：在 HTML5 中作为持久保持客户端数据的方案取代了 globalStorage。它不能被指定访问规则，要访问 localStorage，页面必须来自同一个域名，使用同一种协议，在同一个端口上。它的数据也保留到通过 JavaScript 删除或用户清除浏览器缓存。</li>
+</ol>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><ol>
+<li><p>一些常见的状态码为：</p>
+<ul>
+<li>200 - 服务器成功返回网页</li>
+<li>404 - 请求的网页不存在</li>
+<li>503 - 服务不可用</li>
+<li>1xx（临时响应）</li>
+<li>2xx （成功）</li>
+<li>3xx （重定向） 表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</li>
+<li>4xx（请求错误） 这些状态代码表示请求可能出错，妨碍了服务器的处理。</li>
+<li>5xx（服务器错误） 这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</li>
+</ul>
+</li>
+</ol>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><ol>
+<li>第一个字符必须是一个 ASCII 字母（大小写均可），或一个下划线(_)。注意第一个字符不能是数字。后续的字符必须是字母、数字或下划线。 变量名称一定不能是 保留字。</li>
+</ol>
+<h3 id="原型链（圆形、构造函数、实例、原型链）"><a href="#原型链（圆形、构造函数、实例、原型链）" class="headerlink" title="原型链（圆形、构造函数、实例、原型链）"></a>原型链（圆形、构造函数、实例、原型链）</h3><ol>
+<li><p>Object.prototype 属性时整一个原型链的顶端</p>
+</li>
+<li><p>原型链通过 prototype 属性和<strong>proto</strong>属性来查找</p>
+</li>
+<li><p>所有引用类型都有对象特性，都有 proto 属性，函数有 prototype 属性</p>
+</li>
+<li><p>所有引用类型的 proto 类型都指向其构造函数的 prototype 属性</p>
+</li>
+<li><p>实例本身的属性哥方法如果没有找到，就会沿着原型链一直向上查找，直到找到，返回结构，如果找不到，返回 undefined</p>
+</li>
+</ol>
+<h3 id="instanceOf-的原理"><a href="#instanceOf-的原理" class="headerlink" title="instanceOf 的原理"></a>instanceOf 的原理</h3><ol>
+<li>实例对象的<strong>proto</strong>属性与构造函数的 prototype 属性，判断是否是同一个引用</li>
+</ol>
+<h3 id="new-运算符"><a href="#new-运算符" class="headerlink" title="new 运算符"></a>new 运算符</h3><ol>
+<li><p>创建一个新的对象</p>
+</li>
+<li><p>继承构造函数的 prototype</p>
+</li>
+<li><p>指定 this 为新的对象</p>
+</li>
+<li><p>将新的=对象返回出去</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var new = function(func) &#123;</span><br><span class="line">     var o = Object.create(func.prototype);</span><br><span class="line">     var k = func.call(o)</span><br><span class="line">     if(typeOf k === &quot;Object) &#123;</span><br><span class="line">          return k</span><br><span class="line">     &#125;else &#123;</span><br><span class="line">          return o</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="volid"><a href="#volid" class="headerlink" title="volid()"></a>volid()</h3><ol>
+<li>void() 是一个一元运算符，后面接的是表达式，void(0) 也是北方成void 0， 但是如果void() 后面没有则会报错</li>
+</ol>
+<h3 id="继承（本质上原型链"><a href="#继承（本质上原型链" class="headerlink" title="继承（本质上原型链"></a>继承（本质上原型链</h3><ol>
+<li>组合继承</li>
+</ol>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ol>
+<li>作用域链是保证执行环境内有权访问变量和函数的有序的，作用域链的变量只能梁上访问，变量访问到 window 对象及被终止，作用域链乡下访问是不被允许的</li>
+</ol>
+<h3 id="类数组转化为真数组"><a href="#类数组转化为真数组" class="headerlink" title="类数组转化为真数组"></a>类数组转化为真数组</h3><ol>
+<li><p>var arr = [].slice.call(arguments)</p>
+</li>
+<li><p>var arr = Array.prototype.slice.call(arguments)</p>
+</li>
+<li><p>var arr = Array.from(arguments)</p>
+</li>
+<li><p>var arr = […arguments]</p>
+</li>
+</ol>
+<h3 id="实现-call"><a href="#实现-call" class="headerlink" title="实现 call"></a>实现 call</h3><ol>
+<li><p>改变调用函数的 this 值</p>
+</li>
+<li><p>调用该函数</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.call2 = function(obj) &#123;</span><br><span class="line">     obj.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.bind2 = function(context) &#123;</span><br><span class="line">     if(! typeOf this === &apos;Function&apos;) &#123;</span><br><span class="line">          throw new error(&apos;wodiaoni&apos;)</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    let self = this</span><br><span class="line"></span><br><span class="line">    let args = Array.prototype.slice.call(arguments, 1)</span><br><span class="line">    var fBound = function() &#123;</span><br><span class="line">         let BindArgs = Array.prototype.slice.call(arguments)</span><br><span class="line">         self.apply(this instanceOf fBound ? this : context</span><br><span class="line">         , args.concat(BindArgs))</span><br><span class="line">     &#125;</span><br><span class="line">     let FON = function() &#123;&#125;</span><br><span class="line">     fBound.prototype = new FON()</span><br><span class="line">     FON.prototype = this.prototype</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h3><ol>
+<li><p>可枚举属性</p>
+<ul>
+<li>原生状态下，挂载到Object下的属性是不可枚举的，直接Object下改在是可枚举的，因此一定要使用Object.defineProperty,来设置enumerable：false 可使用 getOwnPropertyDescriptor来查看配置</li>
+</ul>
+</li>
+<li><p>判断参数是否正确 </p>
+<ul>
+<li>undefined 与 null 是一样的， 也就是说使用一个判断就可以了 target == null</li>
+</ul>
+</li>
+<li><p>原始类型被包装成对象</p>
+<ul>
+<li>原始类型会被包装成对象，但是只有只有字符串对象才可能有可枚举属性</li>
+<li>因此我们使用Object来对象化target</li>
+<li>对象对于不可改写的属性值的修改静默失败，在严格模式下才会提示错误</li>
+</ul>
+</li>
+<li><p>存在性</p>
+<ul>
+<li>如何在不访问属性值的情况下判断对象是否存在某个属性呢<ul>
+<li>in操作符与hasOwnProperty方法</li>
+<li>in操作符会访问原型对象上的属性，hasOwnProperty却不会</li>
+</ul>
+</li>
+<li>Object.assign()不会访问原型链上的属性，但是我们不能直接使用hasOwnProperty来进行判断，因为可能有些对象并没有连接到Object.prototype，</li>
+<li>因此我们选择使用for in来获取所有属性（包括原型上的属性），然后使用hasOwnProperty过滤掉原型上的属性</li>
+</ul>
+</li>
+</ol>
+<h1 id="执行上下文和执行栈"><a href="#执行上下文和执行栈" class="headerlink" title="执行上下文和执行栈"></a>执行上下文和执行栈</h1><h3 id="三种执行上下文类型"><a href="#三种执行上下文类型" class="headerlink" title="三种执行上下文类型"></a>三种执行上下文类型</h3><ol>
+<li><p>全局执行上下文： 只有一个，js中是window ，node中是global。</p>
+</li>
+<li><p>函数执行上下文： 有无数个，当执行某个函数的时候就会相应地创建一个函数的执行上下文</p>
+</li>
+<li><p>eval 上下文： 不推荐</p>
+</li>
+</ol>
+<h2 id="执行栈"><a href="#执行栈" class="headerlink" title="执行栈"></a>执行栈</h2><h3 id="含义：-执行栈又叫作调用栈，用来储存和执行执行上下文"><a href="#含义：-执行栈又叫作调用栈，用来储存和执行执行上下文" class="headerlink" title="含义： 执行栈又叫作调用栈，用来储存和执行执行上下文"></a>含义： 执行栈又叫作调用栈，用来储存和执行执行上下文</h3><h3 id="执行栈的特点：后进先出，在执行js代码的时候，首先会创建全局执行上下文，并且-push-到栈底，每当执行一个函数的时候，就会创建一个函数执行栈，并且将它-push-到栈顶，当栈顶的函数执行完毕的时候，执行栈将执行完的函数执行上下文-pop-出，并且将控制权交给下一个执行上下文"><a href="#执行栈的特点：后进先出，在执行js代码的时候，首先会创建全局执行上下文，并且-push-到栈底，每当执行一个函数的时候，就会创建一个函数执行栈，并且将它-push-到栈顶，当栈顶的函数执行完毕的时候，执行栈将执行完的函数执行上下文-pop-出，并且将控制权交给下一个执行上下文" class="headerlink" title="执行栈的特点：后进先出，在执行js代码的时候，首先会创建全局执行上下文，并且 push 到栈底，每当执行一个函数的时候，就会创建一个函数执行栈，并且将它 push 到栈顶，当栈顶的函数执行完毕的时候，执行栈将执行完的函数执行上下文 pop 出，并且将控制权交给下一个执行上下文"></a>执行栈的特点：后进先出，在执行js代码的时候，首先会创建全局执行上下文，并且 push 到栈底，每当执行一个函数的时候，就会创建一个函数执行栈，并且将它 push 到栈顶，当栈顶的函数执行完毕的时候，执行栈将执行完的函数执行上下文 pop 出，并且将控制权交给下一个执行上下文</h3><h2 id="执行上下文的创建"><a href="#执行上下文的创建" class="headerlink" title="执行上下文的创建"></a>执行上下文的创建</h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><p>先确定 this 的指向</p>
+</li>
+<li><p>词法环境：包括环境记录以及对外环境引用</p>
+<ol>
+<li><p>环境记录：储存变量和函数的实际位置</p>
+</li>
+<li><p>对外环境引用：可以访问其他词法环境</p>
+</li>
+</ol>
+</li>
+<li><p>变量环境： 也是词法环境拥有一样的属性</p>
+</li>
+<li><p>区别: 词法环境与变量环境的区别主要在于前者用来存储函数声明和变量绑定的，后者仅仅用于变量绑定</p>
+</li>
+</ol>
+<h3 id="变量提升的原因"><a href="#变量提升的原因" class="headerlink" title="变量提升的原因"></a>变量提升的原因</h3><ol>
+<li>在创建阶段，函数声明储存在环境中，但是var是变量环境，因此默认为undefined, 但是let ,const 声明的则是未初始化的状态，因此会报错</li>
+</ol>
+<h1 id="内存空间详解"><a href="#内存空间详解" class="headerlink" title="内存空间详解"></a>内存空间详解</h1><h2 id="栈、堆、队列数据结构"><a href="#栈、堆、队列数据结构" class="headerlink" title="栈、堆、队列数据结构"></a>栈、堆、队列数据结构</h2><ol>
+<li><p>栈：后进先出；</p>
+</li>
+<li><p>堆：类似对象结构，像是书架，只需要知道书本的名字，就可以直接获取到书籍</p>
+</li>
+<li><p>队列：先进后出</p>
+</li>
+</ol>
+<h2 id="变量存放"><a href="#变量存放" class="headerlink" title="变量存放"></a>变量存放</h2><h3 id="基本类型有：String-Null-Undefined-Boolean-Number-Symbol，存放在栈中，分别站有固定的空间大小"><a href="#基本类型有：String-Null-Undefined-Boolean-Number-Symbol，存放在栈中，分别站有固定的空间大小" class="headerlink" title="基本类型有：String, Null, Undefined, Boolean, Number, Symbol，存放在栈中，分别站有固定的空间大小"></a>基本类型有：String, Null, Undefined, Boolean, Number, Symbol，存放在栈中，分别站有固定的空间大小</h3><h3 id="引用类型：Object，存放在堆中，没有固定的空间大小，但是内存地址是固定的空间大小，因此内存地址保存在栈中。当询问引用类型的变量的时候先去栈中查询变量的内存地址，再去堆中获取变量的值。我们称为引用访问"><a href="#引用类型：Object，存放在堆中，没有固定的空间大小，但是内存地址是固定的空间大小，因此内存地址保存在栈中。当询问引用类型的变量的时候先去栈中查询变量的内存地址，再去堆中获取变量的值。我们称为引用访问" class="headerlink" title="引用类型：Object，存放在堆中，没有固定的空间大小，但是内存地址是固定的空间大小，因此内存地址保存在栈中。当询问引用类型的变量的时候先去栈中查询变量的内存地址，再去堆中获取变量的值。我们称为引用访问"></a>引用类型：Object，存放在堆中，没有固定的空间大小，但是内存地址是固定的空间大小，因此内存地址保存在栈中。当询问引用类型的变量的时候先去栈中查询变量的内存地址，再去堆中获取变量的值。我们称为引用访问</h3><h2 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h2><h3 id="标记清除：-从全局对象中想内存中的对象进行扫描，凡是能到达根部的对象，那些从根部无法到达的对象被标记为不再使用，稍后被垃圾回收"><a href="#标记清除：-从全局对象中想内存中的对象进行扫描，凡是能到达根部的对象，那些从根部无法到达的对象被标记为不再使用，稍后被垃圾回收" class="headerlink" title="标记清除： 从全局对象中想内存中的对象进行扫描，凡是能到达根部的对象，那些从根部无法到达的对象被标记为不再使用，稍后被垃圾回收"></a>标记清除： 从全局对象中想内存中的对象进行扫描，凡是能到达根部的对象，那些从根部无法到达的对象被标记为不再使用，稍后被垃圾回收</h3><h3 id="四种常见的内存泄漏"><a href="#四种常见的内存泄漏" class="headerlink" title="四种常见的内存泄漏"></a>四种常见的内存泄漏</h3><ol>
+<li><p>意外的全局变量</p>
+</li>
+<li><p>被遗忘的回调函数以及计时器</p>
+</li>
+<li><p>脱离dom的引用</p>
+</li>
+<li><p>闭包</p>
+</li>
+</ol>
+<h3 id="从内存上看null与undefined的区别："><a href="#从内存上看null与undefined的区别：" class="headerlink" title="从内存上看null与undefined的区别："></a>从内存上看null与undefined的区别：</h3><ol>
+<li><p>某个全局变量被赋值为null，则说明相当于将该变量的指针和值都清空，如果是给对象的属性赋值为null,局部变量为null，相当给这个属性的内存分配了一个空的内存。</p>
+</li>
+<li><p>给全局变量赋值为undefined，相当于将这个值清空</p>
+</li>
+</ol>
+<h1 id="从作用域链看闭包"><a href="#从作用域链看闭包" class="headerlink" title="从作用域链看闭包"></a>从作用域链看闭包</h1><ol>
+<li>含义：能够访问其他函数里的变量的函数</li>
+</ol>
+<h2 id="作用域说闭包"><a href="#作用域说闭包" class="headerlink" title="作用域说闭包"></a>作用域说闭包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getData() &#123;</span><br><span class="line">     var count = 1</span><br><span class="line">     function addCount() &#123;</span><br><span class="line">          return count + 1</span><br><span class="line">     &#125;</span><br><span class="line">     return addCount</span><br><span class="line">&#125;</span><br><span class="line">var counter = getData()</span><br><span class="line">counter()</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>执行过程：</p>
+<ol>
+<li><p>进入全局代码，将全局上下文压入执行栈</p>
+</li>
+<li><p>执行getData() 函数，创建getData() 函数执行上下文，并且将其压入执行栈中</p>
+</li>
+<li><p>执行完getData() 函数，返回 addCount 函数给counter，并且将getData() 推出执行栈</p>
+</li>
+<li><p>执行counter() 函数，创建 addCount 函数执行上下文，并且将其压入执行栈中</p>
+</li>
+<li><p>执行完了，将其推出执行栈</p>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>问题：引文getData 函数上下文已经销毁，那么他是如何获取到count 的值。<ol>
+<li>虽然函数执行上下文已经销毁，但是通过作用域链，我们还是可以访问到函数的活动对象，JavaStript 会让活动对象保存在内存中</li>
+</ol>
+</li>
+</ul>
+<h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><ol>
+<li><p>js的执行上下文</p>
+<ul>
+<li>在js中，一共有三个执行上下文，一个是全局执行上下文，一个是函数执行上下文，还有一个 Eval ，刚开始执行js代码的时候就会产生一个全局执行作用域，并将其推入栈底，每当执行一个函数就会产生一个执行上下文，并且将其推入执行栈顶，</li>
+</ul>
+</li>
+<li><p>执行栈</p>
+<ul>
+<li>用来储存代码运行时创建的执行上下文，执行栈具有栈的结构特定— 后进先出</li>
+</ul>
+</li>
+<li><p>如何创建执行上下文</p>
+<ol>
+<li>this值的绑定；</li>
+<li>创建词法环境组件；</li>
+<li>创建变量环境组件；</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/01/项目开发3-0/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/20/异步Done！/" rel="prev" title="异步Done！">
+                异步Done！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Junjie Fan">
+          <p class="site-author-name" itemprop="name">Junjie Fan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端面试题"><span class="nav-number">1.</span> <span class="nav-text">前端面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html-与-css-类"><span class="nav-number">1.1.</span> <span class="nav-text">html 与 css 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#display-属性"><span class="nav-number">1.1.1.</span> <span class="nav-text">display 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overflow-属性"><span class="nav-number">1.1.2.</span> <span class="nav-text">overflow 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-标签的-target-属性在何处打开链接文档"><span class="nav-number">1.1.3.</span> <span class="nav-text">a 标签的 target 属性在何处打开链接文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear-属性"><span class="nav-number">1.1.4.</span> <span class="nav-text">clear 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alt-标签与-title-标签"><span class="nav-number">1.1.5.</span> <span class="nav-text">alt 标签与 title 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Document-与-html"><span class="nav-number">1.1.6.</span> <span class="nav-text">Document 与 html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Width-auto-amp-Width-100"><span class="nav-number">1.1.7.</span> <span class="nav-text">Width: auto &amp; Width: 100%</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒子模型"><span class="nav-number">1.1.8.</span> <span class="nav-text">盒子模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#domContentLoaded-与-load"><span class="nav-number">1.1.9.</span> <span class="nav-text">domContentLoaded 与 load</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD"><span class="nav-number">1.1.10.</span> <span class="nav-text">DTD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#border-0-border-style-none"><span class="nav-number">1.1.11.</span> <span class="nav-text">border: 0, border-style: none</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-Sprites"><span class="nav-number">1.1.12.</span> <span class="nav-text">CSS Sprites</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器"><span class="nav-number">1.2.</span> <span class="nav-text">浏览器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flash-接口与-js-的通信"><span class="nav-number">1.2.1.</span> <span class="nav-text">flash 接口与 js 的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">1.2.2.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器内核"><span class="nav-number">1.2.3.</span> <span class="nav-text">浏览器内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-storage"><span class="nav-number">1.2.4.</span> <span class="nav-text">web storage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码"><span class="nav-number">1.2.5.</span> <span class="nav-text">状态码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.3.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名"><span class="nav-number">1.3.1.</span> <span class="nav-text">命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链（圆形、构造函数、实例、原型链）"><span class="nav-number">1.3.2.</span> <span class="nav-text">原型链（圆形、构造函数、实例、原型链）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceOf-的原理"><span class="nav-number">1.3.3.</span> <span class="nav-text">instanceOf 的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-运算符"><span class="nav-number">1.3.4.</span> <span class="nav-text">new 运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volid"><span class="nav-number">1.3.5.</span> <span class="nav-text">volid()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承（本质上原型链"><span class="nav-number">1.3.6.</span> <span class="nav-text">继承（本质上原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.3.7.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类数组转化为真数组"><span class="nav-number">1.3.8.</span> <span class="nav-text">类数组转化为真数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-call"><span class="nav-number">1.3.9.</span> <span class="nav-text">实现 call</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind"><span class="nav-number">1.3.10.</span> <span class="nav-text">bind</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-assign"><span class="nav-number">1.3.11.</span> <span class="nav-text">Object.assign()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行上下文和执行栈"><span class="nav-number">2.</span> <span class="nav-text">执行上下文和执行栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种执行上下文类型"><span class="nav-number">2.0.1.</span> <span class="nav-text">三种执行上下文类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行栈"><span class="nav-number">2.1.</span> <span class="nav-text">执行栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#含义：-执行栈又叫作调用栈，用来储存和执行执行上下文"><span class="nav-number">2.1.1.</span> <span class="nav-text">含义： 执行栈又叫作调用栈，用来储存和执行执行上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行栈的特点：后进先出，在执行js代码的时候，首先会创建全局执行上下文，并且-push-到栈底，每当执行一个函数的时候，就会创建一个函数执行栈，并且将它-push-到栈顶，当栈顶的函数执行完毕的时候，执行栈将执行完的函数执行上下文-pop-出，并且将控制权交给下一个执行上下文"><span class="nav-number">2.1.2.</span> <span class="nav-text">执行栈的特点：后进先出，在执行js代码的时候，首先会创建全局执行上下文，并且 push 到栈底，每当执行一个函数的时候，就会创建一个函数执行栈，并且将它 push 到栈顶，当栈顶的函数执行完毕的时候，执行栈将执行完的函数执行上下文 pop 出，并且将控制权交给下一个执行上下文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行上下文的创建"><span class="nav-number">2.2.</span> <span class="nav-text">执行上下文的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">2.2.1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量提升的原因"><span class="nav-number">2.2.2.</span> <span class="nav-text">变量提升的原因</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#内存空间详解"><span class="nav-number">3.</span> <span class="nav-text">内存空间详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈、堆、队列数据结构"><span class="nav-number">3.1.</span> <span class="nav-text">栈、堆、队列数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量存放"><span class="nav-number">3.2.</span> <span class="nav-text">变量存放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型有：String-Null-Undefined-Boolean-Number-Symbol，存放在栈中，分别站有固定的空间大小"><span class="nav-number">3.2.1.</span> <span class="nav-text">基本类型有：String, Null, Undefined, Boolean, Number, Symbol，存放在栈中，分别站有固定的空间大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型：Object，存放在堆中，没有固定的空间大小，但是内存地址是固定的空间大小，因此内存地址保存在栈中。当询问引用类型的变量的时候先去栈中查询变量的内存地址，再去堆中获取变量的值。我们称为引用访问"><span class="nav-number">3.2.2.</span> <span class="nav-text">引用类型：Object，存放在堆中，没有固定的空间大小，但是内存地址是固定的空间大小，因此内存地址保存在栈中。当询问引用类型的变量的时候先去栈中查询变量的内存地址，再去堆中获取变量的值。我们称为引用访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收算法"><span class="nav-number">3.3.</span> <span class="nav-text">垃圾回收算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记清除：-从全局对象中想内存中的对象进行扫描，凡是能到达根部的对象，那些从根部无法到达的对象被标记为不再使用，稍后被垃圾回收"><span class="nav-number">3.3.1.</span> <span class="nav-text">标记清除： 从全局对象中想内存中的对象进行扫描，凡是能到达根部的对象，那些从根部无法到达的对象被标记为不再使用，稍后被垃圾回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种常见的内存泄漏"><span class="nav-number">3.3.2.</span> <span class="nav-text">四种常见的内存泄漏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从内存上看null与undefined的区别："><span class="nav-number">3.3.3.</span> <span class="nav-text">从内存上看null与undefined的区别：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从作用域链看闭包"><span class="nav-number">4.</span> <span class="nav-text">从作用域链看闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域说闭包"><span class="nav-number">4.1.</span> <span class="nav-text">作用域说闭包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面试"><span class="nav-number">5.</span> <span class="nav-text">面试</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Junjie Fan</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

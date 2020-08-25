@@ -1,0 +1,728 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="原型原型 每当我们定义一个对象的时候，该对象都会拥有一些内置的属性或者方法，其中就有 prototype 属性，这个属性指向的就是原型对象，使用原型对象的好处就是所有对象实例共享原型中的属性和方法  prototype 每个对象都有原型对象，他们通过原型继承一些属性和方法，这些属性和方法就是挂载在prototype上，并非在实例对象本身上。  proto 是构造器属性，构造函数的实例对象通过pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/原型/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="原型原型 每当我们定义一个对象的时候，该对象都会拥有一些内置的属性或者方法，其中就有 prototype 属性，这个属性指向的就是原型对象，使用原型对象的好处就是所有对象实例共享原型中的属性和方法  prototype 每个对象都有原型对象，他们通过原型继承一些属性和方法，这些属性和方法就是挂载在prototype上，并非在实例对象本身上。  proto 是构造器属性，构造函数的实例对象通过pro">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-02-23T14:00:04.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="原型原型 每当我们定义一个对象的时候，该对象都会拥有一些内置的属性或者方法，其中就有 prototype 属性，这个属性指向的就是原型对象，使用原型对象的好处就是所有对象实例共享原型中的属性和方法  prototype 每个对象都有原型对象，他们通过原型继承一些属性和方法，这些属性和方法就是挂载在prototype上，并非在实例对象本身上。  proto 是构造器属性，构造函数的实例对象通过pro">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/19/原型/">
+
+
+
+
+
+  <title>  | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/原型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Junjie Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-19T09:52:13+08:00">
+                2020-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><h2 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h2><ol>
+<li><p>每当我们定义一个对象的时候，该对象都会拥有一些内置的属性或者方法，其中就有 prototype 属性，这个属性指向的就是原型对象，使用原型对象的好处就是所有对象实例共享原型中的属性和方法</p>
+</li>
+<li><p>prototype 每个对象都有原型对象，他们通过原型继承一些属性和方法，这些属性和方法就是挂载在prototype上，并非在实例对象本身上。</p>
+</li>
+<li><p><strong>proto</strong> 是构造器属性，构造函数的实例对象通过<strong>proto</strong> 属性可以访问到其构造函数的prototype上，因此实例对象的<strong>proto</strong> 属性指向与构造函数的prototype的指向是一致的</p>
+</li>
+<li><p>上两个的区别是，prototype的属性是构造函数的属性，但是<strong>proto</strong>是实例对象的函数，实例对象上的<strong>proto</strong>，与构造函数的prototype属性 指向的是同一个对象</p>
+</li>
+<li><p>原型链：每个对象都有原型对象，他们通过<strong>proto</strong>指针指向上一级原型，原型对象也可能有它的原型对象，这样一层一层，直到访问到null，这样就叫做原型链</p>
+</li>
+</ol>
+<h3 id="instanceof-的实现"><a href="#instanceof-的实现" class="headerlink" title="instanceof 的实现"></a>instanceof 的实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.instanceof = function(L, R) &#123;</span><br><span class="line">    let RProtorype = R.prototype</span><br><span class="line">    let LProto = L.__proto__</span><br><span class="line"></span><br><span class="line">    while(true) &#123;</span><br><span class="line">        if(LProto == null) &#123;</span><br><span class="line">            return false</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            if(LProto === RPrototype) &#123;</span><br><span class="line">                return true</span><br><span class="line">            &#125;</span><br><span class="line">            LProto = LProto.__proto__</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><h3 id="基本要点"><a href="#基本要点" class="headerlink" title="基本要点"></a>基本要点</h3><ol>
+<li><p>constructor 返回创建实例对象时对构造函数的引用。此属性的值是对函数本身的引用。</p>
+</li>
+<li><p>构造函数本身也是函数，与普通函数并没有什么区别，我们通过用手字母大写来进项区分，只不过该函数是通过new 来调用生成实例对象的，直接调用则是普通函数</p>
+</li>
+<li><p>Symbol 是一个不完整构造函数，但是它可以symbol()来创建，他虽然是基本数据类型，但是它也可以通过实例对象constructor的属性值</p>
+</li>
+</ol>
+<h3 id="constructor-是只读的吗？"><a href="#constructor-是只读的吗？" class="headerlink" title="constructor 是只读的吗？"></a>constructor 是只读的吗？</h3><ol>
+<li><p>对于基本数据类型，他们是的constructor是只读的，因为创建他们的是只读的构造函数，当然null，undefined是没有构造函数</p>
+</li>
+<li><p>对于引用数据类型，他们的constructor不是只读的</p>
+</li>
+</ol>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><ol>
+<li>原型链继承</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function SuperType() &#123;</span><br><span class="line">    this.name=&apos;fanfan&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType.prototype.sayHi = function() &#123;</span><br><span class="line">    console.log(&apos;hi&apos;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">相当于subType.__proto__ = SuperType.prototype</span><br><span class="line">const SubType = new SuperType()</span><br><span class="line"></span><br><span class="line">subType.sayHi()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>缺陷</p>
+<ol>
+<li>实例的方法与属性相互引用，修改时会有篡改的危险</li>
+<li>不能传递参数</li>
+</ol>
+</li>
+</ul>
+<ol start="2">
+<li>构造函数继承</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function SuperType() &#123;</span><br><span class="line">    this.name = &apos;fanfan&apos;</span><br><span class="line">    this.sayHi = function() &#123;</span><br><span class="line">        console.log(&apos;hi&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType (name, age) &#123;</span><br><span class="line">    SuperType.call(this, age)</span><br><span class="line">    this.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const instance1 = new SubType(&apos;fan&apos;, 18)</span><br><span class="line">instance1.sayHi()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>缺陷<ol>
+<li>只能继承父类上的实例方法，不能继承原型上的属性与方法，</li>
+<li>无法实现复用，每个子类都有父类实例的函数的副本，影响性能</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li>组合继承</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function SuperType(name) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">&#125;</span><br><span class="line">Super.prototype.sayHi = function() &#123;</span><br><span class="line">    console.log(&apos;nice&apos;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function SubType(name, age) &#123;</span><br><span class="line">    // 继承父类的属性与方法</span><br><span class="line">    SuperType.call(this, name)</span><br><span class="line">    this.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    // 继承原型上的属性与方法</span><br><span class="line">SubType.prototype = new SuperType(&apos;fanfan&apos;, 34)</span><br><span class="line">SubType.prototype.constructor = SubType</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>class 继承</li>
+</ol>
+<ul>
+<li><p>class 通过extends 继承。子类必须通过constructor方法中调用super()，否则新建的实例对象会报错。</p>
+</li>
+<li><p>这是因为子类自己的this对象需要通过父类的构造函数完成塑造，得到父类相同的属性与方法，才能去拓展自己属性方法。</p>
+</li>
+</ul>
+<h2 id="ES5-和-ES6-中继承中的区别"><a href="#ES5-和-ES6-中继承中的区别" class="headerlink" title="ES5 和 ES6 中继承中的区别"></a>ES5 和 ES6 中继承中的区别</h2><ol>
+<li><p>es5 是先创建自己的实例对象this，然后再将父类的属性方法添加到this上</p>
+</li>
+<li><p>es6 是先将父类实例对象的属性和方法，加到this上面，然后再通过子类的函数修改this</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/19/this/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/22/深浅拷贝原理/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Junjie Fan">
+          <p class="site-author-name" itemprop="name">Junjie Fan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原型"><span class="nav-number">1.</span> <span class="nav-text">原型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型-1"><span class="nav-number">1.1.</span> <span class="nav-text">原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceof-的实现"><span class="nav-number">1.1.1.</span> <span class="nav-text">instanceof 的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本要点"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-是只读的吗？"><span class="nav-number">1.2.2.</span> <span class="nav-text">constructor 是只读的吗？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5-和-ES6-中继承中的区别"><span class="nav-number">2.1.</span> <span class="nav-text">ES5 和 ES6 中继承中的区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Junjie Fan</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

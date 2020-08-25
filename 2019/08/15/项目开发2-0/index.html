@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="基本知识搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的  JSONP 的原理 ajax 请求受到同源策略的影响，不允许进行跨域请求，而 script 标签 src 属性中的连接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格式的数据，">
+<meta name="description" content="基本知识搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目开发2.0">
 <meta property="og:url" content="http://yoursite.com/2019/08/15/项目开发2-0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基本知识搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的  JSONP 的原理 ajax 请求受到同源策略的影响，不允许进行跨域请求，而 script 标签 src 属性中的连接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格式的数据，">
+<meta property="og:description" content="基本知识搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-31T02:07:41.475Z">
+<meta property="og:updated_time" content="2019-09-25T09:10:53.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目开发2.0">
-<meta name="twitter:description" content="基本知识搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的  JSONP 的原理 ajax 请求受到同源策略的影响，不允许进行跨域请求，而 script 标签 src 属性中的连接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格式的数据，">
+<meta name="twitter:description" content="基本知识搭建 vue-cli 脚手架JSONPJSONP 的概念 浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的">
 
 
 
@@ -325,6 +325,8 @@
         <h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="搭建-vue-cli-脚手架"><a href="#搭建-vue-cli-脚手架" class="headerlink" title="搭建 vue-cli 脚手架"></a>搭建 vue-cli 脚手架</h2><h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><h3 id="JSONP-的概念"><a href="#JSONP-的概念" class="headerlink" title="JSONP 的概念"></a>JSONP 的概念</h3><ol>
 <li>浏览器同源策略的缘故：同一个协议、同一个域名、同一个端口；ajax 中不允许请求非同源的 URL，JSONP 就是来解决这个问题的</li>
 </ol>
+<a id="more"></a>
+
 <h3 id="JSONP-的原理"><a href="#JSONP-的原理" class="headerlink" title="JSONP 的原理"></a>JSONP 的原理</h3><ol>
 <li>ajax 请求受到同源策略的影响，不允许进行跨域请求，而 script 标签 src 属性中的连接却可以访问跨域的 js 脚本，利用这个特性，服务端不再返回 JSON 格式的数据，而是返回一段调用某个函数的 js 代码，在 src 中进行了调用，这样就实现了调用。</li>
 </ol>
@@ -408,9 +410,10 @@
 </li>
 <li><p>前端请求修改为自己的 server 端，我们的地址再去请求服务端，通过 axios 请求来修改 Header 中 referer 与 Host 中的数据</p>
 </li>
-<li><p>反向代理：本方法是在自己的浏览器创建一个服务器，然后让自己的服务器去请求目标服务器。而且跨域是针对 JavaScript 来说的，JavaScript 是插入 HTML 页面后在浏览器上执行的脚本。服务器之间是可以随便请求数据而不受限制的。我们通过自己创建的服务器去请求目标服务器，然后在从我们客户端去请求我们自己创建的服务器，这就不存在跨域了。</p>
+<li><p>反向代理：本方法是在自己的浏览器创建一个服务器，然后让自己的服务器去请求目标服务器。而且跨域是针对 JavaScript 来说的，JavaScript 是插入 HTML 页面后在浏览器上执行的脚本。服务器之间是可以随便请求数据而不受限制的。</p>
 </li>
 </ol>
+<p>务器，然后在从我们客户端去请求我们自己创建的服务器，这就不存在跨域了。</p>
 <h2 id="json-和-jsonp-的区别："><a href="#json-和-jsonp-的区别：" class="headerlink" title="json 和 jsonp 的区别："></a>json 和 jsonp 的区别：</h2><ol>
 <li><p>json 是一种格式，jsonp 是一种请求跨域资源的方式。</p>
 </li>
@@ -438,7 +441,7 @@
 </li>
 </ol>
 <h1 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h1><h2 id="轮播图的实现"><a href="#轮播图的实现" class="headerlink" title="轮播图的实现"></a>轮播图的实现</h2><ol>
-<li><p>先定义三哥 props,确定好 loop、autoPlay、interval；</p>
+<li><p>先定义三个 props,确定好 loop、autoPlay、interval；</p>
 </li>
 <li><p>首先要手动计算轮播图的长度（包括展示的长度与 slider 的总长）</p>
 <ul>
@@ -696,7 +699,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">为切换按钮添加点击事件 `@click=&quot;modeChange&quot;`</span><br><span class="line">切换样式我们需要绑定原本的样式，并且在computed中实现切换</span><br><span class="line">computed: &#123;</span><br><span class="line">    modeIcon() &#123;</span><br><span class="line">        return this.mode === playMode.sequence ? &apos;icon-sequence&apos; : this.mode === play.random ? &apos;icon-random&apos; : &apos;icon-loop&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    modeChange() &#123;</span><br><span class="line">        const mode = (this.mode + 1) % 3</span><br><span class="line">        this.setMode(mode)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="模式切换功能实现"><a href="#模式切换功能实现" class="headerlink" title="模式切换功能实现"></a>模式切换功能实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">点击按键触发功能</span><br><span class="line">&lt;!-- 洗牌shuffle --&gt;</span><br><span class="line">function getRandomInt(min, max) &#123;</span><br><span class="line">    return Math.floor(Math.random * (max - min + 1) + min)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export const shuffle(arr) &#123;</span><br><span class="line">    for(let i = 0; i &lt; arr.length; i++) &#125;&#123;</span><br><span class="line">        const j = getRandomInt(0, i)</span><br><span class="line">        const t = arr[i]</span><br><span class="line">        arr[i] = arr[j]</span><br><span class="line">        arr[j] = t</span><br><span class="line">    &#125;</span><br><span class="line">    return arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const list = null</span><br><span class="line">if(this.mode === playMode.random) &#123;</span><br><span class="line">    list = shuffle(this.playlist)</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    list = this.playlist</span><br><span class="line">&#125;</span><br><span class="line">this.setPlaylist(list)</span><br><span class="line">&lt;!-- setPlaylist要在...mapGetters中获取 --&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="模式切换功能实现"><a href="#模式切换功能实现" class="headerlink" title="模式切换功能实现"></a>模式切换功能实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">点击按键触发功能</span><br><span class="line">&lt;!-- 洗牌shuffle --&gt;</span><br><span class="line">function getRandomInt(min, max) &#123;</span><br><span class="line">    return Math.floor(Math.random() * (max - min + 1) + min)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export const shuffle(arr) &#123;</span><br><span class="line">    for(let i = 0; i &lt; arr.length; i++) &#125;&#123;</span><br><span class="line">        const j = getRandomInt(0, i)</span><br><span class="line">        const t = arr[i]</span><br><span class="line">        arr[i] = arr[j]</span><br><span class="line">        arr[j] = t</span><br><span class="line">    &#125;</span><br><span class="line">    return arr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const list = null</span><br><span class="line">if(this.mode === playMode.random) &#123;</span><br><span class="line">    list = shuffle(this.playlist)</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    list = this.playlist</span><br><span class="line">&#125;</span><br><span class="line">this.setPlaylist(list)</span><br><span class="line">&lt;!-- setPlaylist要在...mapGetters中获取 --&gt;</span><br><span class="line"></span><br><span class="line">因为我们是通过playlist和currentIndex来获取currentSong，因此playlist改变了，currentSong也会相应地改变。现在就是需要currenSong与当前的一样</span><br><span class="line">```</span><br><span class="line">this.setPlaylist(list)</span><br><span class="line">this.resetCurrentSong()</span><br><span class="line">resetCurrentSong(list) &#123;</span><br><span class="line">    list.findIndex((item) =&gt; &#123;</span><br><span class="line">        return item.id === this.currentSong.id</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><ol>
 <li>切换显示的窗口的时候，轮播图宽度未能及时改变<ul>
@@ -798,7 +801,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/25/better.-scoll/" rel="prev" title="better-scroll">
+              <a href="/2019/08/25/better-scroll/" rel="prev" title="better-scroll">
                 better-scroll <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -870,7 +873,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -932,7 +935,7 @@
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
